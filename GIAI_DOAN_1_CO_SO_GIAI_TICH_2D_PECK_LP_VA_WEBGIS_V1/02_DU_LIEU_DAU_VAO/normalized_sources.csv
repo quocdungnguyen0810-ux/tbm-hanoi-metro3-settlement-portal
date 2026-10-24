@@ -1,0 +1,7 @@
+﻿source_id,title,authors,year,type,doi,license,status
+SRC_ADB_2013,Updated Environmental Impact Assessment Ha Noi Metro Line 3,Hanoi People's Committee for ADB,2013,official_report,,Public Listing,pilot_reference
+SRC_ETASR_2024,The Effect of Seismic Load on TBM Structures for Metro Line 3 in Hanoi,"Nguyen, Bui & Nguyen",2024,journal_article,10.48084/etasr.6748,,verified_open_access
+SRC_TCXD_2024,Design of urban tunnels in soft soil using TBM for UMRT Line 3 in Hanoi,"Nguyen, Kohata & Nguyen",2024,journal_article,vjol.info.vn/index.php/tcxd/article/view/98280,,verified_local_pdf
+SRC_GIAO_2020,Geotechnical Characterization and Land Subsidence Analysis for UMRT Line 3,"Giao, Nguyen & Hoang",2020,conference_proceedings,10.1007/978-981-15-2184-3_36,,verified_regional_crosscheck
+SRC_PECK_1969,Deep excavations and tunneling in soft ground,"Peck, R.B.",1969,state_of_art_paper,ICSMFE_1969,,canonical_baseline
+SRC_LP_1998,Analytical solutions for tunnel-induced ground movement in clays,"Loganathan, N. & Poulos, H.G.",1998,journal_article,10.1061/(ASCE)1090-0241(1998)124:9(846),,secondary_source_benchmark

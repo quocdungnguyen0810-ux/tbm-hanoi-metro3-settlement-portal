@@ -1,0 +1,20 @@
+# Hệ thống & Tệp tạm thời
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+*.bak
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+
+# Vercel & Môi trường
+.vercel/
+.env
+.env.*

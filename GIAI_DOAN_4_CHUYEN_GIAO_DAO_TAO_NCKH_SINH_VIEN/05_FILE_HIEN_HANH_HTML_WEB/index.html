@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bản đồ số Tuyến Metro 3 Hà Nội - Tra cứu vùng lún & Tham vấn cộng đồng</title>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body, html { height: 100%; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    #navbar { height: 60px; z-index: 1050; }
+    #map { height: calc(100vh - 60px); width: 100%; position: relative; }
+    
+    /* Search & Check Box Panel */
+    .floating-panel {
+      position: absolute;
+      top: 75px;
+      left: 15px;
+      z-index: 1000;
+      width: 360px;
+      max-width: 90vw;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      border: 1px solid rgba(0,0,0,0.08);
+      padding: 16px;
+    }
+    
+    /* Legend Box */
+    .legend-panel {
+      position: absolute;
+      bottom: 25px;
+      right: 15px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      padding: 12px 16px;
+      font-size: 13px;
+      max-width: 280px;
+    }
+    .legend-item { display: flex; align-items: center; margin-bottom: 6px; }
+    .legend-color { width: 20px; height: 14px; border-radius: 3px; margin-right: 8px; display: inline-block; }
+    
+    /* StoryMap Drawer */
+    #storyDrawer {
+      position: absolute;
+      top: 60px;
+      right: -420px;
+      width: 400px;
+      max-width: 85vw;
+      height: calc(100vh - 60px);
+      background: #ffffff;
+      z-index: 1020;
+      box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+      transition: right 0.35s ease;
+      overflow-y: auto;
+      padding: 20px;
+    }
+    #storyDrawer.active { right: 0; }
+    
+    /* Station marker icon */
+    .station-marker {
+      background: #0d6efd;
+      color: white;
+      border: 2px solid white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 24px;
+      font-size: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark px-3 shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold text-warning d-flex align-items-center" href="#">
+        <i class="fa-solid fa-train-subway me-2"></i>
+        <span>METRO HÀ NỘI LINE 3 • BẢN ĐỒ AN TOÀN ĐÀO HẦM</span>
+      </a>
+      <div class="d-flex gap-2">
+        <button class="btn btn-outline-warning btn-sm" onclick="toggleStoryDrawer()">
+          <i class="fa-solid fa-book-open me-1"></i> Câu chuyện TBM
+        </button>
+        <button class="btn btn-danger btn-sm" onclick="openFeedbackModal()">
+          <i class="fa-solid fa-bullhorn me-1"></i> Gửi phản ánh nứt lún
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Floating Search & Safety Check Panel -->
+  <div class="floating-panel">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h6 class="fw-bold text-primary mb-0"><i class="fa-solid fa-magnifying-glass-location me-1"></i> Tra cứu an toàn nhà bạn</h6>
+      <span class="badge bg-primary">Peck (1969)</span>
+    </div>
+    <p class="text-muted small mb-2">Nhập số nhà hoặc bấm trực tiếp vị trí nhà bạn trên bản đồ để kiểm tra khoảng cách đến tim hầm.</p>
+    
+    <div class="input-group mb-2">
+      <input type="text" id="addressInput" class="form-control form-control-sm" placeholder="Nhập địa chỉ (vd: 35 Cát Linh)..." onkeypress="if(event.key==='Enter') searchAddress()">
+      <button class="btn btn-primary btn-sm" onclick="searchAddress()"><i class="fa-solid fa-search"></i> Tìm</button>
+    </div>
+    
+    <button class="btn btn-outline-success btn-sm w-100 mb-2" onclick="locateUser()">
+      <i class="fa-solid fa-location-crosshairs me-1"></i> Định vị nhà tôi hiện tại
+    </button>
+    
+    <!-- Diagnostic result box -->
+    <div id="resultBox" class="mt-2" style="display:none;"></div>
+  </div>
+
+  <!-- Map Container -->
+  <div id="map"></div>
+
+  <!-- Legend Panel -->
+  <div class="legend-panel">
+    <div class="fw-bold mb-2 text-dark"><i class="fa-solid fa-layer-group me-1"></i> Chú giải vùng lún Peck</div>
+    <div class="legend-item">
+      <span class="legend-color" style="background: rgba(220, 53, 69, 0.5); border: 2px solid #dc3545;"></span>
+      <span><strong>0 - 15m:</strong> Giám sát đặc biệt</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-color" style="background: rgba(255, 193, 7, 0.5); border: 2px solid #ffc107;"></span>
+      <span><strong>15 - 35m:</strong> Vùng phễu lún chính</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-color" style="background: rgba(25, 135, 84, 0.4); border: 2px solid #198754;"></span>
+      <span><strong>35 - 50m:</strong> Vùng đệm an toàn</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-color" style="background: #0d6efd; height: 4px;"></span>
+      <span><strong>Tim hầm đôi TBM</strong></span>
+    </div>
+    <div class="legend-item">
+      <i class="fa-solid fa-circle-dot text-primary me-2"></i>
+      <span><strong>4 Ga ngầm (S9 - S12)</strong></span>
+    </div>
+  </div>
+
+  <!-- StoryMap Slide-in Drawer -->
+  <div id="storyDrawer">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h5 class="fw-bold text-primary mb-0"><i class="fa-solid fa-newspaper me-1"></i> Câu chuyện Metro ngầm</h5>
+      <button class="btn btn-close" onclick="toggleStoryDrawer()"></button>
+    </div>
+    <hr>
+    
+    <div class="card mb-3 border-0 bg-light">
+      <div class="card-body">
+        <h6 class="fw-bold text-dark"><i class="fa-solid fa-robot text-danger me-1"></i> 1. Hai cỗ máy TBM khổng lồ</h6>
+        <p class="small text-muted mb-1">Máy TBM 1 "Thần Tốc" và TBM 2 "Táo Bạo" có đường kính 6,3m, dài hơn 100m, nặng 850 tấn. Máy đào đất và tự động lắp ráp vỏ hầm bê tông dày 300mm ngay trong lòng đất ở độ sâu 15 - 18m.</p>
+        <span class="badge bg-secondary">Công nghệ EPB cân bằng áp lực</span>
+      </div>
+    </div>
+
+    <div class="card mb-3 border-0 bg-light">
+      <div class="card-body">
+        <h6 class="fw-bold text-dark"><i class="fa-solid fa-chart-line text-warning me-1"></i> 2. Vì sao mặt đất lại hơi lún?</h6>
+        <p class="small text-muted mb-1">Khi đào hầm, thể tích đất mất đi khoảng 0,5% - 2,0% tạo nên một phễu lún có dạng phân bố Gauss (Peck 1969). Lún lớn nhất ở ngay tim hầm và giảm dần về 0 khi cách tim hầm ngoài 35m.</p>
+      </div>
+    </div>
+
+    <div class="card mb-3 border-0 bg-light">
+      <div class="card-body">
+        <h6 class="fw-bold text-dark"><i class="fa-solid fa-shield-halved text-success me-1"></i> 3. Dự án bảo vệ bạn thế nào?</h6>
+        <p class="small text-muted mb-1">• Lắp đặt hàng trăm lăng kính quan trắc tự động dọc các dãy nhà để cảnh báo sớm.<br>• Phun ép vữa xi măng áp lực cao ngay sau đuôi khiên đào để bù thể tích rỗng.<br>• Mua bảo hiểm rủi ro xây dựng 100% cho các công trình lân cận.</p>
+      </div>
+    </div>
+
+    <div class="card border-0 bg-light">
+      <div class="card-body">
+        <h6 class="fw-bold text-dark"><i class="fa-solid fa-phone-volume text-primary me-1"></i> 4. Kênh hỗ trợ khẩn cấp</h6>
+        <p class="small text-muted mb-1">Khi thấy hiện tượng nứt tường, kẹt cửa hoặc rung bất thường, bà con gọi ngay đường dây nóng: <strong>1900.xxxx</strong> hoặc bấm nút gửi phản ánh trên bản đồ này.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Gửi Phản Ánh Nứt Lún (PPGIS) -->
+  <div class="modal fade" id="feedbackModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title"><i class="fa-solid fa-comment-medical me-2"></i> Gửi phản ánh hiện trạng nhà cửa</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="feedbackForm" onsubmit="submitFeedback(event)">
+            <div class="mb-2">
+              <label class="form-label small fw-bold">Họ và tên (có thể ẩn danh):</label>
+              <input type="text" class="form-control form-control-sm" id="fbName" placeholder="Ví dụ: Nguyễn Văn A">
+            </div>
+            <div class="mb-2">
+              <label class="form-label small fw-bold">Số điện thoại liên hệ:</label>
+              <input type="text" class="form-control form-control-sm" id="fbPhone" placeholder="09xxxxxxxx">
+            </div>
+            <div class="mb-2">
+              <label class="form-label small fw-bold">Địa chỉ ngôi nhà:</label>
+              <input type="text" class="form-control form-control-sm" id="fbAddress" required placeholder="Số nhà, ngõ, đường phố...">
+            </div>
+            <div class="mb-2">
+              <label class="form-label small fw-bold">Mức độ lo lắng của bạn:</label>
+              <select class="form-select form-select-sm" id="fbWorry">
+                <option value="1">1 - Rất yên tâm, không có vấn đề gì</option>
+                <option value="2">2 - Bình thường</option>
+                <option value="3" selected>3 - Hơi lo lắng về tiếng ồn / rung chấn</option>
+                <option value="4">4 - Lo lắng vì thấy xuất hiện vết nứt mới</option>
+                <option value="5">5 - Rất khẩn cấp, cần cán bộ đến kiểm tra ngay</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Mô tả hiện tượng quan sát được:</label>
+              <textarea class="form-control form-control-sm" id="fbDesc" rows="3" placeholder="Ví dụ: Bức tường tầng 1 giáp ngõ xuất hiện vết nứt xiên dài khoảng 50cm..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger btn-sm w-100"><i class="fa-solid fa-paper-plane me-1"></i> Gửi phản ánh đến Kỹ sư dự án</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Embedded WebGIS Logic -->
+  <script>
+    // 1. Khởi tạo bản đồ tại tâm tuyến S9 - S12
+    var map = L.map('map', {zoomControl: false}).setView([21.0285, 21.0285 ? 105.8300 : 105.83], 15);
+    L.control.zoom({position: 'bottomleft'}).addTo(map);
+
+    // Bản đồ nền: OpenStreetMap & Esri Satellite
+    var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors | Metro Line 3 Ha Noi'
+    }).addTo(map);
+
+    var esriSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19,
+      attribution: 'Tiles © Esri'
+    });
+
+    var baseMaps = {
+      "Bản đồ Đường phố": osm,
+      "Bản đồ Vệ tinh": esriSat
+    };
+    L.control.layers(baseMaps, null, {position: 'topright'}).addTo(map);
+
+    // Biến lưu trữ dữ liệu
+    var metroLineGeoJSON = null;
+    var userMarker = null;
+
+    // 2. Tải các lớp dữ liệu GeoJSON
+    // 2.1 Vùng đệm lún Peck
+    fetch('data/settlement_zones.geojson')
+      .then(res => res.json())
+      .then(data => {
+        L.geoJSON(data, {
+          style: function(feature) {
+            return {
+              color: feature.properties.color,
+              weight: 2,
+              opacity: 0.8,
+              fillColor: feature.properties.color,
+              fillOpacity: feature.properties.buffer_m === 15 ? 0.35 : (feature.properties.buffer_m === 35 ? 0.25 : 0.15)
+            };
+          },
+          onEachFeature: function(feature, layer) {
+            var p = feature.properties;
+            layer.bindPopup(
+              "<div style='min-width:200px;'>" +
+              "<h6 style='color:" + p.color + "; font-weight:bold; margin-bottom:4px;'>" + p.name + "</h6>" +
+              "<p class='small mb-1'><strong>Bán kính:</strong> " + p.buffer_m + " mét tính từ tim hầm</p>" +
+              "<p class='small mb-1'><strong>Độ lún dự báo:</strong> " + p.s_max + "</p>" +
+              "<p class='small mb-1'><strong>Mức cảnh báo:</strong> " + p.alert_level + "</p>" +
+              "<p class='small text-muted mb-0'>" + p.desc + "</p>" +
+              "</div>"
+            );
+          }
+        }).addTo(map);
+      });
+
+    // 2.2 Tim tuyến hầm đôi
+    fetch('data/metro_line.geojson')
+      .then(res => res.json())
+      .then(data => {
+        metroLineGeoJSON = data.features[0];
+        L.geoJSON(data, {
+          style: {
+            color: '#0d6efd',
+            weight: 4,
+            dashArray: '6, 6',
+            opacity: 0.9
+          }
+        }).addTo(map).bindPopup("<strong>Tuyến hầm đôi Metro 3</strong><br>Đào bằng 2 máy TBM Thần Tốc & Táo Bạo.<br>Độ sâu chôn hầm: 15 - 18m.");
+      });
+
+    // 2.3 Các ga ngầm (S9 -> S12)
+    fetch('data/stations.geojson')
+      .then(res => res.json())
+      .then(data => {
+        L.geoJSON(data, {
+          pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+              radius: 9,
+              fillColor: '#0d6efd',
+              color: '#ffffff',
+              weight: 3,
+              opacity: 1,
+              fillOpacity: 1
+            });
+          },
+          onEachFeature: function(feature, layer) {
+            var p = feature.properties;
+            layer.bindPopup(
+              "<div style='min-width:220px;'>" +
+              "<h6 class='text-primary fw-bold mb-1'><i class='fa-solid fa-train me-1'></i> " + p.name + "</h6>" +
+              "<p class='small mb-1'><strong>Vị trí:</strong> " + p.location_desc + "</p>" +
+              "<p class='small mb-1'><strong>Lý trình:</strong> " + p.chainage + " | <strong>Độ sâu:</strong> " + p.depth_m + "m</p>" +
+              "<p class='small mb-1'><strong>Vai trò:</strong> " + p.role + "</p>" +
+              "<span class='badge bg-warning text-dark'>" + p.status + "</span>" +
+              "</div>"
+            );
+          }
+        }).addTo(map);
+      });
+
+    // 2.4 Điểm nhạy cảm di tích / trường học
+    fetch('data/sensitive_points.geojson')
+      .then(res => res.json())
+      .then(data => {
+        L.geoJSON(data, {
+          pointToLayer: function(feature, latlng) {
+            return L.marker(latlng);
+          },
+          onEachFeature: function(feature, layer) {
+            var p = feature.properties;
+            layer.bindPopup(
+              "<div style='min-width:200px;'>" +
+              "<h6 class='text-danger fw-bold mb-1'><i class='fa-solid fa-landmark me-1'></i> " + p.name + "</h6>" +
+              "<p class='small mb-1'><strong>Loại hình:</strong> " + p.type + "</p>" +
+              "<p class='small mb-1'><strong>Cách tim hầm:</strong> " + p.distance_to_tunnel_m + "m</p>" +
+              "<p class='small text-success mb-0'><strong>Bảo vệ:</strong> " + p.mitigation + "</p>" +
+              "</div>"
+            );
+          }
+        }).addTo(map);
+      });
+
+    // 3. Hàm kiểm tra độ an toàn của ngôi nhà (Check House Safety)
+    function evaluateHouseSafety(lat, lng, addressLabel) {
+      if (!metroLineGeoJSON) {
+        alert("Đang tải dữ liệu tuyến hầm, vui lòng thử lại sau 2 giây...");
+        return;
+      }
+      
+      var pt = turf.point([lng, lat]);
+      var distance = turf.pointToLineDistance(pt, metroLineGeoJSON, {units: 'meters'});
+      var distRounded = Math.round(distance);
+      
+      var alertHtml = "";
+      if (distRounded <= 15) {
+        alertHtml = "<div class='alert alert-danger p-2 mb-0'>" +
+                    "<strong class='d-block'><i class='fa-solid fa-triangle-exclamation'></i> VÙNG GIÁM SÁT ĐẶC BIỆT (&le;15m)</strong>" +
+                    "<span class='small'>Nhà bạn cách tim hầm <strong>" + distRounded + " mét</strong>. Nằm trên đỉnh phễu lún. Dự án đã gắn mốc quan trắc 24/7 và có bảo hiểm 100%.</span>" +
+                    "</div>";
+      } else if (distRounded <= 35) {
+        alertHtml = "<div class='alert alert-warning p-2 mb-0'>" +
+                    "<strong class='d-block'><i class='fa-solid fa-circle-exclamation'></i> VÙNG PHỄU LÚN CHÍNH (15m - 35m)</strong>" +
+                    "<span class='small'>Nhà bạn cách tim hầm <strong>" + distRounded + " mét</strong>. Độ lún dự báo rất nhỏ (3-10mm), an toàn kết cấu móng. Cần quan sát vết nứt sơn tường định kỳ.</span>" +
+                    "</div>";
+      } else if (distRounded <= 50) {
+        alertHtml = "<div class='alert alert-info p-2 mb-0'>" +
+                    "<strong class='d-block'><i class='fa-solid fa-circle-check'></i> VÙNG ĐỆM AN TOÀN (35m - 50m)</strong>" +
+                    "<span class='small'>Nhà bạn cách tim hầm <strong>" + distRounded + " mét</strong>. Độ lún <3mm, nền đất ổn định hoàn toàn.</span>" +
+                    "</div>";
+      } else {
+        alertHtml = "<div class='alert alert-success p-2 mb-0'>" +
+                    "<strong class='d-block'><i class='fa-solid fa-shield-heart'></i> NGOÀI VÙNG ẢNH HƯỞNG (>50m)</strong>" +
+                    "<span class='small'>Nhà bạn cách tim hầm <strong>" + distRounded + " mét</strong>. Nằm ngoài vùng thi công, hoàn toàn yên tâm!</span>" +
+                    "</div>";
+      }
+      
+      var box = document.getElementById("resultBox");
+      box.style.display = "block";
+      box.innerHTML = alertHtml;
+
+      // Cập nhật marker trên bản đồ
+      if (userMarker) map.removeLayer(userMarker);
+      userMarker = L.marker([lat, lng], {bounceOnAdd: true}).addTo(map);
+      userMarker.bindPopup("<strong>Vị trí đã chọn:</strong><br>" + (addressLabel || "Vị trí đã bấm") + "<br>Khoảng cách tim hầm: <strong>" + distRounded + "m</strong>").openPopup();
+      map.setView([lat, lng], 17);
+    }
+
+    // 4. Bấm trực tiếp trên bản đồ để tra cứu
+    map.on('click', function(e) {
+      evaluateHouseSafety(e.latlng.lat, e.latlng.lng, "Điểm bạn vừa chọn");
+    });
+
+    // 5. Tìm kiếm địa chỉ bằng OpenStreetMap Nominatim API
+    function searchAddress() {
+      var query = document.getElementById("addressInput").value;
+      if (!query) return;
+      
+      var fullQuery = query + ", Hà Nội, Việt Nam";
+      var url = "https://nominatim.openstreetmap.org/search?format=json&q=" + encodeURIComponent(fullQuery);
+      
+      fetch(url)
+        .then(res => res.json())
+        .then(results => {
+          if (results && results.length > 0) {
+            var item = results[0];
+            var lat = parseFloat(item.lat);
+            var lon = parseFloat(item.lon);
+            evaluateHouseSafety(lat, lon, item.display_name);
+          } else {
+            alert("Không tìm thấy địa chỉ này tại Hà Nội. Vui lòng bấm trực tiếp lên bản đồ!");
+          }
+        })
+        .catch(err => {
+          alert("Lỗi kết nối tra cứu địa chỉ. Bạn có thể bấm trực tiếp lên vị trí nhà trên bản đồ!");
+        });
+    }
+
+    // 6. Định vị vị trí người dùng qua GPS trình duyệt
+    function locateUser() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(pos) {
+          evaluateHouseSafety(pos.coords.latitude, pos.coords.longitude, "Vị trí GPS của bạn");
+        }, function(err) {
+          alert("Không thể lấy vị trí hiện tại. Vui lòng cho phép quyền truy cập vị trí trên trình duyệt!");
+        });
+      } else {
+        alert("Trình duyệt không hỗ trợ GPS.");
+      }
+    }
+
+    // 7. Toggle StoryMap Drawer
+    function toggleStoryDrawer() {
+      var drawer = document.getElementById("storyDrawer");
+      drawer.classList.toggle("active");
+    }
+
+    // 8. Modal Phản ánh
+    var fbModal = null;
+    function openFeedbackModal() {
+      if (!fbModal) fbModal = new bootstrap.Modal(document.getElementById('feedbackModal'));
+      fbModal.show();
+    }
+
+    function submitFeedback(e) {
+      e.preventDefault();
+      var name = document.getElementById("fbName").value || "Cư dân ẩn danh";
+      var addr = document.getElementById("fbAddress").value;
+      alert("Cảm ơn " + name + " tại " + addr + "!
+Thông tin phản ánh đã được gửi thành công đến Kỹ sư giám sát an toàn dự án Metro số 3.");
+      fbModal.hide();
+      document.getElementById("feedbackForm").reset();
+    }
+  </script>
+</body>
+</html>

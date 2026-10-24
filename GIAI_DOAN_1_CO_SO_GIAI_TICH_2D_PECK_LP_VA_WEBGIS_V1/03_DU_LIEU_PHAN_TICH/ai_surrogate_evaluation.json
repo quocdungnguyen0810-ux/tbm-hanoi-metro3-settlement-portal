@@ -1,0 +1,10 @@
+{
+  "model_type": "Surrogate_MLP_Neural_Network",
+  "qa_flag": "surrogate_trained_on_peck_analytical_grid",
+  "training_samples": 2000,
+  "test_samples": 500,
+  "R2_score": 0.9991,
+  "MAE_mm": 0.156,
+  "RMSE_mm": 0.22,
+  "status": "VALIDATED"
+}

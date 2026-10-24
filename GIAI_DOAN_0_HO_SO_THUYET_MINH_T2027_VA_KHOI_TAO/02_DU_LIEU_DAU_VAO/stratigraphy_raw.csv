@@ -1,0 +1,120 @@
+STRATIGRAPHY ANALYSIS REPORT;;;;;;;;;;;;;;;;;;;;;
+Geotechnical stratigraphy synthesis | Source: stratigraphy_raw | Prepared: 2026-10-24;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+KPI;Value;;Coverage;Value;;Executive takeaways;;;;;;;;;;;;;;;
+Total records;18;;Max reported depth (m bgs);60;;Profile;Layered sequence from fill/soft clay through dense sand and gravel;;;;;;;;;;;;;;
+Segments / station groups;3;;Unique layer codes;12;;Groundwater;Project/model values are generally reported around 6–10 m bgs where available;;;;;;;;;;;;;;
+Records with thickness data;15;;Evidence types;4;;Strength;Stiffness and SPT increase materially in deeper granular layers;;;;;;;;;;;;;;
+Records with groundwater data;12;;Primary source;Nguyen et al. 2024;;Data quality;Regional cross-checks and narrative/table discrepancies are preserved;;;;;;;;;;;;;;
+Records with notes / review flags;18;;Regional cross-check;Giao et al. 2020;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+SEGMENT SUMMARY;;;;;EVIDENCE SUMMARY;;;;;;;;;;;;;;;;
+Segment / station;Records;Unique boreholes;Avg thickness mean (m);Max bottom depth (m bgs);;Evidence type;Records;Avg ? (kN/m³);Avg E (MPa);Avg SPT N30;;;;;;;;;;;
+S9-S10;6;1;6,47;;;direct_text;1;18,06;34,17;;;;;;;;;;;;
+S11-S12;6;1;10,00;60,00;;direct_text_and_table;5;19;10;16;;;;;;;;;;;
+Line 3 regional;6;3;13,28;;;direct_table_plus_derived_depth;6;18;7;4;;;;;;;;;;;
+;;;;;;regional_crosscheck;6;20;10;20;;;;;;;;;;;
+;;;;;;SP, SC-SM, SW;1;21;15;43;;;;;;;;;;;
+;;;;;;GP, SM;1;21;45;;;;;;;;;;;;
+Record ID;Segment / Station;Borehole;Layer Code;Layer Name;Top (m bgs);Bottom (m bgs);Thickness mean (m);GW min (m bgs);GW max (m bgs);? (kN/m³);c (kPa);? (deg);E (MPa);SPT N30;Evidence type;Source;Notes;Evidence type;Source;Reference;Notes
+S9S10_01;S9-S10;not_identified;BACKFILL;Backfill: sandy clay brick sand;0;;1,93;10;12;;;;;;direct_text;Nguyen et al. 2024 ETASR;"Project-area range; groundwater is regional monitored range";direct_text;Nguyen et al. 2024 ETASR;p.13048 sec.II, Fig.3a;Project-area range, groundwater is regional monitored range
+S9S10_02;S9-S10;not_identified;GU1;Lean clay with silt/clayey-silt lenses;;;5,3;10;12;;19;15;;25;direct_text_and_table;Nguyen et al. 2024 ETASR;"Located <25 m bgs; E=E50ref; effective c and phi";direct_text_and_table;Nguyen et al. 2024 ETASR;pp.13048-13049, Table I, Fig.3a;Located <25 m bgs, E=E50ref, effective c and phi
+S9S10_03;S9-S10;not_identified;GU3&4;Organic fat and elastic clay;;;7,74;10;12;;18;10;;20;direct_text_and_table;Nguyen et al. 2024 ETASR;"E=E50ref; organic/elastic clay";direct_text_and_table;Nguyen et al. 2024 ETASR;pp.13048-13049, Table I, Fig.3a;E=E50ref
+S9S10_04;S9-S10;not_identified;GU5_a;Loose to medium dense fine sand or silty sand;;;11,93;10;12;;20;0;;32;direct_text_and_table;Nguyen et al. 2024 ETASR;Text also states Nspt<30;direct_text_and_table;Nguyen et al. 2024 ETASR;pp.13048-13049, Table I, Fig.3a;Text also states Nspt<30
+S9S10_05;S9-S10;not_identified;GU5_b;Dense fine sand or silty sand;;;3,6;10;12;;21;0;;33;direct_text_and_table;Nguyen et al. 2024 ETASR;E=E50ref;direct_text_and_table;Nguyen et al. 2024 ETASR;pp.13048-13049, Table I, Fig.3a;E=E50ref
+S9S10_06;S9-S10;not_identified;GU7&8;Very dense sand and gravel;;;8,3;10;12;;21;0;;40;direct_text_and_table;Nguyen et al. 2024 ETASR;SPT reported as >50 in source;direct_text_and_table;Nguyen et al. 2024 ETASR;pp.13048-13049, Table I, Fig.3a;E=E50ref
+BH12_01;S11-S12;BH12;L1;Filling soil;0;2;2;6;6;17,5;20;30;9,25;;direct_table_plus_derived_depth;Nguyen et al. 2024 TCXD;"Groundwater -6 m is model assumption; c unit absent";direct_table_plus_derived_depth;Nguyen et al. 2024 TCXD;p.86 Table 2, Fig.7;Groundwater -6 m is model assumption, c unit absent
+BH12_02;S11-S12;BH12;L2;Stiff to very stiff clay;2;12,3;10,3;6;6;17,6;1;36;15,3;16,4;direct_table_plus_derived_depth;Nguyen et al. 2024 TCXD;"Undrained Soft Soil model; groundwater model assumption";direct_table_plus_derived_depth;Nguyen et al. 2024 TCXD;p.86 Table 2, Fig.7;Undrained Soft Soil model, groundwater model assumption
+BH12_03;S11-S12;BH12;L3;Soft clay;12,3;25;12,7;6;6;18,1;1;36;7,68;3,7;direct_table_plus_derived_depth;Nguyen et al. 2024 TCXD;"Cumulative top=12.3; narrative says 12.7; discrepancy preserved";direct_table_plus_derived_depth;Nguyen et al. 2024 TCXD;pp.86-87 Table 2, Fig.7;Cumulative top=12.3, narrative says 12.7, discrepancy preserved
+BH12_04;S11-S12;BH12;L4;Medium dense silty sand;25;36,9;11,9;6;6;17,8;40;30;35,02;;direct_table_plus_derived_depth;Nguyen et al. 2024 TCXD;Groundwater model assumption;direct_table_plus_derived_depth;Nguyen et al. 2024 TCXD;p.86 Table 2, Fig.7;Groundwater model assumption
+BH12_05;S11-S12;BH12;L5;Fine medium gravelly sand;36,9;51,9;15;6;6;18,3;50;30;53,9;;direct_table_plus_derived_depth;Nguyen et al. 2024 TCXD;Groundwater model assumption;direct_table_plus_derived_depth;Nguyen et al. 2024 TCXD;p.86 Table 2, Fig.7;Groundwater model assumption
+BH12_06;S11-S12;BH12;L6;Dense poorly graded gravel with sand;51,9;60;8,1;6;6;18,6;50;30;65;>50;direct_table_plus_derived_depth;Nguyen et al. 2024 TCXD;Groundwater model assumption;direct_table_plus_derived_depth;Nguyen et al. 2024 TCXD;p.86 Table 2, Fig.7;Groundwater model assumption
+LINE3_01;Line 3 regional;17 boreholes;L1;Filling soil;;;1,76;;;;;;;;regional_crosscheck;Giao et al. 2020;Not station-specific;regional_crosscheck;Giao et al. 2020;pp.293-294, Fig.7, Table 1;Not station-specific
+LINE3_02;Line 3 regional;17 boreholes;L2;Stiff to very stiff clay;;;;;;19,9;;;;16,4;regional_crosscheck;Giao et al. 2020;Narrative Su 24.6 conflicts with Table 1 26.34;regional_crosscheck;Giao et al. 2020;pp.293-294, Table 1;Narrative Su 24.6 conflicts with Table 1 26.34
+LINE3_03;Line 3 regional;17 boreholes;L3;Soft clay;;;;;;17;;;;3,7;regional_crosscheck;Giao et al. 2020;"Organic; Wc 50.1%, LL 52.61%, PL 31.03%";regional_crosscheck;Giao et al. 2020;pp.293-294, Table 1;Organic, Wc 50.1%, LL 52.61%, PL 31.03%
+LINE3_04;Line 3 regional;BH2-BH5;L4;Medium dense silty sand;;;24,8;;;;;;;Sep-43;regional_crosscheck;Giao et al. 2020;"Mean 24.8; min BH2; max BH5; not station-mapped";regional_crosscheck;Giao et al. 2020;p.293, Fig.7, Table 1;Min BH2, max BH5, not station-mapped
+LINE3_05;Line 3 regional;BH5-BH7;L5;Fine-medium gravelly sand;;;;;;;;;;27-50;regional_crosscheck;Giao et al. 2020;"Min BH5; max BH7; not station-mapped";regional_crosscheck;Giao et al. 2020;p.293, Fig.7, Table 1;Min BH5, max BH7, not station-mapped
+LINE3_06;Line 3 regional;17 boreholes;L6;Dense poorly graded gravel with sand;;;;;;;;;;>50;regional_crosscheck;Giao et al. 2020;Thickness not determined;regional_crosscheck;Giao et al. 2020;p.293, Fig.7, Table 1;Thickness not determined
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+DATA QUALITY / REVIEW ITEMS;;;;;;;;;;;;;;;;;;;;;
+1;Regional records are cross-checks and are not station-specific.;;;;;;;;;;;;;;;;;;;;
+2;Narrative/table discrepancies are preserved in Notes for auditability.;;;;;;;;;;;;;;;;;;;;
+3;Blank fields indicate unavailable or unreported values in the source material.;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;

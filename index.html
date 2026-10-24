@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cổng Quản trị, Kiểm toán & WebGIS Toàn diện Dự án TBM Hà Nội (Giai đoạn 0 - 4)</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f1f5f9; color: #0f172a; margin: 0; padding: 1.5rem 2rem; line-height: 1.55; }
+    .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #ffffff; border-radius: 14px; padding: 1.75rem 2rem; margin-bottom: 1.5rem; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15); }
+    .hero h1 { margin: 0 0 0.5rem 0; font-size: 1.6rem; }
+    .hero p { margin: 0.25rem 0; color: #e2e8f0; font-size: 0.95rem; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .kpi-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 1rem 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+    .kpi-val { font-size: 1.65rem; font-weight: 800; color: #0284c7; }
+    .kpi-lbl { font-size: 0.85rem; color: #475569; font-weight: 600; }
+    .stage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem; }
+    .stage-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.25rem 1.5rem; box-shadow: 0 2px 5px rgba(0,0,0,0.04); }
+    .stage-card.highlight { border: 2px solid #0284c7; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.12); }
+    .badge { display: inline-block; padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; background: #e0f2fe; color: #0369a1; }
+    .btn-primary { display: inline-block; padding: 0.5rem 0.9rem; border-radius: 8px; background: #0284c7; color: #ffffff; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+    .btn-secondary { display: inline-block; padding: 0.5rem 0.9rem; border-radius: 8px; background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+    .section-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .quick-bar { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1rem; }
+    .table-wrapper { overflow: auto; max-inline-size: 100%; max-block-size: min(560px, 80vh); container-type: inline-size; border-radius: 10px; border: 1px solid #cbd5e1; background: #ffffff; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05); margin-block-end: 1.25rem; }
+    table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.9rem; }
+    caption { text-align: left; padding: 0.75rem 1rem; font-weight: 700; color: #0f172a; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
+    thead { position: sticky; inset-block-start: 0; z-index: 2; background: #0f172a; color: #f8fafc; }
+    th, td { padding: 0.65rem 0.9rem; text-align: left; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+    tbody tr:nth-child(even) td { background: #f8fafc; }
+    tbody th { position: sticky; inset-inline-start: 0; z-index: 1; background: #f1f5f9; color: #0f172a; font-weight: 600; border-right: 1px solid #cbd5e1; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>HỆ THỐNG QUẢN TRỊ, ĐÁNH GIÁ & KIỂM TOÁN ĐỘC LẬP TOÀN DỰ ÁN TBM HÀ NỘI (S9–S12)</h1>
+    <p><strong>Đề tài NCKH Cấp Trường 2027:</strong> Mã số <code>T2027_TMĐK_Nguyen_Hai_Ha</code> | Chủ nhiệm: <strong>ThS. Nguyễn Hải Hà</strong> (Bộ môn Địa kỹ thuật & Không gian ngầm, Trường ĐH GTVT)</p>
+    <p><strong>Cơ chế Quản trị:</strong> Phân kỳ 5 Giai đoạn (GĐ 0 → GĐ 4) × 7 Phân khu Chức năng Chuẩn hóa | Kiểm toán 11 Cổng (Gates 1–11) & Vùng cách ly Dị biệt Vật lý (Quarantine)</p>
+    <div class="quick-bar">
+      <a class="btn-primary" style="background:#dc2626;" href="GIAI_DOAN_2_MO_HINH_3D_MONTE_CARLO_SOBOL_VA_WEBGIS_V2/05_FILE_HIEN_HANH_HTML_WEB/webgis_settlement_advance_v2.html">🚀 Mở WebGIS 2.0 (Giai đoạn 2: Lún 3D & Tiến độ TBM)</a>
+      <a class="btn-primary" style="background:#0284c7;" href="GIAI_DOAN_2_MO_HINH_3D_MONTE_CARLO_SOBOL_VA_WEBGIS_V2/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html">📊 Dashboard Kiểm toán Giai đoạn 2 (52/52 SHA-256)</a>
+      <a class="btn-primary" style="background:#059669;" href="GIAI_DOAN_1_CO_SO_GIAI_TICH_2D_PECK_LP_VA_WEBGIS_V1/05_FILE_HIEN_HANH_HTML_WEB/webgis_settlement_map.html">🗺️ Mở WebGIS 1.0 (Giai đoạn 1: 60 Công trình)</a>
+      <a class="btn-primary" style="background:#7c3aed;" href="GIAI_DOAN_3_COUPLED_HM_3DFEM_PINN_DIGITAL_TWIN_V3/05_FILE_HIEN_HANH_HTML_WEB/webgis_digital_twin_tbm_v3.html">🛰️ Mở WebGIS 3.0 (Giai đoạn 3: Scenario Viewer)</a>
+      <a class="btn-primary" style="background:#d97706;" href="GIAI_DOAN_4_CHUYEN_GIAO_DAO_TAO_NCKH_SINH_VIEN/05_FILE_HIEN_HANH_HTML_WEB/index.html">🎓 Mở WebGIS StoryMap NCKH Sinh viên</a>
+    </div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-val">5 Giai đoạn</div><div class="kpi-lbl">Phân kỳ GĐ 0 → GĐ 4 (35 phân khu)</div></div>
+    <div class="kpi-card"><div class="kpi-val">288 Tệp</div><div class="kpi-lbl">Đã phân loại & niêm phong SHA-256</div></div>
+    <div class="kpi-card"><div class="kpi-val">3 Nhân sự + 11 AI</div><div class="kpi-lbl">Chuyên gia ĐH GTVT, MRB & Multi-Agent</div></div>
+    <div class="kpi-card"><div class="kpi-val">11 Audit Gates</div><div class="kpi-lbl">Thẩm định Độc lập & 5 Hồ sơ Cách ly</div></div>
+    <div class="kpi-card"><div class="kpi-val">15/15 Tests</div><div class="kpi-lbl">Unit Tests Cơ học & Vật lý Đạt 100%</div></div>
+  </div>
+
+  <div class="section-card">
+    <h2 style="margin-top:0;">1. Bảng Ma trận Phân bổ Tài sản Dự án theo 5 Giai đoạn & 7 Phân khu Chức năng</h2>
+    <div tabindex="0" role="region" aria-labelledby="master-matrix-caption" class="table-wrapper">
+      <table>
+        <caption id="master-matrix-caption">Thống kê số lượng tệp tin trong từng phân khu chức năng của 5 giai đoạn</caption>
+        <thead>
+          <tr>
+            <th>Mã GĐ</th>
+            <th>Tên Giai đoạn Thực hiện</th>
+            <th>02. Dữ liệu Đầu vào</th>
+            <th>03. Dữ liệu Phân tích</th>
+            <th>04. Bảng biểu & Hình 300 DPI</th>
+            <th>05. Web / HTML Hiện hành</th>
+            <th>06. Script & Unit Test</th>
+            <th>07. Bản thảo & Hồ sơ</th>
+            <th>Tổng cộng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><a href="GIAI_DOAN_0_HO_SO_THUYET_MINH_T2027_VA_KHOI_TAO/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html">GIAI_DOAN_0</a></th>
+            <td>Giai đoạn 0: Hồ sơ Thuyết minh Đề tài NCKH Cấp Trường T2027, Khởi tạo Quản trị & Thu thập Nguồn (Gate 0 - Gate 1)</td>
+            <td>24</td><td>9</td><td>5</td><td>1</td><td>9</td><td>14</td><td><strong>62</strong></td>
+          </tr>
+          <tr>
+            <th><a href="GIAI_DOAN_1_CO_SO_GIAI_TICH_2D_PECK_LP_VA_WEBGIS_V1/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html">GIAI_DOAN_1</a></th>
+            <td>Giai đoạn 1: Mô hình Giải tích 2D (Peck 1969 & Loganathan-Poulos 1998), Độ nhạy OAT 21 Kịch bản, 60 Công trình & WebGIS v1.0 (Gates 2 - 5)</td>
+            <td>7</td><td>12</td><td>13</td><td>3</td><td>15</td><td>32</td><td><strong>82</strong></td>
+          </tr>
+          <tr style="background:#e0f2fe;">
+            <th><a href="GIAI_DOAN_2_MO_HINH_3D_MONTE_CARLO_SOBOL_VA_WEBGIS_V2/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html">GIAI_DOAN_2</a></th>
+            <td><strong>Giai đoạn 2: Giải tích 3D Loganathan-Poulos, Giải tích Ngẫu nhiên 10.000 Mẫu Monte Carlo & Chỉ số Sobol (Saltelli-LHS), Đánh giá Tổn hại 100 Công trình & WebGIS v2.0 (Gates 6 - 8)</strong></td>
+            <td>8</td><td>9</td><td>10</td><td>2</td><td>8</td><td>15</td><td><strong>52</strong></td>
+          </tr>
+          <tr>
+            <th><a href="GIAI_DOAN_3_COUPLED_HM_3DFEM_PINN_DIGITAL_TWIN_V3/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html">GIAI_DOAN_3</a></th>
+            <td>Giai đoạn 3: Kịch bản Lún Cố kết Thấm - Cơ học, Đối sánh 3D FEM & Mạng PINN Surrogate, 150 Công trình Di tích & WebGIS v3.0 Scenario Viewer (Gates 9 - 11)</td>
+            <td>7</td><td>13</td><td>12</td><td>2</td><td>11</td><td>16</td><td><strong>61</strong></td>
+          </tr>
+          <tr>
+            <th><a href="GIAI_DOAN_4_CHUYEN_GIAO_DAO_TAO_NCKH_SINH_VIEN/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html">GIAI_DOAN_4</a></th>
+            <td>Giai đoạn 4: Chuyển giao Công nghệ, Đào tạo & Phát triển 02 Đề tài NCKH Sinh viên (Hướng 4 WebGIS StoryMap & Quản lý Đô thị)</td>
+            <td>3</td><td>8</td><td>4</td><td>1</td><td>3</td><td>12</td><td><strong>31</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h2 style="margin-bottom: 0.75rem;">2. Truy cập Trực tiếp Từng Giai đoạn (Mỗi Giai đoạn có Audit Kế hoạch, Nhân sự, Skill/MCP & 7 Phân khu)</h2>
+  <div class="stage-grid">
+    <div class="stage-card highlight">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <span class="badge" style="background:#dc2626; color:#fff;">TRỌNG TÂM • GIAI_DOAN_2 (Gates 6 - 8)</span>
+        <span style="font-size:0.85rem; font-weight:600; color:#475569;">Tổng số tệp chính thức: 52 (67 tệp vật lý)</span>
+      </div>
+      <h3 style="margin:0.6rem 0; color:#0f172a;">Giai đoạn 2: Giải tích 3D Loganathan-Poulos, Giải tích Ngẫu nhiên 10.000 Mẫu Monte Carlo & Chỉ số Sobol (Saltelli-LHS), Đánh giá Tổn hại 100 Công trình & WebGIS v2.0</h3>
+      <p style="margin:0.4rem 0; font-size:0.9rem;"><strong>Chủ trì:</strong> ThS. Nguyễn Hải Hà (Chủ nhiệm đề tài) | Phối hợp: ThS. Lê Anh Đức, KS. Trần Văn Long</p>
+      <p style="margin:0.4rem 0; font-size:0.9rem;"><strong>Kiểm toán & Khắc phục:</strong> Khớp 52/52 mã băm SHA-256 (100%); đã bổ sung bộ lấy mẫu Saltelli-LHS 28.672 lượt giải hàm cho LP Elasto-Gap (<code>Q-002</code>) và chuẩn hóa nhãn 100 công trình (<code>Q-003</code>).</p>
+      <div style="margin-top:0.85rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <a class="btn-primary" style="background:#dc2626;" href="GIAI_DOAN_2_MO_HINH_3D_MONTE_CARLO_SOBOL_VA_WEBGIS_V2/05_FILE_HIEN_HANH_HTML_WEB/webgis_settlement_advance_v2.html">🚀 Mở Ứng dụng WebGIS 2.0</a>
+        <a class="btn-primary" href="GIAI_DOAN_2_MO_HINH_3D_MONTE_CARLO_SOBOL_VA_WEBGIS_V2/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html">Mở Dashboard Audit & Danh mục Tệp (GIAI_DOAN_2)</a>
+        <a class="btn-secondary" href="GIAI_DOAN_2_MO_HINH_3D_MONTE_CARLO_SOBOL_VA_WEBGIS_V2/04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/thu_vien_hinh_ve_bang_bieu.html">Thư viện Hình vẽ 300 DPI</a>
+      </div>
+    </div>
+
+    <div class="stage-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <span class="badge">GIAI_DOAN_0 • Thuyết minh T2027 & Khởi tạo</span>
+        <span style="font-size:0.85rem; font-weight:600; color:#475569;">Tổng số tệp: 62</span>
+      </div>
+      <h3 style="margin:0.6rem 0; color:#0f172a;">Giai đoạn 0: Hồ sơ Thuyết minh Đề tài NCKH Cấp Trường T2027, Khởi tạo Quản trị & Thu thập Nguồn (Gate 0 - Gate 1)</h3>
+      <p style="margin:0.4rem 0; font-size:0.9rem;"><strong>Chủ trì:</strong> ThS. Nguyễn Hải Hà (Bộ môn Địa kỹ thuật & Không gian ngầm, Khoa Công trình, Trường ĐH GTVT)</p>
+      <div style="margin-top:0.85rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <a class="btn-primary" href="GIAI_DOAN_0_HO_SO_THUYET_MINH_T2027_VA_KHOI_TAO/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html">Mở Dashboard Audit (GIAI_DOAN_0)</a>
+        <a class="btn-secondary" href="GIAI_DOAN_0_HO_SO_THUYET_MINH_T2027_VA_KHOI_TAO/04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/thu_vien_hinh_ve_bang_bieu.html">Thư viện Hình vẽ 300 DPI</a>
+      </div>
+    </div>
+
+    <div class="stage-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <span class="badge">GIAI_DOAN_1 • Giải tích 2D & WebGIS v1.0</span>
+        <span style="font-size:0.85rem; font-weight:600; color:#475569;">Tổng số tệp: 82</span>
+      </div>
+      <h3 style="margin:0.6rem 0; color:#0f172a;">Giai đoạn 1: Mô hình Giải tích 2D (Peck 1969 & Loganathan-Poulos 1998), Độ nhạy OAT 21 Kịch bản, 60 Công trình & WebGIS v1.0 (Gates 2 - 5)</h3>
+      <p style="margin:0.4rem 0; font-size:0.9rem;"><strong>Chủ trì:</strong> ThS. Nguyễn Hải Hà (Chủ trì cơ học giải tích Peck/LP, đánh giá độ nhạy và biên soạn Luận án/Báo cáo GĐ1)</p>
+      <div style="margin-top:0.85rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <a class="btn-primary" style="background:#059669;" href="GIAI_DOAN_1_CO_SO_GIAI_TICH_2D_PECK_LP_VA_WEBGIS_V1/05_FILE_HIEN_HANH_HTML_WEB/webgis_settlement_map.html">🗺️ Mở WebGIS 1.0</a>
+        <a class="btn-primary" href="GIAI_DOAN_1_CO_SO_GIAI_TICH_2D_PECK_LP_VA_WEBGIS_V1/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html">Mở Dashboard Audit (GIAI_DOAN_1)</a>
+        <a class="btn-secondary" href="GIAI_DOAN_1_CO_SO_GIAI_TICH_2D_PECK_LP_VA_WEBGIS_V1/04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/thu_vien_hinh_ve_bang_bieu.html">Thư viện Hình vẽ 300 DPI</a>
+      </div>
+    </div>
+
+    <div class="stage-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <span class="badge">GIAI_DOAN_3 • Lún Cố kết HM, PINN & WebGIS v3.0</span>
+        <span style="font-size:0.85rem; font-weight:600; color:#475569;">Tổng số tệp: 61</span>
+      </div>
+      <h3 style="margin:0.6rem 0; color:#0f172a;">Giai đoạn 3: Kịch bản Lún Cố kết Thấm - Cơ học, Đối sánh 3D FEM & Mạng PINN Surrogate, 150 Công trình Di tích & WebGIS v3.0 Scenario Viewer (Gates 9 - 11)</h3>
+      <p style="margin:0.4rem 0; font-size:0.9rem;"><strong>Chủ trì:</strong> ThS. Nguyễn Hải Hà (Chủ trì phân tích kết hợp lún TBM + cố kết thấm, ma trận phản ứng khẩn cấp TARP)</p>
+      <div style="margin-top:0.85rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <a class="btn-primary" style="background:#7c3aed;" href="GIAI_DOAN_3_COUPLED_HM_3DFEM_PINN_DIGITAL_TWIN_V3/05_FILE_HIEN_HANH_HTML_WEB/webgis_digital_twin_tbm_v3.html">🛰️ Mở WebGIS 3.0</a>
+        <a class="btn-primary" href="GIAI_DOAN_3_COUPLED_HM_3DFEM_PINN_DIGITAL_TWIN_V3/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html">Mở Dashboard Audit (GIAI_DOAN_3)</a>
+        <a class="btn-secondary" href="GIAI_DOAN_3_COUPLED_HM_3DFEM_PINN_DIGITAL_TWIN_V3/04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/thu_vien_hinh_ve_bang_bieu.html">Thư viện Hình vẽ 300 DPI</a>
+      </div>
+    </div>
+
+    <div class="stage-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <span class="badge">GIAI_DOAN_4 • Chuyển giao & NCKH Sinh viên</span>
+        <span style="font-size:0.85rem; font-weight:600; color:#475569;">Tổng số tệp: 31</span>
+      </div>
+      <h3 style="margin:0.6rem 0; color:#0f172a;">Giai đoạn 4: Chuyển giao Công nghệ, Đào tạo & Phát triển 02 Đề tài NCKH Sinh viên (Hướng 4 WebGIS StoryMap & Quản lý Đô thị)</h3>
+      <p style="margin:0.4rem 0; font-size:0.9rem;"><strong>Chủ trì:</strong> ThS. Nguyễn Hải Hà (Giảng viên hướng dẫn chính – Bộ môn Địa kỹ thuật và Không gian ngầm, Trường ĐH GTVT)</p>
+      <div style="margin-top:0.85rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <a class="btn-primary" style="background:#d97706;" href="GIAI_DOAN_4_CHUYEN_GIAO_DAO_TAO_NCKH_SINH_VIEN/05_FILE_HIEN_HANH_HTML_WEB/index.html">🎓 Mở WebGIS StoryMap SV</a>
+        <a class="btn-primary" href="GIAI_DOAN_4_CHUYEN_GIAO_DAO_TAO_NCKH_SINH_VIEN/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html">Mở Dashboard Audit (GIAI_DOAN_4)</a>
+        <a class="btn-secondary" href="GIAI_DOAN_4_CHUYEN_GIAO_DAO_TAO_NCKH_SINH_VIEN/04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/thu_vien_hinh_ve_bang_bieu.html">Thư viện Hình vẽ 300 DPI</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# DANH MỤC KẾT QUẢ BẢNG BIỂU & HÌNH VẼ CHẤT LƯỢNG CAO (300-350 DPI) (GIAI_DOAN_3)
+
+- **Giai đoạn:** Giai đoạn 3: Kịch bản Lún Cố kết Thấm - Cơ học, Đối sánh 3D FEM & Mạng PINN Surrogate, 150 Công trình Di tích & WebGIS v3.0 Scenario Viewer (Gates 9 - 11)
+- **Thư mục:** `04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/`
+- **Tổng số tệp tin:** 12
+
+| STT | Tên tệp tin | Nguồn gốc (`source_locator`) | Dung lượng (Bytes) | Phân lớp (`value_basis`) | Cờ QA (`qa_flag`) | SHA-256 |
+|:---:|---|---|---:|---|---|---|
+| 1 | `DANH_MUC_HINH_VE_300DPI_GIAI_DOAN_3.md` | `nhiem_vu_luan_an_giai_doan_3/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_3/DANH_MUC_HINH_VE_300DPI_GIAI_DOAN_3.md` | 1,933 | `direct_text` | `VERIFIED_BYTE_INTEGRITY` | `bedc553c29672df7be08caa70e7947f35797adfee838f694cf4464eb6c148047` |
+| 2 | `FIG_15_Coupled_Hydro_Mechanical_Consolidation.png` | `nhiem_vu_luan_an_giai_doan_3/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_3/FIG_15_Coupled_Hydro_Mechanical_Consolidation.png` | 367,208 | `model_assumption` | `QUARANTINE_Q001_FACTOR_10_CHECK` | `cc4d4418851a59b06decec112c6622ffe5b7bf37e917b2c83965a36dc1e8e099` |
+| 3 | `FIG_15B_Calibrated_mv_Consolidation_Reconciliation.png` | `data/02_geotechnical_mv_reconciliation_stage3/FIG_15B_Calibrated_mv_Consolidation_Reconciliation.png` | 516,378 | `direct_text` | `VERIFIED_BYTE_INTEGRITY` | `889b7983012530460436610225bc948558f97579ab6e3edd69a1641771fe1b66` |
+| 4 | `LAYER_COMPRESSIBILITY_MV_VERIFICATION.csv` | `data/02_geotechnical_mv_reconciliation_stage3/LAYER_COMPRESSIBILITY_MV_VERIFICATION.csv` | 2,922 | `direct_text` | `VERIFIED_BYTE_INTEGRITY` | `6a83ec6b6dd3ed42a4446d53c39992a07e6746dd424bfa7b74b1a50f0b492c94` |
+| 5 | `CONSOLIDATION_SCENARIOS_COMPARISON.csv` | `data/02_geotechnical_mv_reconciliation_stage3/CONSOLIDATION_SCENARIOS_COMPARISON.csv` | 2,694 | `direct_text` | `VERIFIED_BYTE_INTEGRITY` | `651b1fb75fba3be380fef2b4d1784542a7351aaf1e743cbdc6da5b3df2e8639b` |
+| 6 | `FIG_16_3D_Numerical_FEM_Stress_Strain_Field.png` | `nhiem_vu_luan_an_giai_doan_3/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_3/FIG_16_3D_Numerical_FEM_Stress_Strain_Field.png` | 816,363 | `model_assumption` | `SYNTHETIC_BENCHMARK_DEMO_Q004` | `4596894fc31eb34ea4a220114c042d9dabc2f7b5d11236633ef38a6a9e6bd018` |
+| 7 | `FIG_17_PINN_Architecture_and_Loss_Convergence.png` | `nhiem_vu_luan_an_giai_doan_3/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_3/FIG_17_PINN_Architecture_and_Loss_Convergence.png` | 384,378 | `model_assumption` | `SYNTHETIC_BENCHMARK_DEMO_Q004` | `f850a222fb9012e93baa845e9bf27441c0020f83762dee5406933fd804ad67d7` |
+| 8 | `FIG_18_Building_Risk_Zoning_150_Structures.png` | `nhiem_vu_luan_an_giai_doan_3/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_3/FIG_18_Building_Risk_Zoning_150_Structures.png` | 269,721 | `scenario_assumption` | `RELABELED_SCENARIO_ASSUMPTION_Q003` | `e460c8230b0b890896664dfacbd95297423282bbff7ae1f2135defcbe001a8b8` |
+| 9 | `FIG_19_Realtime_Digital_Twin_TARP_Protocol.png` | `nhiem_vu_luan_an_giai_doan_3/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_3/FIG_19_Realtime_Digital_Twin_TARP_Protocol.png` | 173,513 | `direct_text` | `VERIFIED_BYTE_INTEGRITY` | `e27c824468b4223eb1a7bea0158d064488e99444ed1f5fc1d9cf4b6a228462ef` |
+| 10 | `FIG_20_Longitudinal_3D_Displacement_Evolution.png` | `nhiem_vu_luan_an_giai_doan_3/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_3/FIG_20_Longitudinal_3D_Displacement_Evolution.png` | 320,544 | `direct_text` | `VERIFIED_BYTE_INTEGRITY` | `0e83418ff7f5a26e864dfac03bf0d9cbf20b46efab1b101bbc362443505d173c` |
+| 11 | `FIG_21_Integrated_Methodological_Framework_Phase3.png` | `nhiem_vu_luan_an_giai_doan_3/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_3/FIG_21_Integrated_Methodological_Framework_Phase3.png` | 287,489 | `direct_text` | `VERIFIED_BYTE_INTEGRITY` | `810d04d80deea18344a69a868565273f7c879753ea9c1389bc950d425d7a5c63` |
+| 12 | `GATE_REASSESSMENT.csv` | `research_outputs/2026-10-15_144716/audit/GATE_REASSESSMENT.csv` | 4,529 | `direct_text` | `VERIFIED_BYTE_INTEGRITY` | `b532befce1f893354d3871c8fa549b5c2364e6961145d33101f0aeb4b4cf4060` |

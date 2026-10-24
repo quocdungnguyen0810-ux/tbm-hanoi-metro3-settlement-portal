@@ -1,0 +1,1444 @@
+{
+  "audit_scope": "read-only artifact structure, workbook internals, GeoJSON metadata, and declared SHA-256 manifests",
+  "project_root": "D:\\OneDrive\\NCKH\\NCKH 2027\\T2027\\TBM_ĐTM",
+  "workbooks": {
+    "workbook_count": 25,
+    "readable_count": 25,
+    "records": [
+      {
+        "path": "nhiem_vu_luan_an/02_du_lieu_excel_chuyen_nghiep/EVIDENCE_TRACEABILITY_AUDIT_MATRIX.xlsx",
+        "size_bytes": 12365,
+        "sha256": "41d4342bc9aa53d3cc879840ae101ab942cf0fc2fa5bb609ef383b21cd84431f",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Tong_Quan_Kiem_Toan",
+            "max_row": 10,
+            "max_column": 5,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Danh_Muc_Tai_Lieu_Nguon",
+            "max_row": 11,
+            "max_column": 10,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 0,
+        "formula_cells_without_cached_value": 0,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an/02_du_lieu_excel_chuyen_nghiep/TBM_BUILDING_RISK_EXPOSURE.xlsx",
+        "size_bytes": 13322,
+        "sha256": "d15cadc96ca7c6d635323ca2ce280e4857b89b3ebd0a3682781a9210e191c932",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Metadata_Quy_Chuan",
+            "max_row": 11,
+            "max_column": 3,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Danh_Muc_60_Cong_Trinh",
+            "max_row": 64,
+            "max_column": 16,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 0,
+        "formula_cells_without_cached_value": 0,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an/02_du_lieu_excel_chuyen_nghiep/TBM_HANOI_GEOTECHNICAL_BASELINE.xlsx",
+        "size_bytes": 14668,
+        "sha256": "91302aae5f63206c1f2b69658cd422d77905f0194becaaab8e94beb5e48aa02e",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 14,
+            "max_column": 3,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Dia_Tang_BH12",
+            "max_row": 11,
+            "max_column": 16,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Mat_Cat_S9_S10",
+            "max_row": 11,
+            "max_column": 15,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Thong_So_Co_Ly_Tong_Hop",
+            "max_row": 8,
+            "max_column": 13,
+            "formula_count": 3,
+            "state": "visible"
+          },
+          {
+            "name": "Audit_Nhat_Ky_Kiem_Dinh",
+            "max_row": 10,
+            "max_column": 10,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 3,
+        "formula_cells_without_cached_value": 3,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an/02_du_lieu_excel_chuyen_nghiep/TBM_SETTLEMENT_ANALYTICAL_ENGINE.xlsx",
+        "size_bytes": 31226,
+        "sha256": "bce723d4c9c226d4106b962b989305a2f3a6dfdeb0f5338d3db94ab6c6ac851d",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Gioi_Thieu_Va_Cong_Thuc",
+            "max_row": 14,
+            "max_column": 4,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Bang_21_Kich_Ban_Tong_Hop",
+            "max_row": 26,
+            "max_column": 17,
+            "formula_count": 210,
+            "state": "visible"
+          },
+          {
+            "name": "Profile_Ngang_S9_S10",
+            "max_row": 106,
+            "max_column": 12,
+            "formula_count": 1008,
+            "state": "visible"
+          },
+          {
+            "name": "Profile_Ngang_S11_S12",
+            "max_row": 106,
+            "max_column": 12,
+            "formula_count": 1008,
+            "state": "visible"
+          },
+          {
+            "name": "Tieu_Chuan_Hu_Hong_Burland",
+            "max_row": 10,
+            "max_column": 8,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 2226,
+        "formula_cells_without_cached_value": 2226,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1/du_lieu_excel_giai_doan_1/EVIDENCE_TRACEABILITY_AUDIT_MATRIX.xlsx",
+        "size_bytes": 12365,
+        "sha256": "41d4342bc9aa53d3cc879840ae101ab942cf0fc2fa5bb609ef383b21cd84431f",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Tong_Quan_Kiem_Toan",
+            "max_row": 10,
+            "max_column": 5,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Danh_Muc_Tai_Lieu_Nguon",
+            "max_row": 11,
+            "max_column": 10,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 0,
+        "formula_cells_without_cached_value": 0,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1/du_lieu_excel_giai_doan_1/TBM_BUILDING_RISK_EXPOSURE.xlsx",
+        "size_bytes": 13322,
+        "sha256": "d15cadc96ca7c6d635323ca2ce280e4857b89b3ebd0a3682781a9210e191c932",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Metadata_Quy_Chuan",
+            "max_row": 11,
+            "max_column": 3,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Danh_Muc_60_Cong_Trinh",
+            "max_row": 64,
+            "max_column": 16,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 0,
+        "formula_cells_without_cached_value": 0,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1/du_lieu_excel_giai_doan_1/TBM_HANOI_GEOTECHNICAL_BASELINE.xlsx",
+        "size_bytes": 14668,
+        "sha256": "91302aae5f63206c1f2b69658cd422d77905f0194becaaab8e94beb5e48aa02e",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 14,
+            "max_column": 3,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Dia_Tang_BH12",
+            "max_row": 11,
+            "max_column": 16,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Mat_Cat_S9_S10",
+            "max_row": 11,
+            "max_column": 15,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Thong_So_Co_Ly_Tong_Hop",
+            "max_row": 8,
+            "max_column": 13,
+            "formula_count": 3,
+            "state": "visible"
+          },
+          {
+            "name": "Audit_Nhat_Ky_Kiem_Dinh",
+            "max_row": 10,
+            "max_column": 10,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 3,
+        "formula_cells_without_cached_value": 3,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1/du_lieu_excel_giai_doan_1/TBM_SETTLEMENT_ANALYTICAL_ENGINE.xlsx",
+        "size_bytes": 31226,
+        "sha256": "bce723d4c9c226d4106b962b989305a2f3a6dfdeb0f5338d3db94ab6c6ac851d",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Gioi_Thieu_Va_Cong_Thuc",
+            "max_row": 14,
+            "max_column": 4,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Bang_21_Kich_Ban_Tong_Hop",
+            "max_row": 26,
+            "max_column": 17,
+            "formula_count": 210,
+            "state": "visible"
+          },
+          {
+            "name": "Profile_Ngang_S9_S10",
+            "max_row": 106,
+            "max_column": 12,
+            "formula_count": 1008,
+            "state": "visible"
+          },
+          {
+            "name": "Profile_Ngang_S11_S12",
+            "max_row": 106,
+            "max_column": 12,
+            "formula_count": 1008,
+            "state": "visible"
+          },
+          {
+            "name": "Tieu_Chuan_Hu_Hong_Burland",
+            "max_row": 10,
+            "max_column": 8,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 2226,
+        "formula_cells_without_cached_value": 2226,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/02_BO_DU_LIEU_EXCEL_NANG_CAO_GIAI_DOAN_2/EVIDENCE_TRACEABILITY_AUDIT_MATRIX_GIAI_DOAN_2.xlsx",
+        "size_bytes": 7576,
+        "sha256": "60a0c6fe79301982f0ccd86c3ad5a51f4f1bb357187a21735c914e5d98802d31",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Audit_Matrix_Giai_Doan_2",
+            "max_row": 14,
+            "max_column": 9,
+            "formula_count": 2,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 2,
+        "formula_cells_without_cached_value": 2,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/02_BO_DU_LIEU_EXCEL_NANG_CAO_GIAI_DOAN_2/TBM_HANOI_G2_BUILDING_STRAIN_DAMAGE_100.xlsx",
+        "size_bytes": 33190,
+        "sha256": "6be40143d48c50e8d70a13cc07ba69a88ba34b1abeb547a53f935860c9830c33",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 13,
+            "max_column": 2,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Danh_Sach_100_Cong_Trinh",
+            "max_row": 102,
+            "max_column": 12,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Tinh_Toan_Bien_Dang_Burland",
+            "max_row": 102,
+            "max_column": 11,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Phan_Cap_Rui_Ro_4_Kich_Ban",
+            "max_row": 102,
+            "max_column": 12,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Thong_Ke_Pivot_Risk",
+            "max_row": 8,
+            "max_column": 10,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 0,
+        "formula_cells_without_cached_value": 0,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/02_BO_DU_LIEU_EXCEL_NANG_CAO_GIAI_DOAN_2/TBM_HANOI_G2_LOGANATHAN_POULOS_3D.xlsx",
+        "size_bytes": 14881,
+        "sha256": "a18a43dc973987710b4b7bcb5eae87770f45932ca6cf034a72c31d9e844f709b",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 14,
+            "max_column": 2,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Ly_Thuyet_Cong_Thuc_LP3D",
+            "max_row": 14,
+            "max_column": 5,
+            "formula_count": 4,
+            "state": "visible"
+          },
+          {
+            "name": "Trang_Tinh_Mat_Cat_Doc_TBM",
+            "max_row": 53,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Luoi_Khong_Gian_3D_Be_Mat",
+            "max_row": 14,
+            "max_column": 12,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "So_Sanh_Peck_vs_LP3D",
+            "max_row": 31,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 4,
+        "formula_cells_without_cached_value": 4,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/02_BO_DU_LIEU_EXCEL_NANG_CAO_GIAI_DOAN_2/TBM_HANOI_G2_MONTE_CARLO_SENSITIVITY.xlsx",
+        "size_bytes": 32321,
+        "sha256": "e7069a9a2e772b4b786e1df99008aed6a48edc064f1e8287235a782e02835f4b",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 13,
+            "max_column": 2,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Tham_So_Ngau_Nhien_Dist",
+            "max_row": 7,
+            "max_column": 10,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Monte_Carlo_10000_Samples",
+            "max_row": 312,
+            "max_column": 11,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Sobol_Sensitivity_Indices",
+            "max_row": 7,
+            "max_column": 8,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Histogram_CDF_Curves",
+            "max_row": 22,
+            "max_column": 6,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 0,
+        "formula_cells_without_cached_value": 0,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_1/EVIDENCE_TRACEABILITY_AUDIT_MATRIX.xlsx",
+        "size_bytes": 12365,
+        "sha256": "41d4342bc9aa53d3cc879840ae101ab942cf0fc2fa5bb609ef383b21cd84431f",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Tong_Quan_Kiem_Toan",
+            "max_row": 10,
+            "max_column": 5,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Danh_Muc_Tai_Lieu_Nguon",
+            "max_row": 11,
+            "max_column": 10,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 0,
+        "formula_cells_without_cached_value": 0,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_1/TBM_BUILDING_RISK_EXPOSURE.xlsx",
+        "size_bytes": 13322,
+        "sha256": "d15cadc96ca7c6d635323ca2ce280e4857b89b3ebd0a3682781a9210e191c932",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Metadata_Quy_Chuan",
+            "max_row": 11,
+            "max_column": 3,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Danh_Muc_60_Cong_Trinh",
+            "max_row": 64,
+            "max_column": 16,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 0,
+        "formula_cells_without_cached_value": 0,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_1/TBM_HANOI_GEOTECHNICAL_BASELINE.xlsx",
+        "size_bytes": 14668,
+        "sha256": "91302aae5f63206c1f2b69658cd422d77905f0194becaaab8e94beb5e48aa02e",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 14,
+            "max_column": 3,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Dia_Tang_BH12",
+            "max_row": 11,
+            "max_column": 16,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Mat_Cat_S9_S10",
+            "max_row": 11,
+            "max_column": 15,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Thong_So_Co_Ly_Tong_Hop",
+            "max_row": 8,
+            "max_column": 13,
+            "formula_count": 3,
+            "state": "visible"
+          },
+          {
+            "name": "Audit_Nhat_Ky_Kiem_Dinh",
+            "max_row": 10,
+            "max_column": 10,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 3,
+        "formula_cells_without_cached_value": 3,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_1/TBM_SETTLEMENT_ANALYTICAL_ENGINE.xlsx",
+        "size_bytes": 31226,
+        "sha256": "bce723d4c9c226d4106b962b989305a2f3a6dfdeb0f5338d3db94ab6c6ac851d",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Gioi_Thieu_Va_Cong_Thuc",
+            "max_row": 14,
+            "max_column": 4,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Bang_21_Kich_Ban_Tong_Hop",
+            "max_row": 26,
+            "max_column": 17,
+            "formula_count": 210,
+            "state": "visible"
+          },
+          {
+            "name": "Profile_Ngang_S9_S10",
+            "max_row": 106,
+            "max_column": 12,
+            "formula_count": 1008,
+            "state": "visible"
+          },
+          {
+            "name": "Profile_Ngang_S11_S12",
+            "max_row": 106,
+            "max_column": 12,
+            "formula_count": 1008,
+            "state": "visible"
+          },
+          {
+            "name": "Tieu_Chuan_Hu_Hong_Burland",
+            "max_row": 10,
+            "max_column": 8,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 2226,
+        "formula_cells_without_cached_value": 2226,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_2/EVIDENCE_TRACEABILITY_AUDIT_MATRIX_GIAI_DOAN_2.xlsx",
+        "size_bytes": 7576,
+        "sha256": "60a0c6fe79301982f0ccd86c3ad5a51f4f1bb357187a21735c914e5d98802d31",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Audit_Matrix_Giai_Doan_2",
+            "max_row": 14,
+            "max_column": 9,
+            "formula_count": 2,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 2,
+        "formula_cells_without_cached_value": 2,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_2/TBM_HANOI_G2_BUILDING_STRAIN_DAMAGE_100.xlsx",
+        "size_bytes": 33190,
+        "sha256": "6be40143d48c50e8d70a13cc07ba69a88ba34b1abeb547a53f935860c9830c33",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 13,
+            "max_column": 2,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Danh_Sach_100_Cong_Trinh",
+            "max_row": 102,
+            "max_column": 12,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Tinh_Toan_Bien_Dang_Burland",
+            "max_row": 102,
+            "max_column": 11,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Phan_Cap_Rui_Ro_4_Kich_Ban",
+            "max_row": 102,
+            "max_column": 12,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Thong_Ke_Pivot_Risk",
+            "max_row": 8,
+            "max_column": 10,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 0,
+        "formula_cells_without_cached_value": 0,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_2/TBM_HANOI_G2_LOGANATHAN_POULOS_3D.xlsx",
+        "size_bytes": 14881,
+        "sha256": "a18a43dc973987710b4b7bcb5eae87770f45932ca6cf034a72c31d9e844f709b",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 14,
+            "max_column": 2,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Ly_Thuyet_Cong_Thuc_LP3D",
+            "max_row": 14,
+            "max_column": 5,
+            "formula_count": 4,
+            "state": "visible"
+          },
+          {
+            "name": "Trang_Tinh_Mat_Cat_Doc_TBM",
+            "max_row": 53,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Luoi_Khong_Gian_3D_Be_Mat",
+            "max_row": 14,
+            "max_column": 12,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "So_Sanh_Peck_vs_LP3D",
+            "max_row": 31,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 4,
+        "formula_cells_without_cached_value": 4,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_2/TBM_HANOI_G2_MONTE_CARLO_SENSITIVITY.xlsx",
+        "size_bytes": 32321,
+        "sha256": "e7069a9a2e772b4b786e1df99008aed6a48edc064f1e8287235a782e02835f4b",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 13,
+            "max_column": 2,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Tham_So_Ngau_Nhien_Dist",
+            "max_row": 7,
+            "max_column": 10,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Monte_Carlo_10000_Samples",
+            "max_row": 312,
+            "max_column": 11,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Sobol_Sensitivity_Indices",
+            "max_row": 7,
+            "max_column": 8,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Histogram_CDF_Curves",
+            "max_row": 22,
+            "max_column": 6,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 0,
+        "formula_cells_without_cached_value": 0,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/02_BO_DU_LIEU_EXCEL_CHUYEN_SAU_GIAI_DOAN_3/EVIDENCE_TRACEABILITY_AUDIT_MATRIX_GIAI_DOAN_3.xlsx",
+        "size_bytes": 9872,
+        "sha256": "4d775df710a70119262d0f05cdec52d3ef40d840ca2e1a7db4552673f7c6e2d2",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 12,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Data_Dictionary",
+            "max_row": 9,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Audit_Gates_9_to_11",
+            "max_row": 10,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 0,
+        "formula_cells_without_cached_value": 0,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/02_BO_DU_LIEU_EXCEL_CHUYEN_SAU_GIAI_DOAN_3/TBM_HANOI_G3_BUILDING_RISK_EXPOSURE_150.xlsx",
+        "size_bytes": 17097,
+        "sha256": "e94eaeb43ade8ad25c2d229cef935e60ddb7df12a9cc08f92e71eeeaace763df",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 12,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Data_Dictionary",
+            "max_row": 11,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Building_Risk_150_Database",
+            "max_row": 154,
+            "max_column": 8,
+            "formula_count": 0,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 0,
+        "formula_cells_without_cached_value": 0,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/02_BO_DU_LIEU_EXCEL_CHUYEN_SAU_GIAI_DOAN_3/TBM_HANOI_G3_COUPLED_HYDRO_MECHANICAL.xlsx",
+        "size_bytes": 11223,
+        "sha256": "8297b24d176ec86280cb478f91f79cf1298c15a88d89c30771941d3cd847522a",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 12,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Data_Dictionary",
+            "max_row": 10,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Coupled_HM_Settlement",
+            "max_row": 45,
+            "max_column": 7,
+            "formula_count": 205,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 205,
+        "formula_cells_without_cached_value": 205,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/02_BO_DU_LIEU_EXCEL_CHUYEN_SAU_GIAI_DOAN_3/TBM_HANOI_G3_NUMERICAL_3D_FEM_BENCHMARK.xlsx",
+        "size_bytes": 10686,
+        "sha256": "3ba0343433d8dfdb79fb0f43a0fcfd915011584b38e5c35ad9220166d75158a3",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 12,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Data_Dictionary",
+            "max_row": 9,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "FEM_vs_Analytical_Benchmark",
+            "max_row": 35,
+            "max_column": 7,
+            "formula_count": 124,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 124,
+        "formula_cells_without_cached_value": 124,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/02_BO_DU_LIEU_EXCEL_CHUYEN_SAU_GIAI_DOAN_3/TBM_HANOI_G3_PINN_DEEP_SURROGATE_AI.xlsx",
+        "size_bytes": 11229,
+        "sha256": "a8cf5560933642d20f44e0a6fc36c89e1cf13025ab2cae7e40b61333ccf84121",
+        "status": "READABLE",
+        "sheets": [
+          {
+            "name": "Muc_Luc_Metadata",
+            "max_row": 12,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "Data_Dictionary",
+            "max_row": 10,
+            "max_column": 7,
+            "formula_count": 0,
+            "state": "visible"
+          },
+          {
+            "name": "PINN_Test_Predictions",
+            "max_row": 54,
+            "max_column": 7,
+            "formula_count": 50,
+            "state": "visible"
+          }
+        ],
+        "formula_count": 50,
+        "formula_cells_without_cached_value": 50,
+        "formula_text_errors": [],
+        "cached_error_values": [],
+        "calculation": {
+          "calc_mode": null,
+          "full_calc_on_load": true,
+          "force_full_calc": null
+        },
+        "external_links": 0
+      }
+    ]
+  },
+  "geojson": {
+    "geojson_count": 18,
+    "records": [
+      {
+        "path": "nhiem_vu_luan_an/05_he_thong_webgis_tuong_tac/data/alignment_wgs84.geojson",
+        "status": "READABLE",
+        "size_bytes": 1836,
+        "feature_count": 3,
+        "geometry_types": {
+          "LineString": 3
+        },
+        "qa_flags": {
+          "None": 3
+        },
+        "source_ids": {
+          "None": 3
+        },
+        "declared_crs": null
+      },
+      {
+        "path": "nhiem_vu_luan_an/05_he_thong_webgis_tuong_tac/data/buildings_exposure_60.geojson",
+        "status": "READABLE",
+        "size_bytes": 76370,
+        "feature_count": 60,
+        "geometry_types": {
+          "Polygon": 60
+        },
+        "qa_flags": {
+          "None": 60
+        },
+        "source_ids": {
+          "None": 60
+        },
+        "declared_crs": null
+      },
+      {
+        "path": "nhiem_vu_luan_an/05_he_thong_webgis_tuong_tac/data/stations_wgs84.geojson",
+        "status": "READABLE",
+        "size_bytes": 1550,
+        "feature_count": 4,
+        "geometry_types": {
+          "Point": 4
+        },
+        "qa_flags": {
+          "None": 4
+        },
+        "source_ids": {
+          "None": 4
+        },
+        "declared_crs": null
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1/du_lieu_khong_gian_geojson/alignment_wgs84.geojson",
+        "status": "READABLE",
+        "size_bytes": 1836,
+        "feature_count": 3,
+        "geometry_types": {
+          "LineString": 3
+        },
+        "qa_flags": {
+          "None": 3
+        },
+        "source_ids": {
+          "None": 3
+        },
+        "declared_crs": null
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1/du_lieu_khong_gian_geojson/buildings_exposure_60.geojson",
+        "status": "READABLE",
+        "size_bytes": 76370,
+        "feature_count": 60,
+        "geometry_types": {
+          "Polygon": 60
+        },
+        "qa_flags": {
+          "None": 60
+        },
+        "source_ids": {
+          "None": 60
+        },
+        "declared_crs": null
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1/du_lieu_khong_gian_geojson/stations_wgs84.geojson",
+        "status": "READABLE",
+        "size_bytes": 1550,
+        "feature_count": 4,
+        "geometry_types": {
+          "Point": 4
+        },
+        "qa_flags": {
+          "None": 4
+        },
+        "source_ids": {
+          "None": 4
+        },
+        "declared_crs": null
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/05_HE_THONG_WEBGIS_2_TUONG_TAC_GIAI_DOAN_2/data/alignment_longitudinal_wgs84.geojson",
+        "status": "READABLE",
+        "size_bytes": 1224,
+        "feature_count": 1,
+        "geometry_types": {
+          "LineString": 1
+        },
+        "qa_flags": {
+          "None": 1
+        },
+        "source_ids": {
+          "None": 1
+        },
+        "declared_crs": {
+          "type": "name",
+          "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+          }
+        }
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_2/05_HE_THONG_WEBGIS_2_TUONG_TAC_GIAI_DOAN_2/data/buildings_exposure_100.geojson",
+        "status": "READABLE",
+        "size_bytes": 80005,
+        "feature_count": 100,
+        "geometry_types": {
+          "Point": 100
+        },
+        "qa_flags": {
+          "None": 100
+        },
+        "source_ids": {
+          "None": 100
+        },
+        "declared_crs": {
+          "type": "name",
+          "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+          }
+        }
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_1/alignment_wgs84.geojson",
+        "status": "READABLE",
+        "size_bytes": 1836,
+        "feature_count": 3,
+        "geometry_types": {
+          "LineString": 3
+        },
+        "qa_flags": {
+          "None": 3
+        },
+        "source_ids": {
+          "None": 3
+        },
+        "declared_crs": null
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_1/buildings_exposure_60.geojson",
+        "status": "READABLE",
+        "size_bytes": 76370,
+        "feature_count": 60,
+        "geometry_types": {
+          "Polygon": 60
+        },
+        "qa_flags": {
+          "None": 60
+        },
+        "source_ids": {
+          "None": 60
+        },
+        "declared_crs": null
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_1/stations_wgs84.geojson",
+        "status": "READABLE",
+        "size_bytes": 1550,
+        "feature_count": 4,
+        "geometry_types": {
+          "Point": 4
+        },
+        "qa_flags": {
+          "None": 4
+        },
+        "source_ids": {
+          "None": 4
+        },
+        "declared_crs": null
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_2/alignment_longitudinal_wgs84.geojson",
+        "status": "READABLE",
+        "size_bytes": 1224,
+        "feature_count": 1,
+        "geometry_types": {
+          "LineString": 1
+        },
+        "qa_flags": {
+          "None": 1
+        },
+        "source_ids": {
+          "None": 1
+        },
+        "declared_crs": {
+          "type": "name",
+          "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+          }
+        }
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/00_SAO_LUU_DU_LIEU_DAU_VAO_GIAI_DOAN_1_VA_2/du_lieu_giai_doan_2/buildings_exposure_100.geojson",
+        "status": "READABLE",
+        "size_bytes": 80005,
+        "feature_count": 100,
+        "geometry_types": {
+          "Point": 100
+        },
+        "qa_flags": {
+          "None": 100
+        },
+        "source_ids": {
+          "None": 100
+        },
+        "declared_crs": {
+          "type": "name",
+          "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+          }
+        }
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/05_HE_THONG_WEBGIS_3_DIGITAL_TWIN_GIAI_DOAN_3/data/alignment_complete_wgs84.geojson",
+        "status": "READABLE",
+        "size_bytes": 831,
+        "feature_count": 1,
+        "geometry_types": {
+          "LineString": 1
+        },
+        "qa_flags": {
+          "None": 1
+        },
+        "source_ids": {
+          "None": 1
+        },
+        "declared_crs": {
+          "type": "name",
+          "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+          }
+        }
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/05_HE_THONG_WEBGIS_3_DIGITAL_TWIN_GIAI_DOAN_3/data/buildings_exposure_150.geojson",
+        "status": "READABLE",
+        "size_bytes": 88489,
+        "feature_count": 150,
+        "geometry_types": {
+          "Point": 150
+        },
+        "qa_flags": {
+          "None": 150
+        },
+        "source_ids": {
+          "None": 150
+        },
+        "declared_crs": {
+          "type": "name",
+          "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+          }
+        }
+      },
+      {
+        "path": "nhiem_vu_luan_an_giai_doan_3/05_HE_THONG_WEBGIS_3_DIGITAL_TWIN_GIAI_DOAN_3/data/groundwater_drawdown_contours.geojson",
+        "status": "READABLE",
+        "size_bytes": 5134,
+        "feature_count": 5,
+        "geometry_types": {
+          "MultiLineString": 5
+        },
+        "qa_flags": {
+          "None": 5
+        },
+        "source_ids": {
+          "None": 5
+        },
+        "declared_crs": null
+      },
+      {
+        "path": "research_outputs/2026-10-13_152753/03_processed_data/alignment_wgs84.geojson",
+        "status": "READABLE",
+        "size_bytes": 2577,
+        "feature_count": 6,
+        "geometry_types": {
+          "Point": 4,
+          "LineString": 2
+        },
+        "qa_flags": {
+          "None": 6
+        },
+        "source_ids": {
+          "None": 6
+        },
+        "declared_crs": null
+      },
+      {
+        "path": "research_outputs/2026-10-13_152753/03_processed_data/buildings_exposure.geojson",
+        "status": "READABLE",
+        "size_bytes": 61775,
+        "feature_count": 60,
+        "geometry_types": {
+          "Polygon": 60
+        },
+        "qa_flags": {
+          "pilot_synthetic_scenario": 60
+        },
+        "source_ids": {
+          "None": 60
+        },
+        "declared_crs": null
+      }
+    ]
+  },
+  "manifests": {
+    "reports": [
+      {
+        "manifest": "nhiem_vu_luan_an/00_HO_SO_NGHIEM_THU_BO_MON/DANH_MUC_HO_SO_VA_CHECKSUM_SHA256.md",
+        "entry_count": 41,
+        "status_counts": {
+          "MATCH": 40,
+          "LOCKED_UNVERIFIED": 1
+        },
+        "issues": [
+          {
+            "path": "04_ban_thao_luan_an_chi_tiet/LUAN_AN_HOAN_CHINH_TBM_METRO3_HANOI.docx",
+            "expected_sha256": "73ead78cccaee6757cc54509baa2ac626897cbe8782a4269e1adcb1eb0211dbb",
+            "declared_size": "2576.2 KB",
+            "status": "LOCKED_UNVERIFIED",
+            "error": "[Errno 13] Permission denied: 'D:\\\\OneDrive\\\\NCKH\\\\NCKH 2027\\\\T2027\\\\TBM_ĐTM\\\\nhiem_vu_luan_an\\\\04_ban_thao_luan_an_chi_tiet\\\\LUAN_AN_HOAN_CHINH_TBM_METRO3_HANOI.docx'"
+          }
+        ]
+      },
+      {
+        "manifest": "nhiem_vu_luan_an_giai_doan_2/06_HO_SO_NGHIEM_THU_GIAI_DOAN_2/DANH_MUC_HO_SO_VA_CHECKSUM_SHA256_GIAI_DOAN_2.md",
+        "entry_count": 55,
+        "status_counts": {
+          "MATCH": 55
+        },
+        "issues": []
+      },
+      {
+        "manifest": "nhiem_vu_luan_an_giai_doan_3/06_HO_SO_NGHIEM_THU_GIAI_DOAN_3/DANH_MUC_HO_SO_VA_CHECKSUM_SHA256_GIAI_DOAN_3.md",
+        "entry_count": 47,
+        "status_counts": {
+          "MATCH": 47
+        },
+        "issues": []
+      }
+    ]
+  }
+}

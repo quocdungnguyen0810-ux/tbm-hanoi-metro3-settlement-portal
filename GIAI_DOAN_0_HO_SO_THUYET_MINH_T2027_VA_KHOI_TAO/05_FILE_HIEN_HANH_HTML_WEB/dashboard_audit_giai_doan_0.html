@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audit Dashboard - GIAI_DOAN_0</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f1f5f9; color: #0f172a; margin: 0; padding: 1.5rem 2rem; line-height: 1.5; }
+    .card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+    .badge { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; background: #e0f2fe; color: #0369a1; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+    
+.table-wrapper {
+  overflow: auto;
+  max-inline-size: 100%;
+  max-block-size: min(560px, 80vh);
+  container-type: inline-size;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+  margin-block-end: 1.25rem;
+}
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9rem;
+}
+caption {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+thead {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 2;
+  background: #0f172a;
+  color: #f8fafc;
+}
+th, td {
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+tbody tr:nth-child(even) td {
+  background: #f8fafc;
+}
+tbody th {
+  position: sticky;
+  inset-inline-start: 0;
+  z-index: 1;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 600;
+  border-right: 1px solid #cbd5e1;
+}
+@container (width < 600px) {
+  table, thead, tbody, tr, th, td {
+    display: block;
+  }
+  thead {
+    display: none;
+  }
+  tr {
+    margin-block-end: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+  }
+  tbody th {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 2;
+    background: #e2e8f0;
+  }
+  td:nth-child(2)::before { content: var(--label-2, "Cột 2") ": "; font-weight: 700; }
+  td:nth-child(3)::before { content: var(--label-3, "Cột 3") ": "; font-weight: 700; }
+  td:nth-child(4)::before { content: var(--label-4, "Cột 4") ": "; font-weight: 700; }
+  td:nth-child(5)::before { content: var(--label-5, "Cột 5") ": "; font-weight: 700; }
+  td:nth-child(6)::before { content: var(--label-6, "Cột 6") ": "; font-weight: 700; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">GIAI_DOAN_0 • Tháng 10/2026 – Tháng 01/2027 (Chuẩn bị, Thẩm định Thuyết minh & Khởi tạo Baseline)</span>
+    <h1 style="margin: 0.5rem 0;">Giai đoạn 0: Hồ sơ Thuyết minh Đề tài NCKH Cấp Trường T2027, Khởi tạo Quản trị & Thu thập Nguồn (Gate 0 - Gate 1)</h1>
+    <p><a href="../../INDEX_PORTAL_TOAN_DU_AN.html">⬅ Quay lại Cổng Quản trị Toàn Dự án</a></p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h2>1. Hệ thống Nhân sự & Tác tử AI</h2>
+      <p><strong>Chủ trì con người:</strong> ThS. Nguyễn Hải Hà (Chủ nhiệm đề tài – Bộ môn Địa kỹ thuật & Không gian ngầm, Khoa Công trình, Trường ĐH GTVT)</p>
+      <p><strong>Phối hợp:</strong> ThS. Lê Anh Đức (Thành viên nghiên cứu chính – Bộ môn Địa kỹ thuật & Không gian ngầm, Trường ĐH GTVT), KS. Trần Văn Long (Thành viên hỗ trợ kỹ thuật & WebGIS – Khoa Công trình và Môi trường, Trường ĐH GTVT), Ban Quản lý Đường sắt đô thị Hà Nội (MRB – Đơn vị phối hợp cung cấp bình đồ, trắc dọc đoạn S9–S12)</p>
+      <p><strong>Tác tử AI Chủ trì:</strong> general_contractor (Chỉ huy trưởng điều phối WBS & trạng thái AGENT_STATE.json), source_harvester (Khai thác tài liệu ADB EIA 2013, báo cáo địa chất & bài báo quốc tế), evidence_auditor (Kiểm toán hồ sơ thuyết minh T2027 và Gate 1 Source Integrity)</p>
+      <p><strong>Tác tử AI Hỗ trợ:</strong> data_engineer (Thiết kế 9 biểu mẫu CSV chuẩn SI và từ điển dữ liệu Data Dictionary), reporting_editor (Chuẩn hóa Thuyết minh T2027 theo mẫu Trường ĐH GTVT), pipeline_engineer (Xây dựng script tự động điền và sửa lỗi thuyết minh .docx)</p>
+    </div>
+    <div class="card">
+      <h2>2. Hệ thống Skill, Công cụ & MCP</h2>
+      <ul>
+        <li>MCP parallel-search (`web_search`, `web_fetch`) – Đối chiếu thông tin dự án ADB 40080-013 & mốc thông hầm TBM1/TBM2</li><li>MCP exa (`web_search_exa`) – Truy vấn siêu dữ liệu bài báo ASCE / Crossref / OpenAlex</li><li>Skill `literature-search-openalex` – Tra cứu định danh DOI/OpenAlex cho 10 tài liệu tham khảo cốt lõi</li><li>Skill `modern-web-guidance` (`responsive-table`, `accessibility`) – Chuẩn hóa bảng dữ liệu HTML tương tác</li><li>Skill `generative_ui` – Thiết kế giao diện bảng điều khiển kiểm toán trực quan</li><li>Công cụ Python: `python-docx`, `openpyxl`, `hashlib`, `json`, `csv`</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3. Kết quả Audit Cổng Kiểm soát (Gates) & Phát hiện Trọng yếu</h2>
+    <ul>
+      <li><strong>GATE_0_GRILL_ME_PROPOSAL:</strong> PASSED (Đã hoàn thiện 100% Thuyết minh T2027_TMĐK_Nguyen_Hai_Ha.docx, xóa toàn bộ dấu '......', sửa lỗi số học kinh phí 25.000.000 VNĐ)</li><li><strong>GATE_1_SOURCE_INTEGRITY:</strong> RETRACTED_BLOCKED -> CONDITIONAL_PILOT (Đã có 7 nguồn học thuật & 18 bản ghi địa tầng; còn thiếu PDF gốc EIA 2013 trang cụ thể và trụ địa chất CP03 có tọa độ)</li>
+    </ul>
+    hr
+    <ul>
+      <li>[ĐẠT] Hồ sơ thuyết minh T2027 đã khắc phục triệt để 15 lỗi khiếm khuyết (xóa 100% dấu ba chấm, sửa lỗi `22.770.0000` thành `22.770.000` VNĐ, bổ sung 10 tài liệu tham khảo chuẩn DOI).</li><li>[CẢNH BÁO C-01/C-02] File `research/stratigraphy_raw.csv` chưa gắn đủ 5 cột provenance (`source_id`, `source_locator`, `value_basis`, `confidence`, `qa_flag`) trên từng dòng; cần tách rõ nhãn `direct_table` và `derived`.</li><li>[CẬP NHẬT MCP 2026] Qua công cụ MCP `parallel-search`, đã xác thực TBM1 ('Thần Tốc') khởi đào tại S9 (Kim Mã) ở độ sâu 17.8m ngày 30/07/2024, lắp đặt 1.720 vòng vỏ hầm và thông hầm tại S12 ngày 01/12/2025; báo cáo ADB EMR Q1/2025 ghi nhận 56 hộ dân bị ảnh hưởng dọc S9–S12.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>4. Danh mục Tệp tin Đã Phân bổ trong Giai đoạn (62 tệp)</h2>
+    <div tabindex="0" role="region" aria-labelledby="stage-files-caption" class="table-wrapper">
+      <table style="--label-2: 'Phân khu'; --label-3: 'Dung lượng'; --label-4: 'Value Basis'; --label-5: 'QA Flag'; --label-6: 'SHA-256';">
+        <caption id="stage-files-caption">Danh mục tệp tin và trạng thái kiểm toán của GIAI_DOAN_0</caption>
+        <thead>
+          <tr>
+            <th>Tên tệp tin (Nhấn để mở)</th>
+            <th>Thư mục chức năng</th>
+            <th>Dung lượng</th>
+            <th>Value Basis</th>
+            <th>QA Flag</th>
+            <th>SHA-256 (16 ký tự đầu)</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/AGENTS.md" style="color:#0284c7; text-decoration:none;">AGENTS.md</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>3,560 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>8e7b53b5153cb0eb…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/README.md" style="color:#0284c7; text-decoration:none;">README.md</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>3,917 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>4dcc233c4c93e30e…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/agents.json" style="color:#0284c7; text-decoration:none;">agents.json</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>3,494 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>555c98b8f1e4e36b…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/task_queue.json" style="color:#0284c7; text-decoration:none;">task_queue.json</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>20,607 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>baf050600d11fa5e…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/project_config.json" style="color:#0284c7; text-decoration:none;">project_config.json</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>1,573 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>bfc5fdcb261b2fdf…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/official_docs.csv" style="color:#0284c7; text-decoration:none;">official_docs.csv</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>2,032 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>1516e57404f61bcb…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/stratigraphy_raw.csv" style="color:#0284c7; text-decoration:none;">stratigraphy_raw.csv</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>4,462 B</td>
+              <td><code>direct_table</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>2de6b12980f9725e…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/crossref_etasr6748.json" style="color:#0284c7; text-decoration:none;">crossref_etasr6748.json</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>8,339 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>4ef58dae6c21d1be…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/crossref_giao.json" style="color:#0284c7; text-decoration:none;">crossref_giao.json</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>5,606 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>b5489ef07b6d3e95…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/crossref_shin.json" style="color:#0284c7; text-decoration:none;">crossref_shin.json</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>3,152 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>133a7576a1a33d0c…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/tcxd_2024_article.pdf" style="color:#0284c7; text-decoration:none;">tcxd_2024_article.pdf</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>1,406,096 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>41a3efdc011814a8…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/alignments.csv" style="color:#0284c7; text-decoration:none;">alignments.csv</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>411 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>e1de3c454c53a92a…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/analytical_parameters.csv" style="color:#0284c7; text-decoration:none;">analytical_parameters.csv</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>437 B</td>
+              <td><code>derived</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>9d8f29808ef3038f…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/groundwater_observations.csv" style="color:#0284c7; text-decoration:none;">groundwater_observations.csv</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>397 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>e08301086556bb08…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/investigation_points.csv" style="color:#0284c7; text-decoration:none;">investigation_points.csv</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>362 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>510917461127a423…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/nearby_buildings.csv" style="color:#0284c7; text-decoration:none;">nearby_buildings.csv</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>522 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>0c8998af85ba1434…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/settlement_monitoring.csv" style="color:#0284c7; text-decoration:none;">settlement_monitoring.csv</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>532 B</td>
+              <td><code>derived</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>808c1d14d1e25b44…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/sources.csv" style="color:#0284c7; text-decoration:none;">sources.csv</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>193 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>0c207423a255ddca…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/stratigraphy_intervals.csv" style="color:#0284c7; text-decoration:none;">stratigraphy_intervals.csv</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>681 B</td>
+              <td><code>direct_table</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>700bce663b0e3e20…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/tbm_parameters.csv" style="color:#0284c7; text-decoration:none;">tbm_parameters.csv</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>379 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>6f35a9c013f8966a…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/2698-File bài báo full thông tin về tác giả (.doc hoặc .docx)-9308-2-10-20260210.pdf" style="color:#0284c7; text-decoration:none;">2698-File bài báo full thông tin về tác giả (.doc hoặc .docx)-9308-2-10-20260210.pdf</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>1,383,714 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>40303291c2e5b65a…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/BB-PhungDaiBinh22018.pdf" style="color:#0284c7; text-decoration:none;">BB-PhungDaiBinh22018.pdf</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>4,846,858 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>f173b80c9e0c2607…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/Ghi-chu-Doi-chieu-Hoc-thuat-De-tai-Cap-Truong-UTC.md" style="color:#0284c7; text-decoration:none;">Ghi-chu-Doi-chieu-Hoc-thuat-De-tai-Cap-Truong-UTC.md</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>9,150 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>480e07da84ed5687…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/Ghi-chu-Doi-chieu-Hoc-thuat-De-tai-Cap-Truong-UTC.docx" style="color:#0284c7; text-decoration:none;">Ghi-chu-Doi-chieu-Hoc-thuat-De-tai-Cap-Truong-UTC.docx</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>12,935 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>604af6638e5b6ce0…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/academic_findings.md" style="color:#0284c7; text-decoration:none;">academic_findings.md</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>5,435 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>654038ec06a9170b…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/data_dictionary.md" style="color:#0284c7; text-decoration:none;">data_dictionary.md</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>6,584 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>bea9a97cb5e6411e…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/official_docs_findings.md" style="color:#0284c7; text-decoration:none;">official_docs_findings.md</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>5,200 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>61888e7b62a34b80…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/VERIFIED_FIELD_MILESTONES_S9_S12_2026.csv" style="color:#0284c7; text-decoration:none;">VERIFIED_FIELD_MILESTONES_S9_S12_2026.csv</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>5,233 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>4561b52d1bf08563…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/VERIFIED_FIELD_MILESTONES_S9_S12_2026.json" style="color:#0284c7; text-decoration:none;">VERIFIED_FIELD_MILESTONES_S9_S12_2026.json</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>7,502 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>4ce7cc44e0650aa3…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/VERIFIED_STRATIGRAPHY_PROVENANCE_LONGFORM.csv" style="color:#0284c7; text-decoration:none;">VERIFIED_STRATIGRAPHY_PROVENANCE_LONGFORM.csv</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>7,030 B</td>
+              <td><code>direct_table</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>e17e609b0070713f…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/File_Inventory.csv" style="color:#0284c7; text-decoration:none;">File_Inventory.csv</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>7,709 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>a3a5b29e4461c2b5…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/Workflow.csv" style="color:#0284c7; text-decoration:none;">Workflow.csv</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>4,861 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>b750cae04d960daf…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/Issue_Log.csv" style="color:#0284c7; text-decoration:none;">Issue_Log.csv</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>1,144 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>2b727797067cda87…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/conceptual_framework_tbm_gis.png" style="color:#0284c7; text-decoration:none;">conceptual_framework_tbm_gis.png</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>2,030,820 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>deda2ce630200e19…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/VERIFIED_FIELD_MILESTONES_S9_S12_2026.csv" style="color:#0284c7; text-decoration:none;">VERIFIED_FIELD_MILESTONES_S9_S12_2026.csv</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>5,233 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>4561b52d1bf08563…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/VERIFIED_STRATIGRAPHY_PROVENANCE_LONGFORM.csv" style="color:#0284c7; text-decoration:none;">VERIFIED_STRATIGRAPHY_PROVENANCE_LONGFORM.csv</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>7,030 B</td>
+              <td><code>direct_table</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>e17e609b0070713f…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/File_Inventory.csv" style="color:#0284c7; text-decoration:none;">File_Inventory.csv</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>7,709 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>a3a5b29e4461c2b5…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/Workflow.csv" style="color:#0284c7; text-decoration:none;">Workflow.csv</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>4,861 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>b750cae04d960daf…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../05_FILE_HIEN_HANH_HTML_WEB/Nghiên cứu ảnh hưởng của áp lực gương đào đường hầm đến.html" style="color:#0284c7; text-decoration:none;">Nghiên cứu ảnh hưởng của áp lực gương đào đường hầm đến.html</a></th>
+              <td><code>05_FILE_HIEN_HANH_HTML_WEB</code></td>
+              <td>1,656,254 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>ada7b6d643945843…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/build_inventory.py" style="color:#0284c7; text-decoration:none;">build_inventory.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>2,686 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>974af5081038be87…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/orchestrate.py" style="color:#0284c7; text-decoration:none;">orchestrate.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>5,181 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>e029a3fdc7dd57b6…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/fill_proposal_docx.py" style="color:#0284c7; text-decoration:none;">fill_proposal_docx.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>43,999 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>3a65dbb71b028127…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/complete_t2027_proposal.py" style="color:#0284c7; text-decoration:none;">complete_t2027_proposal.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>54,146 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>a9f955644c630076…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/export_t2027_nhh_tbm.py" style="color:#0284c7; text-decoration:none;">export_t2027_nhh_tbm.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>7,643 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>d35fb789c0710355…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/geotechnical_and_gsa_reconciliation.py" style="color:#0284c7; text-decoration:none;">geotechnical_and_gsa_reconciliation.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>33,654 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>500ada8506243261…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/execute_reconciliation_and_updates.py" style="color:#0284c7; text-decoration:none;">execute_reconciliation_and_updates.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>66,252 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>461d7a681bef70e0…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/test_orchestrate.py" style="color:#0284c7; text-decoration:none;">test_orchestrate.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>1,011 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>fd231a0b36a9b19f…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/test_geotechnical_and_gsa_reconciliation.py" style="color:#0284c7; text-decoration:none;">test_geotechnical_and_gsa_reconciliation.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>3,783 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>50e8aa904fdd5e0d…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/T2027_TMĐK_Nguyen_Hai_Ha.docx" style="color:#0284c7; text-decoration:none;">T2027_TMĐK_Nguyen_Hai_Ha.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>73,322 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>4c1215a6b324d005…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/T2027_TMĐK_Nguyen_Hai_Ha_VERIFIED_2026.docx" style="color:#0284c7; text-decoration:none;">T2027_TMĐK_Nguyen_Hai_Ha_VERIFIED_2026.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>68,082 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>dfb1a19944a8dd01…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/T2027_TMĐK_Nguyen_Hai_Ha_2026.10.15.docx" style="color:#0284c7; text-decoration:none;">T2027_TMĐK_Nguyen_Hai_Ha_2026.10.15.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>74,384 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>d53ec8440f53f7de…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/T2027_TMĐK_Nguyen_Hai_Ha_BACKUP.docx" style="color:#0284c7; text-decoration:none;">T2027_TMĐK_Nguyen_Hai_Ha_BACKUP.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>74,384 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>d53ec8440f53f7de…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/T2027_Thuyetminh_Nguyen_Hai_Ha.pdf" style="color:#0284c7; text-decoration:none;">T2027_Thuyetminh_Nguyen_Hai_Ha.pdf</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>9,335,270 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>b453e19c15fff73f…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/BIEN_BAN_AUDIT_VA_HOAN_THIEN_THUYET_MINH_T2027.md" style="color:#0284c7; text-decoration:none;">BIEN_BAN_AUDIT_VA_HOAN_THIEN_THUYET_MINH_T2027.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>11,296 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>720dac2f13bf3351…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/BAO_CAO_CAP_NHAT_THUC_CHUNG_THUYET_MINH_VA_BAI_BAO_2026.md" style="color:#0284c7; text-decoration:none;">BAO_CAO_CAP_NHAT_THUC_CHUNG_THUYET_MINH_VA_BAI_BAO_2026.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>1,839 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>def62ee0ae51a726…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/BAO_CAO_XAC_MINH_MOC_THUC_DIA_VA_NGUON_CHUNG_THUC.md" style="color:#0284c7; text-decoration:none;">BAO_CAO_XAC_MINH_MOC_THUC_DIA_VA_NGUON_CHUNG_THUC.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>7,566 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>fab9fe09f92a2d79…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/proposal_dump.txt" style="color:#0284c7; text-decoration:none;">proposal_dump.txt</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>16,755 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>19d820adeebb8dc5…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/WF03_SOURCE_HARVEST_REPORT.md" style="color:#0284c7; text-decoration:none;">WF03_SOURCE_HARVEST_REPORT.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>1,852 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>fae90e3fae83ef66…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/WF04_EXTRACTION_EVIDENCE.md" style="color:#0284c7; text-decoration:none;">WF04_EXTRACTION_EVIDENCE.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>1,825 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>42f32b142dd8f71d…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/WF05_GATE_1_AUDIT_REPORT.md" style="color:#0284c7; text-decoration:none;">WF05_GATE_1_AUDIT_REPORT.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>1,601 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>d6f75efafd6068cf…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/GATE_0_EVALUATION_GRILL_ME.md" style="color:#0284c7; text-decoration:none;">GATE_0_EVALUATION_GRILL_ME.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>8,490 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>dd245d1eec5f1c78…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/KE_HOACH_THUC_THI_TBM_HANOI.md" style="color:#0284c7; text-decoration:none;">KE_HOACH_THUC_THI_TBM_HANOI.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>12,623 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>af9d2d5e1c28a206…</code></td>
+            </tr>
+            
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

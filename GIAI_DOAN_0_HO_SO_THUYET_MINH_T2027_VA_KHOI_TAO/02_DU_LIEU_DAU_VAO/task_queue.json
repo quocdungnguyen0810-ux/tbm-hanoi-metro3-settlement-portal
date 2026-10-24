@@ -1,0 +1,612 @@
+{
+  "schema_version": "1.0",
+  "auto_mode": true,
+  "tasks": [
+    {
+      "id": "WF-01",
+      "gate": 1,
+      "type": "governance",
+      "title": "Freeze scope, research questions, sign conventions, evidence classes",
+      "depends_on": [],
+      "status": "COMPLETED",
+      "priority": 1,
+      "evidence": [
+        "research_outputs/2026-10-13_152753/02_workflow/KE_HOACH_THUC_THI_TBM_HANOI.md"
+      ]
+    },
+    {
+      "id": "WF-02",
+      "gate": 1,
+      "type": "provenance",
+      "title": "Complete file inventory and source register with hashes",
+      "depends_on": [
+        "WF-01"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "evidence": [
+        "research_outputs/2026-10-13_152753/01_project_inventory/File_Inventory.csv"
+      ]
+    },
+    {
+      "id": "WF-03",
+      "gate": 1,
+      "type": "web_search",
+      "title": "Acquire and verify original EIA/ADB/CP03 documents and licenses",
+      "depends_on": [
+        "WF-02"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "source_harvester",
+      "dispatched_at": "2026-10-13T08:46:44.762442+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/01_project_inventory/WF03_SOURCE_HARVEST_REPORT.md"
+      ]
+    },
+    {
+      "id": "WF-04",
+      "gate": 1,
+      "type": "table_extraction",
+      "title": "Extract S9-S12 geometry, stratigraphy, groundwater, TBM and monitoring evidence",
+      "depends_on": [
+        "WF-03"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "source_harvester",
+      "dispatched_at": "2026-10-13T18:22:32.873982+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/01_project_inventory/WF04_EXTRACTION_EVIDENCE.md"
+      ]
+    },
+    {
+      "id": "WF-05",
+      "gate": 1,
+      "type": "citation",
+      "title": "Independent page/table/equation verification and Gate 1 report",
+      "depends_on": [
+        "WF-04"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "evidence_auditor",
+      "dispatched_at": "2026-10-13T18:22:52.243425+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/01_project_inventory/WF05_GATE_1_AUDIT_REPORT.md"
+      ]
+    },
+    {
+      "id": "WF-06",
+      "gate": 2,
+      "type": "schema",
+      "title": "Normalize source, alignment, borehole, stratigraphy, groundwater and asset tables",
+      "depends_on": [
+        "WF-05"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "data_engineer",
+      "dispatched_at": "2026-10-13T18:23:16.204561+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/03_processed_data/normalized_parameters.csv"
+      ]
+    },
+    {
+      "id": "WF-07",
+      "gate": 2,
+      "type": "qc",
+      "title": "Run physical, units, range, geometry, CRS and conflict checks",
+      "depends_on": [
+        "WF-06"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "data_engineer",
+      "dispatched_at": "2026-10-13T18:37:51.339289+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/09_logs/WF07_QC_REPORT.json"
+      ]
+    },
+    {
+      "id": "WF-08",
+      "gate": 2,
+      "type": "independent_review",
+      "title": "Resolve or quarantine critical findings and issue Gate 2 report",
+      "depends_on": [
+        "WF-07"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "evidence_auditor",
+      "dispatched_at": "2026-10-13T18:38:41.662553+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/09_logs/WF08_GATE_2_AUDIT_REPORT.md"
+      ]
+    },
+    {
+      "id": "WF-09",
+      "gate": 3,
+      "type": "freeze",
+      "title": "Create clean baseline, manifest, assumptions register and SHA-256 checksums",
+      "depends_on": [
+        "WF-08"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "data_engineer",
+      "dispatched_at": "2026-10-13T18:39:15.902821+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/03_processed_data/frozen_baseline/manifest.json"
+      ]
+    },
+    {
+      "id": "WF-10",
+      "gate": 4,
+      "type": "formula_verification",
+      "title": "Verify Peck and Loganathan-Poulos original equations, definitions and validity",
+      "depends_on": [
+        "WF-09"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "mechanics_reviewer",
+      "dispatched_at": "2026-10-13T18:39:57.140251+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/09_logs/WF10_MECHANICS_VERIFICATION_MEMO.md"
+      ]
+    },
+    {
+      "id": "WF-11",
+      "gate": 4,
+      "type": "analytical_model",
+      "title": "Implement tested Peck baseline with explicit units and sign convention",
+      "depends_on": [
+        "WF-10"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "analytical_modeler",
+      "dispatched_at": "2026-10-13T18:52:12.736319+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/09_logs/WF11_GATE_3_AUDIT_REPORT.md"
+      ]
+    },
+    {
+      "id": "WF-12",
+      "gate": 4,
+      "type": "benchmark",
+      "title": "Implement verified Loganathan-Poulos branch and cross-model benchmark",
+      "depends_on": [
+        "WF-10",
+        "WF-11"
+      ],
+      "status": "COMPLETED",
+      "priority": 2,
+      "evidence": [
+        "research_outputs/2026-10-13_152753/05_figures/peck_vs_lp_profiles.png"
+      ]
+    },
+    {
+      "id": "WF-13",
+      "gate": 4,
+      "type": "sensitivity",
+      "title": "Run VL 0.5-2.0 percent scenarios and uncertainty analysis",
+      "depends_on": [
+        "WF-11"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "sensitivity_analyst",
+      "dispatched_at": "2026-10-13T18:57:30.302521+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/06_tables/settlement_scenarios_summary.csv"
+      ]
+    },
+    {
+      "id": "WF-14",
+      "gate": 4,
+      "type": "gis",
+      "title": "Build GeoPackage and QGIS exposure workflow for settlement thresholds",
+      "depends_on": [
+        "WF-09",
+        "WF-13"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "gis_analyst",
+      "dispatched_at": "2026-10-13T19:26:25.072700+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/06_tables/webgis_settlement_map.html"
+      ]
+    },
+    {
+      "id": "WF-15",
+      "gate": 4,
+      "type": "benchmark",
+      "title": "Validate against independent reported or monitored settlement data",
+      "depends_on": [
+        "WF-12",
+        "WF-13"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "evidence": [
+        "research_outputs/2026-10-13_152753/06_tables/ai_surrogate_evaluation.json"
+      ]
+    },
+    {
+      "id": "WF-16",
+      "gate": 4,
+      "type": "independent_review",
+      "title": "Independent mechanics, sensitivity and GIS audit; close Gate 4",
+      "depends_on": [
+        "WF-14",
+        "WF-15"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "evidence_auditor",
+      "dispatched_at": "2026-10-13T19:31:21.921684+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/09_logs/WF16_GATE_4_AUDIT_REPORT.md"
+      ]
+    },
+    {
+      "id": "WF-17",
+      "gate": 5,
+      "type": "figure",
+      "title": "Generate publication tables, 350+ DPI figures and chart data",
+      "depends_on": [
+        "WF-16"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "reporting_editor",
+      "dispatched_at": "2026-10-13T19:32:24.325724+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/05_figures/spatial_settlement_envelope.png"
+      ]
+    },
+    {
+      "id": "WF-18",
+      "gate": 5,
+      "type": "manuscript",
+      "title": "Draft methods, results, limitations and planning implications",
+      "depends_on": [
+        "WF-17"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "reporting_editor",
+      "dispatched_at": "2026-10-13T19:33:54.359748+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/08_final_manuscript/MANUSCRIPT_TBM_HANOI_EIA.md"
+      ]
+    },
+    {
+      "id": "WF-19",
+      "gate": 5,
+      "type": "provenance",
+      "title": "Build claim-number-source traceability matrix and reproducibility packet",
+      "depends_on": [
+        "WF-18"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "evidence_auditor",
+      "dispatched_at": "2026-10-13T19:34:41.682617+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/09_logs/WF19_TRACEABILITY_MATRIX.csv"
+      ]
+    },
+    {
+      "id": "WF-20",
+      "gate": 5,
+      "type": "independent_review",
+      "title": "Final scientific audit and release recommendation",
+      "depends_on": [
+        "WF-19"
+      ],
+      "status": "COMPLETED",
+      "priority": 1,
+      "assigned_to": "evidence_auditor",
+      "dispatched_at": "2026-10-13T19:36:02.818004+00:00",
+      "evidence": [
+        "research_outputs/2026-10-13_152753/09_logs/WF20_FINAL_AUDIT_RELEASE.md"
+      ]
+    }
+  ],
+  "handoff_log": [
+    {
+      "task_id": "WF-03",
+      "title": "Acquire and verify original EIA/ADB/CP03 documents and licenses",
+      "gate": 1,
+      "task_type": "web_search",
+      "assigned_to": "source_harvester",
+      "dependencies": [
+        "WF-02"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T08:46:44.762442+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-03_source_harvester.json"
+    },
+    {
+      "task_id": "WF-04",
+      "title": "Extract S9-S12 geometry, stratigraphy, groundwater, TBM and monitoring evidence",
+      "gate": 1,
+      "task_type": "table_extraction",
+      "assigned_to": "source_harvester",
+      "dependencies": [
+        "WF-03"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T18:22:32.873982+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-04_source_harvester.json"
+    },
+    {
+      "task_id": "WF-05",
+      "title": "Independent page/table/equation verification and Gate 1 report",
+      "gate": 1,
+      "task_type": "citation",
+      "assigned_to": "evidence_auditor",
+      "dependencies": [
+        "WF-04"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T18:22:52.243425+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-05_evidence_auditor.json"
+    },
+    {
+      "task_id": "WF-06",
+      "title": "Normalize source, alignment, borehole, stratigraphy, groundwater and asset tables",
+      "gate": 2,
+      "task_type": "schema",
+      "assigned_to": "data_engineer",
+      "dependencies": [
+        "WF-05"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T18:23:16.204561+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-06_data_engineer.json"
+    },
+    {
+      "task_id": "WF-07",
+      "title": "Run physical, units, range, geometry, CRS and conflict checks",
+      "gate": 2,
+      "task_type": "qc",
+      "assigned_to": "data_engineer",
+      "dependencies": [
+        "WF-06"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T18:37:51.339289+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-07_data_engineer.json"
+    },
+    {
+      "task_id": "WF-08",
+      "title": "Resolve or quarantine critical findings and issue Gate 2 report",
+      "gate": 2,
+      "task_type": "independent_review",
+      "assigned_to": "evidence_auditor",
+      "dependencies": [
+        "WF-07"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T18:38:41.662553+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-08_evidence_auditor.json"
+    },
+    {
+      "task_id": "WF-09",
+      "title": "Create clean baseline, manifest, assumptions register and SHA-256 checksums",
+      "gate": 3,
+      "task_type": "freeze",
+      "assigned_to": "data_engineer",
+      "dependencies": [
+        "WF-08"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T18:39:15.902821+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-09_data_engineer.json"
+    },
+    {
+      "task_id": "WF-10",
+      "title": "Verify Peck and Loganathan-Poulos original equations, definitions and validity",
+      "gate": 4,
+      "task_type": "formula_verification",
+      "assigned_to": "mechanics_reviewer",
+      "dependencies": [
+        "WF-09"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T18:39:57.140251+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-10_mechanics_reviewer.json"
+    },
+    {
+      "task_id": "WF-11",
+      "title": "Implement tested Peck baseline with explicit units and sign convention",
+      "gate": 4,
+      "task_type": "analytical_model",
+      "assigned_to": "analytical_modeler",
+      "dependencies": [
+        "WF-10"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T18:52:12.736319+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-11_analytical_modeler.json"
+    },
+    {
+      "task_id": "WF-13",
+      "title": "Run VL 0.5-2.0 percent scenarios and uncertainty analysis",
+      "gate": 4,
+      "task_type": "sensitivity",
+      "assigned_to": "sensitivity_analyst",
+      "dependencies": [
+        "WF-11"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T18:57:30.302521+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-13_sensitivity_analyst.json"
+    },
+    {
+      "task_id": "WF-14",
+      "title": "Build GeoPackage and QGIS exposure workflow for settlement thresholds",
+      "gate": 4,
+      "task_type": "gis",
+      "assigned_to": "gis_analyst",
+      "dependencies": [
+        "WF-09",
+        "WF-13"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T19:26:25.072700+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-14_gis_analyst.json"
+    },
+    {
+      "task_id": "WF-16",
+      "title": "Independent mechanics, sensitivity and GIS audit; close Gate 4",
+      "gate": 4,
+      "task_type": "independent_review",
+      "assigned_to": "evidence_auditor",
+      "dependencies": [
+        "WF-14",
+        "WF-15"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T19:31:21.921684+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-16_evidence_auditor.json"
+    },
+    {
+      "task_id": "WF-17",
+      "title": "Generate publication tables, 350+ DPI figures and chart data",
+      "gate": 5,
+      "task_type": "figure",
+      "assigned_to": "reporting_editor",
+      "dependencies": [
+        "WF-16"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T19:32:24.325724+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-17_reporting_editor.json"
+    },
+    {
+      "task_id": "WF-18",
+      "title": "Draft methods, results, limitations and planning implications",
+      "gate": 5,
+      "task_type": "manuscript",
+      "assigned_to": "reporting_editor",
+      "dependencies": [
+        "WF-17"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T19:33:54.359748+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-18_reporting_editor.json"
+    },
+    {
+      "task_id": "WF-19",
+      "title": "Build claim-number-source traceability matrix and reproducibility packet",
+      "gate": 5,
+      "task_type": "provenance",
+      "assigned_to": "evidence_auditor",
+      "dependencies": [
+        "WF-18"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T19:34:41.682617+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-19_evidence_auditor.json"
+    },
+    {
+      "task_id": "WF-20",
+      "title": "Final scientific audit and release recommendation",
+      "gate": 5,
+      "task_type": "independent_review",
+      "assigned_to": "evidence_auditor",
+      "dependencies": [
+        "WF-19"
+      ],
+      "rules": [
+        "Do not modify source/raw data.",
+        "Record evidence and source locators.",
+        "Do not mark an audit gate passed without checks.",
+        "Write only to role-appropriate generated-output paths."
+      ],
+      "created_at": "2026-10-13T19:36:02.818004+00:00",
+      "handoff_file": "research_outputs\\2026-10-13_152753\\09_logs\\handoffs\\WF-20_evidence_auditor.json"
+    }
+  ]
+}

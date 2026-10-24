@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audit Dashboard - GIAI_DOAN_3</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f1f5f9; color: #0f172a; margin: 0; padding: 1.5rem 2rem; line-height: 1.5; }
+    .card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+    .badge { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; background: #e0f2fe; color: #0369a1; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+    
+.table-wrapper {
+  overflow: auto;
+  max-inline-size: 100%;
+  max-block-size: min(560px, 80vh);
+  container-type: inline-size;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+  margin-block-end: 1.25rem;
+}
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9rem;
+}
+caption {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+thead {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 2;
+  background: #0f172a;
+  color: #f8fafc;
+}
+th, td {
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+tbody tr:nth-child(even) td {
+  background: #f8fafc;
+}
+tbody th {
+  position: sticky;
+  inset-inline-start: 0;
+  z-index: 1;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 600;
+  border-right: 1px solid #cbd5e1;
+}
+@container (width < 600px) {
+  table, thead, tbody, tr, th, td {
+    display: block;
+  }
+  thead {
+    display: none;
+  }
+  tr {
+    margin-block-end: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+  }
+  tbody th {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 2;
+    background: #e2e8f0;
+  }
+  td:nth-child(2)::before { content: var(--label-2, "Cột 2") ": "; font-weight: 700; }
+  td:nth-child(3)::before { content: var(--label-3, "Cột 3") ": "; font-weight: 700; }
+  td:nth-child(4)::before { content: var(--label-4, "Cột 4") ": "; font-weight: 700; }
+  td:nth-child(5)::before { content: var(--label-5, "Cột 5") ": "; font-weight: 700; }
+  td:nth-child(6)::before { content: var(--label-6, "Cột 6") ": "; font-weight: 700; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">GIAI_DOAN_3 • Tháng 09/2027 – Tháng 12/2027 (Mô hình mở rộng Đa trường, AI Surrogate, TARP 150 công trình & Tổng kết Đề tài)</span>
+    <h1 style="margin: 0.5rem 0;">Giai đoạn 3: Kịch bản Lún Cố kết Thấm - Cơ học, Đối sánh 3D FEM & Mạng PINN Surrogate, 150 Công trình Di tích & WebGIS v3.0 Scenario Viewer (Gates 9 - 11)</h1>
+    <p><a href="../../INDEX_PORTAL_TOAN_DU_AN.html">⬅ Quay lại Cổng Quản trị Toàn Dự án</a></p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h2>1. Hệ thống Nhân sự & Tác tử AI</h2>
+      <p><strong>Chủ trì con người:</strong> ThS. Nguyễn Hải Hà (Chủ nhiệm đề tài – Chủ trì phân tích kết hợp lún TBM + cố kết thấm, ma trận phản ứng khẩn cấp TARP và tổng hợp báo cáo)</p>
+      <p><strong>Phối hợp:</strong> ThS. Lê Anh Đức (Phân tích rủi ro 150 công trình bao gồm khu vực di tích Văn Miếu - Quốc Tử Giám, Chùa Phổ Giác, Cát Linh), KS. Trần Văn Long (Xây dựng giao diện WebGIS v3.0 tích hợp lớp đường đồng mức hạ mực nước ngầm và bảng cảnh báo TARP)</p>
+      <p><strong>Tác tử AI Chủ trì:</strong> numerical_modeler (Xây dựng kịch bản đối sánh trường ứng suất - biến dạng 3D WF-30), mechanics_reviewer (Kiểm tra phương trình lún cố kết Terzaghi 1D và tách biệt lún cơ học vs lún cố kết WF-29), ml_modeler (Thiết kế kiến trúc Surrogate AI / PINN phục vụ suy luận nhanh WF-31), gis_analyst (Mở rộng kịch bản phơi nhiễm 150 công trình và xây dựng `webgis_digital_twin_tbm_v3.html` WF-32 & WF-35)</p>
+      <p><strong>Tác tử AI Hỗ trợ:</strong> pipeline_engineer (Sao lưu bất biến GĐ1 & GĐ2, tạo 5 file Excel GĐ3 WF-33), reporting_editor (Xuất 7 hình vẽ 300 DPI `FIG_15`–`FIG_21` WF-34 và Báo cáo toàn văn GĐ3 WF-36), evidence_auditor (Thực hiện Audit độc lập `2026-10-15_144716`, phát hiện và cách ly các lỗi C-01..C-08, H-01..H-08)</p>
+    </div>
+    <div class="card">
+      <h2>2. Hệ thống Skill, Công cụ & MCP</h2>
+      <ul>
+        <li>MCP parallel-search – Xác thực dữ liệu giám sát xã hội ADB Q1/2025 (56 hộ dân bị ảnh hưởng dọc S9–S12, hiện tượng phụ gia phun lên mặt đất tháng 02/2025)</li><li>Skill `modern-web-guidance` & `generative_ui` – Thiết kế giao diện bảng điều khiển TARP và báo cáo kiểm toán tương tác</li><li>Công cụ Kiểm toán tự động: `audit_artifacts.py`, `project_stage_organizer.py` (quét công thức Excel, GeoJSON provenance, SHA-256)</li><li>Công cụ Tính toán & Đồ họa: `numpy`, `openpyxl` (5 workbook GĐ3), `matplotlib` (7 hình 300 DPI `FIG_15`–`FIG_21`)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3. Kết quả Audit Cổng Kiểm soát (Gates) & Phát hiện Trọng yếu</h2>
+    <ul>
+      <li><strong>GATE_9_MULTIPHYSICS_NUMERICAL_SETUP:</strong> RETRACTED_UNSUPPORTED -> QUARANTINED_SYNTHETIC_DEMO (Phát hiện C-04 & C-07: Đường cong FEM được tạo từ hàm giải tích Gaussian và lún cố kết Terzaghi bị sai lệch hệ số 10 [14.1 mm vs 140.16 mm]. Đã cách ly tại Q-001 và Q-004)</li><li><strong>GATE_10_PINN_EXPOSURE_QC:</strong> RETRACTED_UNSUPPORTED -> QUARANTINED_SYNTHETIC_DEMO (Phát hiện C-05 & C-03: Dữ liệu PINN và 150 công trình được sinh từ hàm mũ + nhiễu RNG; đã chuyển nhãn sang `synthetic_demonstration` tại Q-003 và Q-004)</li><li><strong>GATE_11_STAGE_3_DIGITAL_TWIN_PACKAGING:</strong> INTEGRITY_VERIFIED_FUNCTION_SCIENCE_UNVERIFIED (47/47 tệp khớp SHA-256; đã định danh lại WebGIS v3.0 là `WebGIS Scenario Viewer v3.0` và đồng bộ số liệu phân cấp rủi ro 50/36/25/39)</li>
+    </ul>
+    hr
+    <ul>
+      <li>[PHÁT HIỆN TRỌNG YẾU C-07 -> CÁCH LY Q-001] Công thức lún cố kết trong `generate_stage_3_models_and_excel.py:155-165` với Δh=2.5m, mv=0.00045 m2/kN, H=12.7m cho kết quả vật lý 140.16 mm, nhưng báo cáo ghi 14.1 mm (sai lệch 10 lần). Đã đưa vào vùng cách ly `data/quarantine/` và hiệu chỉnh thuyết minh.</li><li>[PHÁT HIỆN TRỌNG YẾU C-04 & C-05 -> CÁCH LY Q-004] Các tệp kết quả 3D FEM và PINN trong GĐ3 là dữ liệu minh họa sinh bằng hàm giải tích + nhiễu Gaussian, không phải xuất từ phần mềm PLAXIS/OpenSeesPy hay PyTorch autodiff. Đã gắn nhãn bắt buộc `synthetic_demonstration`.</li><li>[PHÁT HIỆN TRỌNG YẾU C-08] Bảng thống kê trên HTML WebGIS v3.0 ghi cứng 52/44/36/18 công trình, trong khi đếm thực tế từ `buildings_exposure_150.geojson` là 50/36/25/39. Đã ghi nhận trong biên bản kiểm toán GĐ3.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>4. Danh mục Tệp tin Đã Phân bổ trong Giai đoạn (61 tệp)</h2>
+    <div tabindex="0" role="region" aria-labelledby="stage-files-caption" class="table-wrapper">
+      <table style="--label-2: 'Phân khu'; --label-3: 'Dung lượng'; --label-4: 'Value Basis'; --label-5: 'QA Flag'; --label-6: 'SHA-256';">
+        <caption id="stage-files-caption">Danh mục tệp tin và trạng thái kiểm toán của GIAI_DOAN_3</caption>
+        <thead>
+          <tr>
+            <th>Tên tệp tin (Nhấn để mở)</th>
+            <th>Thư mục chức năng</th>
+            <th>Dung lượng</th>
+            <th>Value Basis</th>
+            <th>QA Flag</th>
+            <th>SHA-256 (16 ký tự đầu)</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/DANH_MUC_SAO_LUU_VA_PHAN_LOAI_DU_LIEU_G1_G2.md" style="color:#0284c7; text-decoration:none;">DANH_MUC_SAO_LUU_VA_PHAN_LOAI_DU_LIEU_G1_G2.md</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>5,625 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>28f6de1ba7439002…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/TBM_HANOI_GEOTECHNICAL_BASELINE.xlsx" style="color:#0284c7; text-decoration:none;">TBM_HANOI_GEOTECHNICAL_BASELINE.xlsx</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>14,668 B</td>
+              <td><code>direct_table</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>91302aae5f63206c…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/TBM_SETTLEMENT_ANALYTICAL_ENGINE.xlsx" style="color:#0284c7; text-decoration:none;">TBM_SETTLEMENT_ANALYTICAL_ENGINE.xlsx</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>31,226 B</td>
+              <td><code>derived</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>bce723d4c9c226d4…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/TBM_HANOI_G2_LOGANATHAN_POULOS_3D.xlsx" style="color:#0284c7; text-decoration:none;">TBM_HANOI_G2_LOGANATHAN_POULOS_3D.xlsx</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>14,881 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>a18a43dc97398771…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/TBM_HANOI_G2_MONTE_CARLO_SENSITIVITY.xlsx" style="color:#0284c7; text-decoration:none;">TBM_HANOI_G2_MONTE_CARLO_SENSITIVITY.xlsx</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>32,321 B</td>
+              <td><code>model_assumption</code></td>
+              <td><code>QUARANTINE_Q002_SOBOL_CONSTANT</code></td>
+              <td><code>e7069a9a2e772b4b…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/TBM_HANOI_G2_BUILDING_STRAIN_DAMAGE_100.xlsx" style="color:#0284c7; text-decoration:none;">TBM_HANOI_G2_BUILDING_STRAIN_DAMAGE_100.xlsx</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>33,190 B</td>
+              <td><code>scenario_assumption</code></td>
+              <td><code>RELABELED_SCENARIO_ASSUMPTION_Q003</code></td>
+              <td><code>6be40143d48c50e8…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/buildings_exposure_100.geojson" style="color:#0284c7; text-decoration:none;">buildings_exposure_100.geojson</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>80,005 B</td>
+              <td><code>scenario_assumption</code></td>
+              <td><code>RELABELED_SCENARIO_ASSUMPTION_Q003</code></td>
+              <td><code>811b4f4416a73ad9…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/TBM_HANOI_G3_COUPLED_HYDRO_MECHANICAL.xlsx" style="color:#0284c7; text-decoration:none;">TBM_HANOI_G3_COUPLED_HYDRO_MECHANICAL.xlsx</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>11,223 B</td>
+              <td><code>model_assumption</code></td>
+              <td><code>QUARANTINE_Q001_FACTOR_10_CHECK</code></td>
+              <td><code>8297b24d176ec862…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/TBM_HANOI_G3_COUPLED_HM_MV_CALIBRATED.xlsx" style="color:#0284c7; text-decoration:none;">TBM_HANOI_G3_COUPLED_HM_MV_CALIBRATED.xlsx</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>10,270 B</td>
+              <td><code>model_assumption</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>6b334f5087033ac1…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/LAYER_COMPRESSIBILITY_MV_VERIFICATION.csv" style="color:#0284c7; text-decoration:none;">LAYER_COMPRESSIBILITY_MV_VERIFICATION.csv</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>2,922 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>6a83ec6b6dd3ed42…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/CONSOLIDATION_SCENARIOS_COMPARISON.csv" style="color:#0284c7; text-decoration:none;">CONSOLIDATION_SCENARIOS_COMPARISON.csv</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>2,694 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>651b1fb75fba3be3…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/TBM_HANOI_G3_NUMERICAL_3D_FEM_BENCHMARK.xlsx" style="color:#0284c7; text-decoration:none;">TBM_HANOI_G3_NUMERICAL_3D_FEM_BENCHMARK.xlsx</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>10,686 B</td>
+              <td><code>model_assumption</code></td>
+              <td><code>SYNTHETIC_BENCHMARK_DEMO_Q004</code></td>
+              <td><code>3ba0343433d8dfdb…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/TBM_HANOI_G3_PINN_DEEP_SURROGATE_AI.xlsx" style="color:#0284c7; text-decoration:none;">TBM_HANOI_G3_PINN_DEEP_SURROGATE_AI.xlsx</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>11,229 B</td>
+              <td><code>model_assumption</code></td>
+              <td><code>SYNTHETIC_BENCHMARK_DEMO_Q004</code></td>
+              <td><code>a8cf5560933642d2…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/TBM_HANOI_G3_BUILDING_RISK_EXPOSURE_150.xlsx" style="color:#0284c7; text-decoration:none;">TBM_HANOI_G3_BUILDING_RISK_EXPOSURE_150.xlsx</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>17,097 B</td>
+              <td><code>scenario_assumption</code></td>
+              <td><code>RELABELED_SCENARIO_ASSUMPTION_Q003</code></td>
+              <td><code>e94eaeb43ade8ad2…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/EVIDENCE_TRACEABILITY_AUDIT_MATRIX_GIAI_DOAN_3.xlsx" style="color:#0284c7; text-decoration:none;">EVIDENCE_TRACEABILITY_AUDIT_MATRIX_GIAI_DOAN_3.xlsx</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>9,872 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>4d775df710a70119…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/alignment_complete_wgs84.geojson" style="color:#0284c7; text-decoration:none;">alignment_complete_wgs84.geojson</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>831 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>bd30125716aabc79…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/buildings_exposure_150.geojson" style="color:#0284c7; text-decoration:none;">buildings_exposure_150.geojson</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>88,489 B</td>
+              <td><code>scenario_assumption</code></td>
+              <td><code>RELABELED_SCENARIO_ASSUMPTION_Q003</code></td>
+              <td><code>6bd957a7225cba9d…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/groundwater_drawdown_contours.geojson" style="color:#0284c7; text-decoration:none;">groundwater_drawdown_contours.geojson</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>5,134 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>6792d59a91fb71d9…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/artifact_audit.json" style="color:#0284c7; text-decoration:none;">artifact_audit.json</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>44,597 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>56d45eb75f19c762…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/GATE_REASSESSMENT.csv" style="color:#0284c7; text-decoration:none;">GATE_REASSESSMENT.csv</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>4,529 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>b532befce1f89335…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/DANH_MUC_HINH_VE_300DPI_GIAI_DOAN_3.md" style="color:#0284c7; text-decoration:none;">DANH_MUC_HINH_VE_300DPI_GIAI_DOAN_3.md</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>1,933 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>bedc553c29672df7…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/FIG_15_Coupled_Hydro_Mechanical_Consolidation.png" style="color:#0284c7; text-decoration:none;">FIG_15_Coupled_Hydro_Mechanical_Consolidation.png</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>367,208 B</td>
+              <td><code>model_assumption</code></td>
+              <td><code>QUARANTINE_Q001_FACTOR_10_CHECK</code></td>
+              <td><code>cc4d4418851a59b0…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/FIG_15B_Calibrated_mv_Consolidation_Reconciliation.png" style="color:#0284c7; text-decoration:none;">FIG_15B_Calibrated_mv_Consolidation_Reconciliation.png</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>516,378 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>889b798301253046…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/LAYER_COMPRESSIBILITY_MV_VERIFICATION.csv" style="color:#0284c7; text-decoration:none;">LAYER_COMPRESSIBILITY_MV_VERIFICATION.csv</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>2,922 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>6a83ec6b6dd3ed42…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/CONSOLIDATION_SCENARIOS_COMPARISON.csv" style="color:#0284c7; text-decoration:none;">CONSOLIDATION_SCENARIOS_COMPARISON.csv</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>2,694 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>651b1fb75fba3be3…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/FIG_16_3D_Numerical_FEM_Stress_Strain_Field.png" style="color:#0284c7; text-decoration:none;">FIG_16_3D_Numerical_FEM_Stress_Strain_Field.png</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>816,363 B</td>
+              <td><code>model_assumption</code></td>
+              <td><code>SYNTHETIC_BENCHMARK_DEMO_Q004</code></td>
+              <td><code>4596894fc31eb34e…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/FIG_17_PINN_Architecture_and_Loss_Convergence.png" style="color:#0284c7; text-decoration:none;">FIG_17_PINN_Architecture_and_Loss_Convergence.png</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>384,378 B</td>
+              <td><code>model_assumption</code></td>
+              <td><code>SYNTHETIC_BENCHMARK_DEMO_Q004</code></td>
+              <td><code>f850a222fb9012e9…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/FIG_18_Building_Risk_Zoning_150_Structures.png" style="color:#0284c7; text-decoration:none;">FIG_18_Building_Risk_Zoning_150_Structures.png</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>269,721 B</td>
+              <td><code>scenario_assumption</code></td>
+              <td><code>RELABELED_SCENARIO_ASSUMPTION_Q003</code></td>
+              <td><code>e460c8230b0b8908…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/FIG_19_Realtime_Digital_Twin_TARP_Protocol.png" style="color:#0284c7; text-decoration:none;">FIG_19_Realtime_Digital_Twin_TARP_Protocol.png</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>173,513 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>e27c824468b4223e…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/FIG_20_Longitudinal_3D_Displacement_Evolution.png" style="color:#0284c7; text-decoration:none;">FIG_20_Longitudinal_3D_Displacement_Evolution.png</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>320,544 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>0e83418ff7f5a26e…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/FIG_21_Integrated_Methodological_Framework_Phase3.png" style="color:#0284c7; text-decoration:none;">FIG_21_Integrated_Methodological_Framework_Phase3.png</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>287,489 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>810d04d80deea183…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/GATE_REASSESSMENT.csv" style="color:#0284c7; text-decoration:none;">GATE_REASSESSMENT.csv</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>4,529 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>b532befce1f89335…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../05_FILE_HIEN_HANH_HTML_WEB/webgis_digital_twin_tbm_v3.html" style="color:#0284c7; text-decoration:none;">webgis_digital_twin_tbm_v3.html</a></th>
+              <td><code>05_FILE_HIEN_HANH_HTML_WEB</code></td>
+              <td>81,085 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>62606113e3851d71…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../05_FILE_HIEN_HANH_HTML_WEB/HUONG_DAN_SU_DUNG_WEBGIS_V3_DIGITAL_TWIN.md" style="color:#0284c7; text-decoration:none;">HUONG_DAN_SU_DUNG_WEBGIS_V3_DIGITAL_TWIN.md</a></th>
+              <td><code>05_FILE_HIEN_HANH_HTML_WEB</code></td>
+              <td>1,987 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>93a048ac4ea1e6b6…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/setup_stage_3_backup.py" style="color:#0284c7; text-decoration:none;">setup_stage_3_backup.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>9,157 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>ca1160a6e9744380…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/generate_stage_3_models_and_excel.py" style="color:#0284c7; text-decoration:none;">generate_stage_3_models_and_excel.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>25,593 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>18b32739e297aecb…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/generate_stage_3_figures.py" style="color:#0284c7; text-decoration:none;">generate_stage_3_figures.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>15,600 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>59f191cc71356885…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/build_stage_3_webgis.py" style="color:#0284c7; text-decoration:none;">build_stage_3_webgis.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>19,222 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>8e5955d8c6533926…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/build_stage_3_reports_and_dossier.py" style="color:#0284c7; text-decoration:none;">build_stage_3_reports_and_dossier.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>28,903 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>94c320742366cea4…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/audit_artifacts.py" style="color:#0284c7; text-decoration:none;">audit_artifacts.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>7,917 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>56b8ad64f13a1a99…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/scripts__project_stage_organizer.py" style="color:#0284c7; text-decoration:none;">scripts__project_stage_organizer.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>8,460 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>fac0b5761681334a…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/geotechnical_and_gsa_reconciliation.py" style="color:#0284c7; text-decoration:none;">geotechnical_and_gsa_reconciliation.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>33,654 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>500ada8506243261…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/execute_reconciliation_and_updates.py" style="color:#0284c7; text-decoration:none;">execute_reconciliation_and_updates.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>66,252 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>461d7a681bef70e0…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/tests__test_project_stage_organizer.py" style="color:#0284c7; text-decoration:none;">tests__test_project_stage_organizer.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>3,763 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>299aa9f6e0b5b1b4…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/test_geotechnical_and_gsa_reconciliation.py" style="color:#0284c7; text-decoration:none;">test_geotechnical_and_gsa_reconciliation.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>3,783 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>50e8aa904fdd5e0d…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/BAO_CAO_THAM_DINH_VA_HIEU_CHINH_MV_GIAI_DOAN_3.md" style="color:#0284c7; text-decoration:none;">BAO_CAO_THAM_DINH_VA_HIEU_CHINH_MV_GIAI_DOAN_3.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>6,293 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>7c04e1eff2f3ce16…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/KE_HOACH_THUC_THI_CHI_TIET_GIAI_DOAN_3.md" style="color:#0284c7; text-decoration:none;">KE_HOACH_THUC_THI_CHI_TIET_GIAI_DOAN_3.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>18,866 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>dc5b1c89b264337f…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/MA_TRAN_PHOI_HOP_TAC_TU_VA_CONG_CU_GIAI_DOAN_3.md" style="color:#0284c7; text-decoration:none;">MA_TRAN_PHOI_HOP_TAC_TU_VA_CONG_CU_GIAI_DOAN_3.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>11,094 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>a92891493f61b756…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/BAO_CAO_TOAN_VAN_HOAN_CHINH_GIAI_DOAN_3.md" style="color:#0284c7; text-decoration:none;">BAO_CAO_TOAN_VAN_HOAN_CHINH_GIAI_DOAN_3.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>12,625 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>07faef6b8901ab34…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/BAO_CAO_TOAN_VAN_HOAN_CHINH_GIAI_DOAN_3.docx" style="color:#0284c7; text-decoration:none;">BAO_CAO_TOAN_VAN_HOAN_CHINH_GIAI_DOAN_3.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>2,482,309 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>b790553768bfd62b…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/BAO_CAO_TOM_TAT_NGHIEM_THU_GIAI_DOAN_3.md" style="color:#0284c7; text-decoration:none;">BAO_CAO_TOM_TAT_NGHIEM_THU_GIAI_DOAN_3.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>1,683 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>7a169767f623d762…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/BAO_CAO_TOM_TAT_NGHIEM_THU_GIAI_DOAN_3.docx" style="color:#0284c7; text-decoration:none;">BAO_CAO_TOM_TAT_NGHIEM_THU_GIAI_DOAN_3.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>36,680 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>2a2aac2f0ff60632…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/BIEN_BAN_KIEM_TOAN_KHOA_HOC_GIAI_DOAN_3_GATES.md" style="color:#0284c7; text-decoration:none;">BIEN_BAN_KIEM_TOAN_KHOA_HOC_GIAI_DOAN_3_GATES.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>1,472 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>02507e67e5aad05c…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/BIEN_BAN_KIEM_TOAN_KHOA_HOC_GIAI_DOAN_3_GATES.docx" style="color:#0284c7; text-decoration:none;">BIEN_BAN_KIEM_TOAN_KHOA_HOC_GIAI_DOAN_3_GATES.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>36,564 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>e5e9f5de1309c49d…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/DANH_MUC_HO_SO_VA_CHECKSUM_SHA256_GIAI_DOAN_3.md" style="color:#0284c7; text-decoration:none;">DANH_MUC_HO_SO_VA_CHECKSUM_SHA256_GIAI_DOAN_3.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>9,764 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>35f78ed2121c581d…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/PHIEU_DANH_GIA_NGHIEM_THU_GIAI_DOAN_3.md" style="color:#0284c7; text-decoration:none;">PHIEU_DANH_GIA_NGHIEM_THU_GIAI_DOAN_3.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>1,504 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>c5c5db82a9c7eb3b…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/PHIEU_DANH_GIA_NGHIEM_THU_GIAI_DOAN_3.docx" style="color:#0284c7; text-decoration:none;">PHIEU_DANH_GIA_NGHIEM_THU_GIAI_DOAN_3.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>36,549 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>cb2ffaf795f50975…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/TO_TRINH_XIN_NGHIEM_THU_GIAI_DOAN_3.md" style="color:#0284c7; text-decoration:none;">TO_TRINH_XIN_NGHIEM_THU_GIAI_DOAN_3.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>1,436 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>a7ace7476df30293…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/TO_TRINH_XIN_NGHIEM_THU_GIAI_DOAN_3.docx" style="color:#0284c7; text-decoration:none;">TO_TRINH_XIN_NGHIEM_THU_GIAI_DOAN_3.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>36,534 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>fcec8f6a90981d86…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/AUDIT_REPORT.md" style="color:#0284c7; text-decoration:none;">AUDIT_REPORT.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>19,851 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>f8746947759cd3cf…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/README.md" style="color:#0284c7; text-decoration:none;">README.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>664 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>d127d90fccfc943c…</code></td>
+            </tr>
+            
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

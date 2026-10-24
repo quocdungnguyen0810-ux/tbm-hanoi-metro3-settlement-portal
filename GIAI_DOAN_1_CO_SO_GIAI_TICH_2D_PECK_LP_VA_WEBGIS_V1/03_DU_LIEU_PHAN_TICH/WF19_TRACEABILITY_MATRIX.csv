@@ -1,0 +1,14 @@
+claim_id,manuscript_section,scientific_statement,numerical_value,unit,source_or_model,source_locator,value_basis,qa_flag
+CLM-01,Section 1,Tunnel outer diameter,6.30,m,ADB EMR 2017 & TCXD 2024,p.85,direct_text,verified
+CLM-02,Section 1,Twin tunnel center-to-center spacing,13.0,m,TCXD 2024,p.86 Fig.7,direct_table,verified
+CLM-03,Section 2,Section S9-S10 tunnel axis depth,15.0,m,ETASR 2024,p.13048,direct_text,verified
+CLM-04,Section 2,Section S11-S12 tunnel axis depth,18.0,m,TCXD 2024,p.86 Table 2,direct_table,verified
+CLM-05,Section 2,BH12 soft clay layer thickness,12.7,m,TCXD 2024,p.86 Table 2,direct_table,flagged_discrepancy_preserved
+CLM-06,Section 4,S9-S10 Smax at VL=1.0% single tunnel,16.58,mm,PeckModel calculation,Eq. 3,model_output,verified_mass_conservation
+CLM-07,Section 4,S9-S10 Smax at VL=1.0% twin tunnel,22.10,mm,PeckModel superposition,Eq. 6,model_output,verified_mass_conservation
+CLM-08,Section 4,S11-S12 Smax at VL=1.0% single tunnel,11.51,mm,PeckModel calculation,Eq. 3,model_output,verified_mass_conservation
+CLM-09,Section 4,S11-S12 Smax at VL=1.0% twin tunnel,18.18,mm,PeckModel superposition,Eq. 6,model_output,verified_mass_conservation
+CLM-10,Section 4,S9-S10 Smax at VL=2.0% twin tunnel,44.20,mm,PeckModel superposition,Eq. 6,model_output,severe_risk_exceeded
+CLM-11,Section 6,Surrogate AI Model R2 score,0.9991,dimensionless,LightweightMLP,ai_surrogate_evaluation.json,ai_inference,surrogate_trained_on_peck_analytical_grid
+CLM-12,Section 6,Surrogate AI Model Mean Absolute Error,0.156,mm,LightweightMLP,ai_surrogate_evaluation.json,ai_inference,surrogate_trained_on_peck_analytical_grid
+CLM-13,Section 5,Synthetic nearby buildings total count,60,count,spatial_engine.py,buildings_exposure.geojson,scenario_assumption,pilot_synthetic_scenario

@@ -1,0 +1,93 @@
+{
+  "type": "FeatureCollection",
+  "name": "hanoi_metro3_alignment_s9_s12",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tuyến hầm đôi TBM - Tim tuyến thiết kế",
+        "diameter_m": 6.3,
+        "color": "#1e3c72"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            105.8142,
+            21.0315
+          ],
+          [
+            105.8278,
+            21.0281
+          ],
+          [
+            105.8361,
+            21.0264
+          ],
+          [
+            105.8423,
+            21.0242
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ống hầm TBM Phải (Bắc)",
+        "diameter_m": 6.3,
+        "color": "#0056b3"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            105.814184,
+            21.031443
+          ],
+          [
+            105.827784,
+            21.028043
+          ],
+          [
+            105.836087,
+            21.026343
+          ],
+          [
+            105.842278,
+            21.024145
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ống hầm TBM Trái (Nam)",
+        "diameter_m": 6.3,
+        "color": "#0056b3"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            105.814216,
+            21.031557
+          ],
+          [
+            105.827816,
+            21.028157
+          ],
+          [
+            105.836113,
+            21.026457
+          ],
+          [
+            105.842322,
+            21.024255
+          ]
+        ]
+      }
+    }
+  ]
+}

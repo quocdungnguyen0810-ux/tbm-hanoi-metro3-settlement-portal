@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "default_model": "inherit",
+  "orchestrator": "general_contractor",
+  "agents": [
+    {"id": "general_contractor", "role": "Own WBS, dependencies, state, handoffs, and gate sequencing", "accepts": ["governance", "planning", "integration", "status"]},
+    {"id": "source_harvester", "role": "Find and extract public EIA, ADB, technical reports, papers, tables, and figures", "accepts": ["web_search", "pdf", "ocr", "table_extraction"], "escalation_trigger": "scanned_or_long_pdf"},
+    {"id": "evidence_auditor", "role": "Verify citations, source locators, licenses, evidence classes, conflicts, and traceability", "accepts": ["citation", "provenance", "conflict", "independent_review"]},
+    {"id": "data_engineer", "role": "Normalize schemas, validate units and keys, quarantine invalid records, and freeze baselines", "accepts": ["schema", "etl", "qc", "checksum", "freeze"]},
+    {"id": "mechanics_reviewer", "role": "Verify analytical equations, assumptions, units, validity ranges, and mechanics", "accepts": ["derivation", "geotechnical_review", "formula_verification", "benchmark"]},
+    {"id": "analytical_modeler", "role": "Implement and test Peck and verified Loganathan-Poulos models", "accepts": ["analytical_model", "unit_test", "scenario_run"]},
+    {"id": "sensitivity_analyst", "role": "Design scenario, local/global sensitivity, uncertainty propagation, and robustness checks", "accepts": ["sensitivity", "uncertainty", "statistics"]},
+    {"id": "gis_analyst", "role": "Build verified spatial layers, exposure overlays, QGIS project, maps, and spatial QC", "accepts": ["gis", "crs", "geopackage", "spatial_qc", "cartography"]},
+    {"id": "reporting_editor", "role": "Prepare evidence-linked tables, figures, methods, limitations, and manuscript material", "accepts": ["report", "table", "figure", "manuscript"]},
+    {"id": "pipeline_engineer", "role": "Resolve local code, environment, test, and orchestration issues", "accepts": ["code", "test", "environment", "local_error"]},
+    {"id": "numerical_modeler", "role": "Build, calibrate, and simulate 2D/3D numerical models (PLAXIS, OpenSeesPy, FLAC) for soil-tunnel interaction, stress-strain field, and mesh convergence verification", "accepts": ["fem", "numerical_model", "plaxis", "opensees", "stress_field", "3d_simulation"]}
+  ],
+  "routing": [
+    {"match": ["pdf", "ocr", "table_extraction", "web_search"], "to": "source_harvester"},
+    {"match": ["citation", "provenance", "conflict", "independent_review"], "to": "evidence_auditor"},
+    {"match": ["schema", "etl", "qc", "checksum", "freeze"], "to": "data_engineer"},
+    {"match": ["derivation", "geotechnical_review", "formula_verification", "benchmark"], "to": "mechanics_reviewer"},
+    {"match": ["analytical_model", "unit_test", "scenario_run"], "to": "analytical_modeler"},
+    {"match": ["sensitivity", "uncertainty", "statistics"], "to": "sensitivity_analyst"},
+    {"match": ["gis", "crs", "geopackage", "spatial_qc", "cartography"], "to": "gis_analyst"},
+    {"match": ["report", "table", "figure", "manuscript"], "to": "reporting_editor"},
+    {"match": ["code", "test", "environment", "local_error"], "to": "pipeline_engineer"},
+    {"match": ["fem", "numerical_model", "plaxis", "opensees", "stress_field", "3d_simulation"], "to": "numerical_modeler"}
+  ],
+  "conditional_agents": [
+    {"id": "ml_modeler", "activate_only_if": "a sufficiently large independent labelled dataset and validation protocol exist"}
+  ]
+}

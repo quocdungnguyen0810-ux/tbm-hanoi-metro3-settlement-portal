@@ -1,0 +1,16 @@
+{
+  "frozen_at": "2026-10-13T19:35:10.501763+00:00",
+  "gate": "GATE_3_BASELINE_FREEZE",
+  "files": [
+    {
+      "name": "normalized_sources.csv",
+      "sha256": "6a69a0817083365b5492b527786cf7a3e1697b05b22b000b51ad2f91caca3feb",
+      "size_bytes": 1120
+    },
+    {
+      "name": "normalized_parameters.csv",
+      "sha256": "5ae8bcd5626b4c0c2a31e6e164ccd09ecf792f8e3e3a2267b8e18cb272189fe3",
+      "size_bytes": 377
+    }
+  ]
+}

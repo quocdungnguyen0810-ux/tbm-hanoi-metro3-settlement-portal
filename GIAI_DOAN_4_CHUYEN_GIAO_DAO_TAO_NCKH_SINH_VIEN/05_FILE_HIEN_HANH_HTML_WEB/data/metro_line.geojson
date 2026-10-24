@@ -1,0 +1,54 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "LINE_3_UG",
+        "name": "Tuyến ngầm Metro 3 (S9 - S12)",
+        "length_km": 4.0,
+        "tunnel_type": "Hầm đôi song song (Twin TBM Tunnels)",
+        "diameter_m": 6.3,
+        "depth_m": "15 - 18 m",
+        "tbm_names": "TBM 1 (Thần Tốc) & TBM 2 (Táo Bạo)"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            105.8192,
+            21.0315
+          ],
+          [
+            105.822,
+            21.0308
+          ],
+          [
+            105.825,
+            21.0301
+          ],
+          [
+            105.8295,
+            21.0286
+          ],
+          [
+            105.8335,
+            21.0275
+          ],
+          [
+            105.8368,
+            21.0264
+          ],
+          [
+            105.839,
+            21.025
+          ],
+          [
+            105.8415,
+            21.0238
+          ]
+        ]
+      }
+    }
+  ]
+}

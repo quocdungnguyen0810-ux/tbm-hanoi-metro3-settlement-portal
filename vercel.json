@@ -1,0 +1,66 @@
+{
+  "version": 2,
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/portal",
+      "destination": "/INDEX_PORTAL_TOAN_DU_AN.html"
+    },
+    {
+      "source": "/giai-doan-0",
+      "destination": "/GIAI_DOAN_0_HO_SO_THUYET_MINH_T2027_VA_KHOI_TAO/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html"
+    },
+    {
+      "source": "/giai-doan-1",
+      "destination": "/GIAI_DOAN_1_CO_SO_GIAI_TICH_2D_PECK_LP_VA_WEBGIS_V1/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html"
+    },
+    {
+      "source": "/webgis-v1",
+      "destination": "/GIAI_DOAN_1_CO_SO_GIAI_TICH_2D_PECK_LP_VA_WEBGIS_V1/05_FILE_HIEN_HANH_HTML_WEB/webgis_settlement_map.html"
+    },
+    {
+      "source": "/giai-doan-2",
+      "destination": "/GIAI_DOAN_2_MO_HINH_3D_MONTE_CARLO_SOBOL_VA_WEBGIS_V2/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html"
+    },
+    {
+      "source": "/webgis-v2",
+      "destination": "/GIAI_DOAN_2_MO_HINH_3D_MONTE_CARLO_SOBOL_VA_WEBGIS_V2/05_FILE_HIEN_HANH_HTML_WEB/webgis_settlement_advance_v2.html"
+    },
+    {
+      "source": "/thu-vien-hinh-g2",
+      "destination": "/GIAI_DOAN_2_MO_HINH_3D_MONTE_CARLO_SOBOL_VA_WEBGIS_V2/04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/thu_vien_hinh_ve_bang_bieu.html"
+    },
+    {
+      "source": "/giai-doan-3",
+      "destination": "/GIAI_DOAN_3_COUPLED_HM_3DFEM_PINN_DIGITAL_TWIN_V3/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html"
+    },
+    {
+      "source": "/webgis-v3",
+      "destination": "/GIAI_DOAN_3_COUPLED_HM_3DFEM_PINN_DIGITAL_TWIN_V3/05_FILE_HIEN_HANH_HTML_WEB/webgis_digital_twin_tbm_v3.html"
+    },
+    {
+      "source": "/giai-doan-4",
+      "destination": "/GIAI_DOAN_4_CHUYEN_GIAO_DAO_TAO_NCKH_SINH_VIEN/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html"
+    },
+    {
+      "source": "/storymap-sv",
+      "destination": "/GIAI_DOAN_4_CHUYEN_GIAO_DAO_TAO_NCKH_SINH_VIEN/05_FILE_HIEN_HANH_HTML_WEB/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(html|md|csv|geojson|json)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ]
+}

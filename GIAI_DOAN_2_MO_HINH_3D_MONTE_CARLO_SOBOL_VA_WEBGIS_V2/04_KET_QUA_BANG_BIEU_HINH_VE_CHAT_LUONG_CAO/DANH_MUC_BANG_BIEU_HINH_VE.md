@@ -1,0 +1,18 @@
+# DANH MỤC KẾT QUẢ BẢNG BIỂU & HÌNH VẼ CHẤT LƯỢNG CAO (300-350 DPI) (GIAI_DOAN_2)
+
+- **Giai đoạn:** Giai đoạn 2: Giải tích 3D Loganathan-Poulos, Giải tích Ngẫu nhiên 10.000 Mẫu Monte Carlo & Chỉ số Sobol, Đánh giá Tổn hại 100 Công trình & WebGIS v2.0 (Gates 6 - 8)
+- **Thư mục:** `04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/`
+- **Tổng số tệp tin:** 10
+
+| STT | Tên tệp tin | Nguồn gốc (`source_locator`) | Dung lượng (Bytes) | Phân lớp (`value_basis`) | Cờ QA (`qa_flag`) | SHA-256 |
+|:---:|---|---|---:|---|---|---|
+| 1 | `DANH_MUC_HINH_VE_300DPI_GIAI_DOAN_2.md` | `nhiem_vu_luan_an_giai_doan_2/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_2/DANH_MUC_HINH_VE_300DPI_GIAI_DOAN_2.md` | 2,370 | `direct_text` | `VERIFIED_BYTE_INTEGRITY` | `c063e828bb053a3504ed5924307229f87305440a7a67de3287c6cec59433f3ad` |
+| 2 | `FIG_08_Monte_Carlo_Distribution_Settlement_G2.png` | `nhiem_vu_luan_an_giai_doan_2/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_2/FIG_08_Monte_Carlo_Distribution_Settlement_G2.png` | 366,829 | `model_assumption` | `QUARANTINE_Q002_SOBOL_CONSTANT` | `5f51be1526eeaca24c8e479c4d0f2f13cd46e2b8c62b6acbec120989ca39043f` |
+| 3 | `FIG_09_Global_Sensitivity_Sobol_Indices_G2.png` | `nhiem_vu_luan_an_giai_doan_2/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_2/FIG_09_Global_Sensitivity_Sobol_Indices_G2.png` | 296,715 | `direct_text` | `QUARANTINE_Q002_SOBOL_CONSTANT` | `f3c5f57df9452c1dc697bdac5d3beec4be0cea56807e69ee887e50c04a1f2f76` |
+| 4 | `FIG_09B_Saltelli_LHS_vs_Static_Sobol_Comparison.png` | `data/03_saltelli_lhs_loganathan_poulos_gsa_stage2/FIG_09B_Saltelli_LHS_vs_Static_Sobol_Comparison.png` | 310,088 | `direct_text` | `QUARANTINE_Q002_SOBOL_CONSTANT` | `59971343da4a9c14a6019979329927a2706dadb5094778e9e7b2764d0b20ef53` |
+| 5 | `SOBOL_SALTELLI_LHS_VS_STATIC_COMPARISON.csv` | `data/03_saltelli_lhs_loganathan_poulos_gsa_stage2/SOBOL_SALTELLI_LHS_VS_STATIC_COMPARISON.csv` | 2,627 | `direct_text` | `QUARANTINE_Q002_SOBOL_CONSTANT` | `0643492cee4b366933a8ab2bc2c8efbd7ea3ccc6d37449e3dce3d4fb60cf27ce` |
+| 6 | `FIG_10_Longitudinal_Settlement_Profile_TBM_Advance_G2.png` | `nhiem_vu_luan_an_giai_doan_2/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_2/FIG_10_Longitudinal_Settlement_Profile_TBM_Advance_G2.png` | 326,550 | `derived` | `VERIFIED_BYTE_INTEGRITY` | `09effaa6b1e470ca41d861ec775843a3ca1f5ef59dc41265279215efdf25727d` |
+| 7 | `FIG_11_3D_Settlement_Trough_Surface_G2.png` | `nhiem_vu_luan_an_giai_doan_2/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_2/FIG_11_3D_Settlement_Trough_Surface_G2.png` | 666,365 | `derived` | `VERIFIED_BYTE_INTEGRITY` | `0253b1c65ba4bba7e0fc162309e4f68c61704a946420491a236f1bf52eaf8478` |
+| 8 | `FIG_12_Building_Deflection_vs_Horizontal_Strain_Burland_G2.png` | `nhiem_vu_luan_an_giai_doan_2/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_2/FIG_12_Building_Deflection_vs_Horizontal_Strain_Burland_G2.png` | 321,859 | `direct_text` | `VERIFIED_BYTE_INTEGRITY` | `ce587bdf589899f5da0fc0986c40f5790e625b967fbe7950cdc9a985772c7b6a` |
+| 9 | `FIG_13_Twin_Tunnel_Interaction_3D_Stress_Field_G2.png` | `nhiem_vu_luan_an_giai_doan_2/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_2/FIG_13_Twin_Tunnel_Interaction_3D_Stress_Field_G2.png` | 425,388 | `direct_text` | `VERIFIED_BYTE_INTEGRITY` | `b7ba570bae9b45ff7e443b112ad4325cf0353a1680ee1c1a146d9d2ec7116e08` |
+| 10 | `FIG_14_Integrated_Workflow_Stage_2_Framework.png` | `nhiem_vu_luan_an_giai_doan_2/03_HINH_ANH_MINH_HOA_CHAT_LUONG_CAO_GIAI_DOAN_2/FIG_14_Integrated_Workflow_Stage_2_Framework.png` | 275,403 | `direct_text` | `VERIFIED_BYTE_INTEGRITY` | `c24224bc991a2cd0a81a5bf0d370608304f1cd32854def6d147240bcfd869cbb` |

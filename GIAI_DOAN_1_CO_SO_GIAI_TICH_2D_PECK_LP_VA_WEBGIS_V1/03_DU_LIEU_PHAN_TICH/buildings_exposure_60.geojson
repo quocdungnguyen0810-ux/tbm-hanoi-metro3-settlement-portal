@@ -1,0 +1,2886 @@
+{
+  "type": "FeatureCollection",
+  "name": "buildings_exposure_60_s9_s12",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-001",
+        "name": "Nhà dân / Trụ sở Km 8.400 (Trái)",
+        "km": 8.4,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": -7.5,
+        "structure": "Nhà chia lô tường gạch chịu lực",
+        "floors": 2,
+        "foundation": "Móng gạch / bè nông",
+        "s_10": 18.76,
+        "theta_10": 0.985,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 37.52,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.031565,
+        "lng": 105.814219
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.81413862980133,
+              21.031495400851277
+            ],
+            [
+              105.81429862980133,
+              21.031495400851277
+            ],
+            [
+              105.81429862980133,
+              21.03163540085128
+            ],
+            [
+              105.81413862980133,
+              21.03163540085128
+            ],
+            [
+              105.81413862980133,
+              21.031495400851277
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-002",
+        "name": "Nhà dân / Trụ sở Km 8.442 (Trái)",
+        "km": 8.442,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": -19.0,
+        "structure": "Nhà ống đô thị kết cấu khung BTCT",
+        "floors": 4,
+        "foundation": "Móng băng",
+        "s_10": 4.06,
+        "theta_10": 0.914,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 8.12,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.031523,
+        "lng": 105.814818
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.81473839549672,
+              21.03145288215657
+            ],
+            [
+              105.81489839549671,
+              21.03145288215657
+            ],
+            [
+              105.81489839549671,
+              21.031592882156573
+            ],
+            [
+              105.81473839549672,
+              21.031592882156573
+            ],
+            [
+              105.81473839549672,
+              21.03145288215657
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-003",
+        "name": "Nhà dân / Trụ sở Km 8.484 (Phải)",
+        "km": 8.484,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": 5.8,
+        "structure": "Khu tập thể cũ xây lắp ghép",
+        "floors": 5,
+        "foundation": "Móng bè nông",
+        "s_10": 20.21,
+        "theta_10": 0.717,
+        "risk_10": "Cấp 2 (Slight)",
+        "s_20": 40.42,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.031164,
+        "lng": 105.815328
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.81524799295364,
+              21.031093823341678
+            ],
+            [
+              105.81540799295364,
+              21.031093823341678
+            ],
+            [
+              105.81540799295364,
+              21.03123382334168
+            ],
+            [
+              105.81524799295364,
+              21.03123382334168
+            ],
+            [
+              105.81524799295364,
+              21.031093823341678
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-004",
+        "name": "Nhà dân / Trụ sở Km 8.526 (Trái)",
+        "km": 8.526,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": -20.6,
+        "structure": "Công trình công cộng / Di tích",
+        "floors": 3,
+        "foundation": "Móng nông cổ",
+        "s_10": 2.77,
+        "theta_10": 0.7,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 5.54,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.031251,
+        "lng": 105.815965
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.81588476985434,
+              21.031181234338177
+            ],
+            [
+              105.81604476985433,
+              21.031181234338177
+            ],
+            [
+              105.81604476985433,
+              21.03132123433818
+            ],
+            [
+              105.81588476985434,
+              21.03132123433818
+            ],
+            [
+              105.81588476985434,
+              21.031181234338177
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-005",
+        "name": "Nhà dân / Trụ sở Km 8.568 (Trái)",
+        "km": 8.568,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": -2.4,
+        "structure": "Nhà phố bê tông cốt thép",
+        "floors": 3,
+        "foundation": "Móng đơn / nông",
+        "s_10": 21.81,
+        "theta_10": 0.249,
+        "risk_10": "Cấp 2 (Slight)",
+        "s_20": 43.62,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.03095,
+        "lng": 105.816491
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.81641076153643,
+              21.03087972827241
+            ],
+            [
+              105.81657076153643,
+              21.03087972827241
+            ],
+            [
+              105.81657076153643,
+              21.031019728272412
+            ],
+            [
+              105.81641076153643,
+              21.031019728272412
+            ],
+            [
+              105.81641076153643,
+              21.03087972827241
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-006",
+        "name": "Nhà dân / Trụ sở Km 8.611 (Phải)",
+        "km": 8.611,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": 6.1,
+        "structure": "Nhà chia lô tường gạch chịu lực",
+        "floors": 4,
+        "foundation": "Móng gạch / bè nông",
+        "s_10": 19.99,
+        "theta_10": 0.764,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 39.97,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.030729,
+        "lng": 105.817054
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.81697444776158,
+              21.030659407307628
+            ],
+            [
+              105.81713444776157,
+              21.030659407307628
+            ],
+            [
+              105.81713444776157,
+              21.03079940730763
+            ],
+            [
+              105.81697444776158,
+              21.03079940730763
+            ],
+            [
+              105.81697444776158,
+              21.030659407307628
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-007",
+        "name": "Nhà dân / Trụ sở Km 8.653 (Trái)",
+        "km": 8.653,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": -28.8,
+        "structure": "Nhà ống đô thị kết cấu khung BTCT",
+        "floors": 5,
+        "foundation": "Móng băng",
+        "s_10": 0.19,
+        "theta_10": 0.077,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 0.39,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.030891,
+        "lng": 105.817712
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.81763233843712,
+              21.030820939268906
+            ],
+            [
+              105.81779233843712,
+              21.030820939268906
+            ],
+            [
+              105.81779233843712,
+              21.03096093926891
+            ],
+            [
+              105.81763233843712,
+              21.03096093926891
+            ],
+            [
+              105.81763233843712,
+              21.030820939268906
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-008",
+        "name": "Nhà dân / Trụ sở Km 8.695 (Phải)",
+        "km": 8.695,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": 13.3,
+        "structure": "Khu tập thể cũ xây lắp ghép",
+        "floors": 5,
+        "foundation": "Móng bè nông",
+        "s_10": 11.16,
+        "theta_10": 1.463,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 22.32,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.030381,
+        "lng": 105.818179
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.81809896315231,
+              21.0303110224904
+            ],
+            [
+              105.8182589631523,
+              21.0303110224904
+            ],
+            [
+              105.8182589631523,
+              21.030451022490404
+            ],
+            [
+              105.81809896315231,
+              21.030451022490404
+            ],
+            [
+              105.81809896315231,
+              21.0303110224904
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-009",
+        "name": "Nhà dân / Trụ sở Km 8.737 (Trái)",
+        "km": 8.737,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": -17.3,
+        "structure": "Công trình công cộng / Di tích",
+        "floors": 1,
+        "foundation": "Móng nông cổ",
+        "s_10": 5.81,
+        "theta_10": 1.139,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 11.62,
+        "risk_20": "Cấp 1 (Very Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.030505,
+        "lng": 105.818826
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.81874617274175,
+              21.030435057963615
+            ],
+            [
+              105.81890617274175,
+              21.030435057963615
+            ],
+            [
+              105.81890617274175,
+              21.030575057963617
+            ],
+            [
+              105.81874617274175,
+              21.030575057963617
+            ],
+            [
+              105.81874617274175,
+              21.030435057963615
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-010",
+        "name": "Nhà dân / Trụ sở Km 8.779 (Phải)",
+        "km": 8.779,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": 7.0,
+        "structure": "Nhà phố bê tông cốt thép",
+        "floors": 4,
+        "foundation": "Móng đơn / nông",
+        "s_10": 19.23,
+        "theta_10": 0.907,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 38.47,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.03015,
+        "lng": 105.819337
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.81925701218542,
+              21.03008035920547
+            ],
+            [
+              105.81941701218541,
+              21.03008035920547
+            ],
+            [
+              105.81941701218541,
+              21.030220359205472
+            ],
+            [
+              105.81925701218542,
+              21.030220359205472
+            ],
+            [
+              105.81925701218542,
+              21.03008035920547
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-011",
+        "name": "Nhà dân / Trụ sở Km 8.821 (Phải)",
+        "km": 8.821,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": 1.5,
+        "structure": "Nhà chia lô tường gạch chịu lực",
+        "floors": 2,
+        "foundation": "Móng gạch / bè nông",
+        "s_10": 21.99,
+        "theta_10": 0.15,
+        "risk_10": "Cấp 2 (Slight)",
+        "s_20": 43.98,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.030056,
+        "lng": 105.819922
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.81984187403974,
+              21.029985519829744
+            ],
+            [
+              105.82000187403973,
+              21.029985519829744
+            ],
+            [
+              105.82000187403973,
+              21.030125519829745
+            ],
+            [
+              105.81984187403974,
+              21.030125519829745
+            ],
+            [
+              105.81984187403974,
+              21.029985519829744
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-012",
+        "name": "Nhà dân / Trụ sở Km 8.863 (Trái)",
+        "km": 8.863,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": -12.5,
+        "structure": "Nhà ống đô thị kết cấu khung BTCT",
+        "floors": 6,
+        "foundation": "Móng băng",
+        "s_10": 12.33,
+        "theta_10": 1.466,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 24.66,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.030035,
+        "lng": 105.820528
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.8204478496689,
+              21.029964801418796
+            ],
+            [
+              105.82060784966889,
+              21.029964801418796
+            ],
+            [
+              105.82060784966889,
+              21.030104801418798
+            ],
+            [
+              105.8204478496689,
+              21.030104801418798
+            ],
+            [
+              105.8204478496689,
+              21.029964801418796
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-013",
+        "name": "Nhà dân / Trụ sở Km 8.905 (Trái)",
+        "km": 8.905,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": -6.0,
+        "structure": "Khu tập thể cũ xây lắp ghép",
+        "floors": 6,
+        "foundation": "Móng bè nông",
+        "s_10": 20.06,
+        "theta_10": 0.749,
+        "risk_10": "Cấp 2 (Slight)",
+        "s_20": 40.12,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.029835,
+        "lng": 105.821083
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82100290384106,
+              21.02976532068102
+            ],
+            [
+              105.82116290384106,
+              21.02976532068102
+            ],
+            [
+              105.82116290384106,
+              21.02990532068102
+            ],
+            [
+              105.82100290384106,
+              21.02990532068102
+            ],
+            [
+              105.82100290384106,
+              21.02976532068102
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-014",
+        "name": "Nhà dân / Trụ sở Km 8.947 (Trái)",
+        "km": 8.947,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": -2.6,
+        "structure": "Công trình công cộng / Di tích",
+        "floors": 3,
+        "foundation": "Móng nông cổ",
+        "s_10": 21.76,
+        "theta_10": 0.272,
+        "risk_10": "Cấp 2 (Slight)",
+        "s_20": 43.52,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.029663,
+        "lng": 105.821646
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82156565833112,
+              21.029592872295108
+            ],
+            [
+              105.82172565833112,
+              21.029592872295108
+            ],
+            [
+              105.82172565833112,
+              21.02973287229511
+            ],
+            [
+              105.82156565833112,
+              21.02973287229511
+            ],
+            [
+              105.82156565833112,
+              21.029592872295108
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-015",
+        "name": "Di tích lịch sử / Công trình nhạy cảm #15",
+        "km": 8.989,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": 7.1,
+        "structure": "Di tích kiến trúc cổ",
+        "floors": 5,
+        "foundation": "Móng nông cổ truyền thống",
+        "s_10": 19.14,
+        "theta_10": 0.922,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 38.29,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ĐẶC BIỆT NGUY CẤP",
+        "lat": 21.029435,
+        "lng": 105.822193
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82211276378807,
+              21.029365487194124
+            ],
+            [
+              105.82227276378806,
+              21.029365487194124
+            ],
+            [
+              105.82227276378806,
+              21.029505487194125
+            ],
+            [
+              105.82211276378807,
+              21.029505487194125
+            ],
+            [
+              105.82211276378807,
+              21.029365487194124
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-016",
+        "name": "Nhà dân / Trụ sở Km 9.032 (Phải)",
+        "km": 9.032,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": 29.0,
+        "structure": "Nhà chia lô tường gạch chịu lực",
+        "floors": 2,
+        "foundation": "Móng gạch / bè nông",
+        "s_10": 0.18,
+        "theta_10": 0.072,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 0.36,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.029098,
+        "lng": 105.822723
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82264316476817,
+              21.02902831670839
+            ],
+            [
+              105.82280316476816,
+              21.02902831670839
+            ],
+            [
+              105.82280316476816,
+              21.029168316708393
+            ],
+            [
+              105.82264316476817,
+              21.029168316708393
+            ],
+            [
+              105.82264316476817,
+              21.02902831670839
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-017",
+        "name": "Nhà dân / Trụ sở Km 9.074 (Trái)",
+        "km": 9.074,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": -27.2,
+        "structure": "Nhà ống đô thị kết cấu khung BTCT",
+        "floors": 6,
+        "foundation": "Móng băng",
+        "s_10": 0.36,
+        "theta_10": 0.132,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 0.71,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.029446,
+        "lng": 105.823434
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82335396407952,
+              21.029375587087298
+            ],
+            [
+              105.82351396407951,
+              21.029375587087298
+            ],
+            [
+              105.82351396407951,
+              21.0295155870873
+            ],
+            [
+              105.82335396407952,
+              21.0295155870873
+            ],
+            [
+              105.82335396407952,
+              21.029375587087298
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-018",
+        "name": "Nhà dân / Trụ sở Km 9.116 (Phải)",
+        "km": 9.116,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": 10.8,
+        "structure": "Khu tập thể cũ xây lắp ghép",
+        "floors": 4,
+        "foundation": "Móng bè nông",
+        "s_10": 14.77,
+        "theta_10": 1.389,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 29.55,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.028971,
+        "lng": 105.823911
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82383077308607,
+              21.028901422774158
+            ],
+            [
+              105.82399077308607,
+              21.028901422774158
+            ],
+            [
+              105.82399077308607,
+              21.02904142277416
+            ],
+            [
+              105.82383077308607,
+              21.02904142277416
+            ],
+            [
+              105.82383077308607,
+              21.028901422774158
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-019",
+        "name": "Nhà dân / Trụ sở Km 9.158 (Trái)",
+        "km": 9.158,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": -26.1,
+        "structure": "Công trình công cộng / Di tích",
+        "floors": 1,
+        "foundation": "Móng nông cổ",
+        "s_10": 0.53,
+        "theta_10": 0.185,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 1.06,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.02915,
+        "lng": 105.824574
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82449363170866,
+              21.029080394962445
+            ],
+            [
+              105.82465363170866,
+              21.029080394962445
+            ],
+            [
+              105.82465363170866,
+              21.029220394962447
+            ],
+            [
+              105.82449363170866,
+              21.029220394962447
+            ],
+            [
+              105.82449363170866,
+              21.029080394962445
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-020",
+        "name": "Nhà dân / Trụ sở Km 9.200 (Phải)",
+        "km": 9.2,
+        "section": "S9–S10 (Kim Mã - Cát Linh)",
+        "offset": 27.9,
+        "structure": "Nhà phố bê tông cốt thép",
+        "floors": 4,
+        "foundation": "Móng đơn / nông",
+        "s_10": 0.27,
+        "theta_10": 0.105,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 0.55,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.028537,
+        "lng": 105.825011
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82493069713904,
+              21.028466708833243
+            ],
+            [
+              105.82509069713903,
+              21.028466708833243
+            ],
+            [
+              105.82509069713903,
+              21.028606708833244
+            ],
+            [
+              105.82493069713904,
+              21.028606708833244
+            ],
+            [
+              105.82493069713904,
+              21.028466708833243
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-021",
+        "name": "Nhà dân / Trụ sở Km 9.200 (Trái)",
+        "km": 9.2,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": -6.9,
+        "structure": "Nhà chia lô tường gạch chịu lực",
+        "floors": 3,
+        "foundation": "Móng gạch / bè nông",
+        "s_10": 17.08,
+        "theta_10": 0.762,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 34.25,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.02884,
+        "lng": 105.825097
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82501713941723,
+              21.028770168783172
+            ],
+            [
+              105.82517713941722,
+              21.028770168783172
+            ],
+            [
+              105.82517713941722,
+              21.028910168783174
+            ],
+            [
+              105.82501713941723,
+              21.028910168783174
+            ],
+            [
+              105.82501713941723,
+              21.028770168783172
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-022",
+        "name": "Nhà dân / Trụ sở Km 9.253 (Trái)",
+        "km": 9.253,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": -24.1,
+        "structure": "Nhà ống đô thị kết cấu khung BTCT",
+        "floors": 6,
+        "foundation": "Móng băng",
+        "s_10": 2.0,
+        "theta_10": 0.433,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 4.01,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.02881,
+        "lng": 105.825861
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82578066376162,
+              21.028739954735435
+            ],
+            [
+              105.82594066376161,
+              21.028739954735435
+            ],
+            [
+              105.82594066376161,
+              21.028879954735437
+            ],
+            [
+              105.82578066376162,
+              21.028879954735437
+            ],
+            [
+              105.82578066376162,
+              21.028739954735435
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-023",
+        "name": "Nhà dân / Trụ sở Km 9.305 (Phải)",
+        "km": 9.305,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": 11.0,
+        "structure": "Khu tập thể cũ xây lắp ghép",
+        "floors": 4,
+        "foundation": "Móng bè nông",
+        "s_10": 13.31,
+        "theta_10": 1.041,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 26.69,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.028327,
+        "lng": 105.826481
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82640067629137,
+              21.02825707875146
+            ],
+            [
+              105.82656067629136,
+              21.02825707875146
+            ],
+            [
+              105.82656067629136,
+              21.02839707875146
+            ],
+            [
+              105.82640067629137,
+              21.02839707875146
+            ],
+            [
+              105.82640067629137,
+              21.02825707875146
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-024",
+        "name": "Nhà dân / Trụ sở Km 9.358 (Phải)",
+        "km": 9.358,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": 20.0,
+        "structure": "Công trình công cộng / Di tích",
+        "floors": 3,
+        "foundation": "Móng nông cổ",
+        "s_10": 4.42,
+        "theta_10": 0.752,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 8.85,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.028068,
+        "lng": 105.827179
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82709912052978,
+              21.027998397729924
+            ],
+            [
+              105.82725912052977,
+              21.027998397729924
+            ],
+            [
+              105.82725912052977,
+              21.028138397729926
+            ],
+            [
+              105.82709912052978,
+              21.028138397729926
+            ],
+            [
+              105.82709912052978,
+              21.027998397729924
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-025",
+        "name": "Nhà dân / Trụ sở Km 9.411 (Phải)",
+        "km": 9.411,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": 24.6,
+        "structure": "Nhà phố bê tông cốt thép",
+        "floors": 4,
+        "foundation": "Móng đơn / nông",
+        "s_10": 1.79,
+        "theta_10": 0.399,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 3.59,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.027864,
+        "lng": 105.827841
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82776068120236,
+              21.027794401683003
+            ],
+            [
+              105.82792068120236,
+              21.027794401683003
+            ],
+            [
+              105.82792068120236,
+              21.027934401683005
+            ],
+            [
+              105.82776068120236,
+              21.027934401683005
+            ],
+            [
+              105.82776068120236,
+              21.027794401683003
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-026",
+        "name": "Nhà dân / Trụ sở Km 9.463 (Phải)",
+        "km": 9.463,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": 9.8,
+        "structure": "Nhà chia lô tường gạch chịu lực",
+        "floors": 3,
+        "foundation": "Móng gạch / bè nông",
+        "s_10": 14.53,
+        "theta_10": 0.984,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 29.13,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.027906,
+        "lng": 105.828303
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82822273478794,
+              21.027836493353387
+            ],
+            [
+              105.82838273478794,
+              21.027836493353387
+            ],
+            [
+              105.82838273478794,
+              21.02797649335339
+            ],
+            [
+              105.82822273478794,
+              21.02797649335339
+            ],
+            [
+              105.82822273478794,
+              21.027836493353387
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-027",
+        "name": "Nhà dân / Trụ sở Km 9.516 (Trái)",
+        "km": 9.516,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": -4.5,
+        "structure": "Nhà ống đô thị kết cấu khung BTCT",
+        "floors": 5,
+        "foundation": "Móng băng",
+        "s_10": 18.63,
+        "theta_10": 0.516,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 37.35,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.027942,
+        "lng": 105.828772
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82869205953615,
+              21.0278724765214
+            ],
+            [
+              105.82885205953615,
+              21.0278724765214
+            ],
+            [
+              105.82885205953615,
+              21.0280124765214
+            ],
+            [
+              105.82869205953615,
+              21.0280124765214
+            ],
+            [
+              105.82869205953615,
+              21.0278724765214
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-028",
+        "name": "Nhà dân / Trụ sở Km 9.568 (Phải)",
+        "km": 9.568,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": 2.8,
+        "structure": "Khu tập thể cũ xây lắp ghép",
+        "floors": 5,
+        "foundation": "Móng bè nông",
+        "s_10": 19.34,
+        "theta_10": 0.326,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 38.78,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.02779,
+        "lng": 105.829189
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82910863851083,
+              21.02771971238668
+            ],
+            [
+              105.82926863851083,
+              21.02771971238668
+            ],
+            [
+              105.82926863851083,
+              21.027859712386682
+            ],
+            [
+              105.82910863851083,
+              21.027859712386682
+            ],
+            [
+              105.82910863851083,
+              21.02771971238668
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-029",
+        "name": "Nhà dân / Trụ sở Km 9.621 (Trái)",
+        "km": 9.621,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": -28.1,
+        "structure": "Công trình công cộng / Di tích",
+        "floors": 2,
+        "foundation": "Móng nông cổ",
+        "s_10": 0.76,
+        "theta_10": 0.202,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 1.53,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.027972,
+        "lng": 105.829692
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82961212065908,
+              21.02790205783364
+            ],
+            [
+              105.82977212065907,
+              21.02790205783364
+            ],
+            [
+              105.82977212065907,
+              21.02804205783364
+            ],
+            [
+              105.82961212065908,
+              21.02804205783364
+            ],
+            [
+              105.82961212065908,
+              21.02790205783364
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-030",
+        "name": "Nhà dân / Trụ sở Km 9.674 (Phải)",
+        "km": 9.674,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": 16.5,
+        "structure": "Nhà phố bê tông cốt thép",
+        "floors": 4,
+        "foundation": "Móng đơn / nông",
+        "s_10": 7.49,
+        "theta_10": 0.99,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 15.02,
+        "risk_20": "Cấp 1 (Very Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.027489,
+        "lng": 105.83004
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.82996024836744,
+              21.027418719421526
+            ],
+            [
+              105.83012024836744,
+              21.027418719421526
+            ],
+            [
+              105.83012024836744,
+              21.027558719421528
+            ],
+            [
+              105.82996024836744,
+              21.027558719421528
+            ],
+            [
+              105.82996024836744,
+              21.027418719421526
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-031",
+        "name": "Nhà dân / Trụ sở Km 9.726 (Trái)",
+        "km": 9.726,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": -6.3,
+        "structure": "Nhà chia lô tường gạch chịu lực",
+        "floors": 3,
+        "foundation": "Móng gạch / bè nông",
+        "s_10": 17.52,
+        "theta_10": 0.704,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 35.14,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.027601,
+        "lng": 105.830519
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83043876335061,
+              21.02753134712996
+            ],
+            [
+              105.83059876335061,
+              21.02753134712996
+            ],
+            [
+              105.83059876335061,
+              21.02767134712996
+            ],
+            [
+              105.83043876335061,
+              21.02767134712996
+            ],
+            [
+              105.83043876335061,
+              21.02753134712996
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-032",
+        "name": "Di tích lịch sử / Công trình nhạy cảm #32",
+        "km": 9.779,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": 13.6,
+        "structure": "Di tích kiến trúc cổ",
+        "floors": 6,
+        "foundation": "Móng nông cổ truyền thống",
+        "s_10": 10.53,
+        "theta_10": 1.08,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 21.1,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ĐẶC BIỆT NGUY CẤP",
+        "lat": 21.027336,
+        "lng": 105.830918
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83083771562409,
+              21.027265788735317
+            ],
+            [
+              105.83099771562408,
+              21.027265788735317
+            ],
+            [
+              105.83099771562408,
+              21.02740578873532
+            ],
+            [
+              105.83083771562409,
+              21.02740578873532
+            ],
+            [
+              105.83083771562409,
+              21.027265788735317
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-033",
+        "name": "Nhà dân / Trụ sở Km 9.832 (Trái)",
+        "km": 9.832,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": -24.7,
+        "structure": "Khu tập thể cũ xây lắp ghép",
+        "floors": 6,
+        "foundation": "Móng bè nông",
+        "s_10": 1.75,
+        "theta_10": 0.392,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 3.51,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.027583,
+        "lng": 105.831436
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.8313564245651,
+              21.02751338001747
+            ],
+            [
+              105.8315164245651,
+              21.02751338001747
+            ],
+            [
+              105.8315164245651,
+              21.027653380017473
+            ],
+            [
+              105.8313564245651,
+              21.027653380017473
+            ],
+            [
+              105.8313564245651,
+              21.02751338001747
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-034",
+        "name": "Nhà dân / Trụ sở Km 9.884 (Phải)",
+        "km": 9.884,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": 1.3,
+        "structure": "Công trình công cộng / Di tích",
+        "floors": 2,
+        "foundation": "Móng nông cổ",
+        "s_10": 19.7,
+        "theta_10": 0.152,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 39.5,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.027266,
+        "lng": 105.831815
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.8317345250229,
+              21.027195737893816
+            ],
+            [
+              105.83189452502289,
+              21.027195737893816
+            ],
+            [
+              105.83189452502289,
+              21.027335737893818
+            ],
+            [
+              105.8317345250229,
+              21.027335737893818
+            ],
+            [
+              105.8317345250229,
+              21.027195737893816
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-035",
+        "name": "Nhà dân / Trụ sở Km 9.937 (Trái)",
+        "km": 9.937,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": -10.5,
+        "structure": "Nhà phố bê tông cốt thép",
+        "floors": 3,
+        "foundation": "Móng đơn / nông",
+        "s_10": 13.83,
+        "theta_10": 1.02,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 27.72,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.02728,
+        "lng": 105.832279
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83219870558435,
+              21.027209678549934
+            ],
+            [
+              105.83235870558434,
+              21.027209678549934
+            ],
+            [
+              105.83235870558434,
+              21.027349678549935
+            ],
+            [
+              105.83219870558435,
+              21.027349678549935
+            ],
+            [
+              105.83219870558435,
+              21.027209678549934
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-036",
+        "name": "Nhà dân / Trụ sở Km 9.989 (Trái)",
+        "km": 9.989,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": -13.7,
+        "structure": "Nhà chia lô tường gạch chịu lực",
+        "floors": 2,
+        "foundation": "Móng gạch / bè nông",
+        "s_10": 10.42,
+        "theta_10": 1.08,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 20.89,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.027219,
+        "lng": 105.832717
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.8326368901434,
+              21.027149492965155
+            ],
+            [
+              105.8327968901434,
+              21.027149492965155
+            ],
+            [
+              105.8327968901434,
+              21.027289492965156
+            ],
+            [
+              105.8326368901434,
+              21.027289492965156
+            ],
+            [
+              105.8326368901434,
+              21.027149492965155
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-037",
+        "name": "Nhà dân / Trụ sở Km 10.042 (Phải)",
+        "km": 10.042,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": 5.2,
+        "structure": "Nhà ống đô thị kết cấu khung BTCT",
+        "floors": 4,
+        "foundation": "Móng băng",
+        "s_10": 18.24,
+        "theta_10": 0.592,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 36.57,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.026963,
+        "lng": 105.833118
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83303790009155,
+              21.026892751575268
+            ],
+            [
+              105.83319790009155,
+              21.026892751575268
+            ],
+            [
+              105.83319790009155,
+              21.02703275157527
+            ],
+            [
+              105.83303790009155,
+              21.02703275157527
+            ],
+            [
+              105.83303790009155,
+              21.026892751575268
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-038",
+        "name": "Nhà dân / Trụ sở Km 10.095 (Trái)",
+        "km": 10.095,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": -13.1,
+        "structure": "Khu tập thể cũ xây lắp ghép",
+        "floors": 4,
+        "foundation": "Móng bè nông",
+        "s_10": 11.07,
+        "theta_10": 1.082,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 22.19,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.027034,
+        "lng": 105.833595
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83351545553857,
+              21.0269640027623
+            ],
+            [
+              105.83367545553857,
+              21.0269640027623
+            ],
+            [
+              105.83367545553857,
+              21.0271040027623
+            ],
+            [
+              105.83351545553857,
+              21.0271040027623
+            ],
+            [
+              105.83351545553857,
+              21.0269640027623
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-039",
+        "name": "Nhà dân / Trụ sở Km 10.147 (Trái)",
+        "km": 10.147,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": -21.5,
+        "structure": "Công trình công cộng / Di tích",
+        "floors": 3,
+        "foundation": "Móng nông cổ",
+        "s_10": 3.38,
+        "theta_10": 0.632,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 6.77,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.02702,
+        "lng": 105.834044
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83396434000605,
+              21.02694966560225
+            ],
+            [
+              105.83412434000604,
+              21.02694966560225
+            ],
+            [
+              105.83412434000604,
+              21.02708966560225
+            ],
+            [
+              105.83396434000605,
+              21.02708966560225
+            ],
+            [
+              105.83396434000605,
+              21.02694966560225
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-040",
+        "name": "Nhà dân / Trụ sở Km 10.200 (Trái)",
+        "km": 10.2,
+        "section": "S10–S11 (Cát Linh - Văn Miếu)",
+        "offset": -20.1,
+        "structure": "Nhà phố bê tông cốt thép",
+        "floors": 3,
+        "foundation": "Móng đơn / nông",
+        "s_10": 4.34,
+        "theta_10": 0.744,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 8.71,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.026917,
+        "lng": 105.834481
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83440135926148,
+              21.02684722179559
+            ],
+            [
+              105.83456135926147,
+              21.02684722179559
+            ],
+            [
+              105.83456135926147,
+              21.026987221795594
+            ],
+            [
+              105.83440135926148,
+              21.026987221795594
+            ],
+            [
+              105.83440135926148,
+              21.02684722179559
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-041",
+        "name": "Nhà dân / Trụ sở Km 10.200 (Phải)",
+        "km": 10.2,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": 29.2,
+        "structure": "Nhà chia lô tường gạch chịu lực",
+        "floors": 2,
+        "foundation": "Móng gạch / bè nông",
+        "s_10": 1.24,
+        "theta_10": 0.247,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 2.49,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.026483,
+        "lng": 105.83438
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83429991589875,
+              21.026412543461127
+            ],
+            [
+              105.83445991589875,
+              21.026412543461127
+            ],
+            [
+              105.83445991589875,
+              21.02655254346113
+            ],
+            [
+              105.83429991589875,
+              21.02655254346113
+            ],
+            [
+              105.83429991589875,
+              21.026412543461127
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-042",
+        "name": "Nhà dân / Trụ sở Km 10.268 (Trái)",
+        "km": 10.268,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": -18.1,
+        "structure": "Nhà ống đô thị kết cấu khung BTCT",
+        "floors": 6,
+        "foundation": "Móng băng",
+        "s_10": 6.94,
+        "theta_10": 0.781,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 13.88,
+        "risk_20": "Cấp 1 (Very Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.026784,
+        "lng": 105.835042
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83496164391208,
+              21.02671398778608
+            ],
+            [
+              105.83512164391207,
+              21.02671398778608
+            ],
+            [
+              105.83512164391207,
+              21.026853987786083
+            ],
+            [
+              105.83496164391208,
+              21.026853987786083
+            ],
+            [
+              105.83496164391208,
+              21.02671398778608
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-043",
+        "name": "Nhà dân / Trụ sở Km 10.337 (Phải)",
+        "km": 10.337,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": 18.9,
+        "structure": "Khu tập thể cũ xây lắp ghép",
+        "floors": 4,
+        "foundation": "Móng bè nông",
+        "s_10": 6.33,
+        "theta_10": 0.749,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 12.66,
+        "risk_20": "Cấp 1 (Very Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.02634,
+        "lng": 105.835538
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83545820994816,
+              21.026270458610114
+            ],
+            [
+              105.83561820994815,
+              21.026270458610114
+            ],
+            [
+              105.83561820994815,
+              21.026410458610115
+            ],
+            [
+              105.83545820994816,
+              21.026410458610115
+            ],
+            [
+              105.83545820994816,
+              21.026270458610114
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-044",
+        "name": "Nhà dân / Trụ sở Km 10.405 (Phải)",
+        "km": 10.405,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": 12.7,
+        "structure": "Công trình công cộng / Di tích",
+        "floors": 3,
+        "foundation": "Móng nông cổ",
+        "s_10": 11.5,
+        "theta_10": 0.861,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 22.99,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.026283,
+        "lng": 105.836085
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83600484387705,
+              21.02621281044442
+            ],
+            [
+              105.83616484387704,
+              21.02621281044442
+            ],
+            [
+              105.83616484387704,
+              21.026352810444422
+            ],
+            [
+              105.83600484387705,
+              21.026352810444422
+            ],
+            [
+              105.83600484387705,
+              21.02621281044442
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-045",
+        "name": "Nhà dân / Trụ sở Km 10.474 (Phải)",
+        "km": 10.474,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": 16.3,
+        "structure": "Nhà phố bê tông cốt thép",
+        "floors": 3,
+        "foundation": "Móng đơn / nông",
+        "s_10": 8.4,
+        "theta_10": 0.837,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 16.8,
+        "risk_20": "Cấp 1 (Very Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.026114,
+        "lng": 105.836461
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83638146819725,
+              21.02604442600347
+            ],
+            [
+              105.83654146819724,
+              21.02604442600347
+            ],
+            [
+              105.83654146819724,
+              21.02618442600347
+            ],
+            [
+              105.83638146819725,
+              21.02618442600347
+            ],
+            [
+              105.83638146819725,
+              21.02604442600347
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-046",
+        "name": "Nhà dân / Trụ sở Km 10.542 (Phải)",
+        "km": 10.542,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": 25.6,
+        "structure": "Nhà chia lô tường gạch chịu lực",
+        "floors": 3,
+        "foundation": "Móng gạch / bè nông",
+        "s_10": 2.41,
+        "theta_10": 0.41,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 4.83,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.0259,
+        "lng": 105.836813
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83673300526682,
+              21.025829932864344
+            ],
+            [
+              105.83689300526682,
+              21.025829932864344
+            ],
+            [
+              105.83689300526682,
+              21.025969932864346
+            ],
+            [
+              105.83673300526682,
+              21.025969932864346
+            ],
+            [
+              105.83673300526682,
+              21.025829932864344
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-047",
+        "name": "Nhà dân / Trụ sở Km 10.611 (Trái)",
+        "km": 10.611,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": -23.0,
+        "structure": "Nhà ống đô thị kết cấu khung BTCT",
+        "floors": 6,
+        "foundation": "Móng băng",
+        "s_10": 3.66,
+        "theta_10": 0.546,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 7.31,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.026172,
+        "lng": 105.837368
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83728775876241,
+              21.02610212281719
+            ],
+            [
+              105.83744775876241,
+              21.02610212281719
+            ],
+            [
+              105.83744775876241,
+              21.02624212281719
+            ],
+            [
+              105.83728775876241,
+              21.02624212281719
+            ],
+            [
+              105.83728775876241,
+              21.02610212281719
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-048",
+        "name": "Di tích lịch sử / Công trình nhạy cảm #48",
+        "km": 10.679,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": 21.0,
+        "structure": "Di tích kiến trúc cổ",
+        "floors": 5,
+        "foundation": "Móng nông cổ truyền thống",
+        "s_10": 4.86,
+        "theta_10": 0.651,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 9.71,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "ĐẶC BIỆT NGUY CẤP",
+        "lat": 21.025665,
+        "lng": 105.837601
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83752088429205,
+              21.025594757427783
+            ],
+            [
+              105.83768088429204,
+              21.025594757427783
+            ],
+            [
+              105.83768088429204,
+              21.025734757427784
+            ],
+            [
+              105.83752088429205,
+              21.025734757427784
+            ],
+            [
+              105.83752088429205,
+              21.025594757427783
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-049",
+        "name": "Nhà dân / Trụ sở Km 10.747 (Trái)",
+        "km": 10.747,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": -24.3,
+        "structure": "Công trình công cộng / Di tích",
+        "floors": 3,
+        "foundation": "Móng nông cổ",
+        "s_10": 2.99,
+        "theta_10": 0.477,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 5.98,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.025911,
+        "lng": 105.838139
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83805874038416,
+              21.02584109497642
+            ],
+            [
+              105.83821874038415,
+              21.02584109497642
+            ],
+            [
+              105.83821874038415,
+              21.025981094976423
+            ],
+            [
+              105.83805874038416,
+              21.025981094976423
+            ],
+            [
+              105.83805874038416,
+              21.02584109497642
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-050",
+        "name": "Nhà dân / Trụ sở Km 10.816 (Trái)",
+        "km": 10.816,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": -11.3,
+        "structure": "Nhà phố bê tông cốt thép",
+        "floors": 3,
+        "foundation": "Móng đơn / nông",
+        "s_10": 12.69,
+        "theta_10": 0.835,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 25.37,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.025663,
+        "lng": 105.838483
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83840328780303,
+              21.025593373384098
+            ],
+            [
+              105.83856328780303,
+              21.025593373384098
+            ],
+            [
+              105.83856328780303,
+              21.0257333733841
+            ],
+            [
+              105.83840328780303,
+              21.0257333733841
+            ],
+            [
+              105.83840328780303,
+              21.025593373384098
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-051",
+        "name": "Nhà dân / Trụ sở Km 10.884 (Phải)",
+        "km": 10.884,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": 13.8,
+        "structure": "Nhà chia lô tường gạch chịu lực",
+        "floors": 3,
+        "foundation": "Móng gạch / bè nông",
+        "s_10": 10.54,
+        "theta_10": 0.868,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 21.09,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.025316,
+        "lng": 105.838781
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83870090837891,
+              21.025245526309682
+            ],
+            [
+              105.8388609083789,
+              21.025245526309682
+            ],
+            [
+              105.8388609083789,
+              21.025385526309684
+            ],
+            [
+              105.83870090837891,
+              21.025385526309684
+            ],
+            [
+              105.83870090837891,
+              21.025245526309682
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-052",
+        "name": "Nhà dân / Trụ sở Km 10.953 (Phải)",
+        "km": 10.953,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": 23.2,
+        "structure": "Nhà ống đô thị kết cấu khung BTCT",
+        "floors": 4,
+        "foundation": "Móng băng",
+        "s_10": 3.55,
+        "theta_10": 0.536,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 7.1,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.025098,
+        "lng": 105.839138
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83905774056852,
+              21.02502818915831
+            ],
+            [
+              105.83921774056851,
+              21.02502818915831
+            ],
+            [
+              105.83921774056851,
+              21.02516818915831
+            ],
+            [
+              105.83905774056852,
+              21.02516818915831
+            ],
+            [
+              105.83905774056852,
+              21.02502818915831
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-053",
+        "name": "Nhà dân / Trụ sở Km 11.021 (Trái)",
+        "km": 11.021,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": -7.0,
+        "structure": "Khu tập thể cũ xây lắp ghép",
+        "floors": 6,
+        "foundation": "Móng bè nông",
+        "s_10": 15.89,
+        "theta_10": 0.625,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 31.78,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.025217,
+        "lng": 105.839624
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83954406887236,
+              21.025147080857405
+            ],
+            [
+              105.83970406887235,
+              21.025147080857405
+            ],
+            [
+              105.83970406887235,
+              21.025287080857407
+            ],
+            [
+              105.83954406887236,
+              21.025287080857407
+            ],
+            [
+              105.83954406887236,
+              21.025147080857405
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-054",
+        "name": "Nhà dân / Trụ sở Km 11.089 (Phải)",
+        "km": 11.089,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": 12.8,
+        "structure": "Công trình công cộng / Di tích",
+        "floors": 1,
+        "foundation": "Móng nông cổ",
+        "s_10": 11.41,
+        "theta_10": 0.862,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 22.82,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.024914,
+        "lng": 105.83994
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.83985977536068,
+              21.024843966432172
+            ],
+            [
+              105.84001977536067,
+              21.024843966432172
+            ],
+            [
+              105.84001977536067,
+              21.024983966432174
+            ],
+            [
+              105.83985977536068,
+              21.024983966432174
+            ],
+            [
+              105.83985977536068,
+              21.024843966432172
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-055",
+        "name": "Nhà dân / Trụ sở Km 11.158 (Phải)",
+        "km": 11.158,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": 13.3,
+        "structure": "Nhà phố bê tông cốt thép",
+        "floors": 5,
+        "foundation": "Móng đơn / nông",
+        "s_10": 10.98,
+        "theta_10": 0.866,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 21.95,
+        "risk_20": "Cấp 2 (Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.024772,
+        "lng": 105.840327
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.84024697823344,
+              21.02470174637093
+            ],
+            [
+              105.84040697823343,
+              21.02470174637093
+            ],
+            [
+              105.84040697823343,
+              21.02484174637093
+            ],
+            [
+              105.84024697823344,
+              21.02484174637093
+            ],
+            [
+              105.84024697823344,
+              21.02470174637093
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-056",
+        "name": "Nhà dân / Trụ sở Km 11.226 (Phải)",
+        "km": 11.226,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": 16.3,
+        "structure": "Nhà chia lô tường gạch chịu lực",
+        "floors": 4,
+        "foundation": "Móng gạch / bè nông",
+        "s_10": 8.4,
+        "theta_10": 0.837,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 16.8,
+        "risk_20": "Cấp 1 (Very Slight)",
+        "priority": "ƯU TIÊN VỪA",
+        "lat": 21.02461,
+        "lng": 105.8407
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.84062001365179,
+              21.02454042600347
+            ],
+            [
+              105.84078001365178,
+              21.02454042600347
+            ],
+            [
+              105.84078001365178,
+              21.02468042600347
+            ],
+            [
+              105.84062001365179,
+              21.02468042600347
+            ],
+            [
+              105.84062001365179,
+              21.02454042600347
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-057",
+        "name": "Nhà dân / Trụ sở Km 11.295 (Trái)",
+        "km": 11.295,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": -27.6,
+        "structure": "Nhà ống đô thị kết cấu khung BTCT",
+        "floors": 6,
+        "foundation": "Móng băng",
+        "s_10": 1.69,
+        "theta_10": 0.314,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 3.38,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.024843,
+        "lng": 105.841239
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.8411587286967,
+              21.024772947380626
+            ],
+            [
+              105.84131872869669,
+              21.024772947380626
+            ],
+            [
+              105.84131872869669,
+              21.024912947380628
+            ],
+            [
+              105.8411587286967,
+              21.024912947380628
+            ],
+            [
+              105.8411587286967,
+              21.024772947380626
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-058",
+        "name": "Nhà dân / Trụ sở Km 11.363 (Trái)",
+        "km": 11.363,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": -4.3,
+        "structure": "Khu tập thể cũ xây lắp ghép",
+        "floors": 5,
+        "foundation": "Móng bè nông",
+        "s_10": 17.3,
+        "theta_10": 0.411,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 34.6,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.02451,
+        "lng": 105.841542
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.84146249165795,
+              21.02444029252669
+            ],
+            [
+              105.84162249165794,
+              21.02444029252669
+            ],
+            [
+              105.84162249165794,
+              21.024580292526693
+            ],
+            [
+              105.84146249165795,
+              21.024580292526693
+            ],
+            [
+              105.84146249165795,
+              21.02444029252669
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-059",
+        "name": "Nhà dân / Trụ sở Km 11.432 (Trái)",
+        "km": 11.432,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": -3.6,
+        "structure": "Công trình công cộng / Di tích",
+        "floors": 3,
+        "foundation": "Móng nông cổ",
+        "s_10": 17.56,
+        "theta_10": 0.348,
+        "risk_10": "Cấp 1 (Very Slight)",
+        "s_20": 35.13,
+        "risk_20": "Cấp 3 (Moderate)",
+        "priority": "ƯU TIÊN CAO",
+        "lat": 21.024366,
+        "lng": 105.841929
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.84184901204344,
+              21.02429638444095
+            ],
+            [
+              105.84200901204343,
+              21.02429638444095
+            ],
+            [
+              105.84200901204343,
+              21.024436384440953
+            ],
+            [
+              105.84184901204344,
+              21.024436384440953
+            ],
+            [
+              105.84184901204344,
+              21.02429638444095
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD-060",
+        "name": "Nhà dân / Trụ sở Km 11.500 (Trái)",
+        "km": 11.5,
+        "section": "S11–S12 (Văn Miếu - Ga Hà Nội)",
+        "offset": -28.1,
+        "structure": "Nhà phố bê tông cốt thép",
+        "floors": 5,
+        "foundation": "Móng đơn / nông",
+        "s_10": 1.54,
+        "theta_10": 0.292,
+        "risk_10": "Cấp 0 (Negligible)",
+        "s_20": 3.08,
+        "risk_20": "Cấp 0 (Negligible)",
+        "priority": "THEO DÕI THƯỜNG",
+        "lat": 21.024437,
+        "lng": 105.842396
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105.84231588946031,
+              21.02436716744187
+            ],
+            [
+              105.8424758894603,
+              21.02436716744187
+            ],
+            [
+              105.8424758894603,
+              21.02450716744187
+            ],
+            [
+              105.84231588946031,
+              21.02450716744187
+            ],
+            [
+              105.84231588946031,
+              21.02436716744187
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

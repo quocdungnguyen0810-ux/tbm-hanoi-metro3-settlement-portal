@@ -1,0 +1,7 @@
+issue_id,severity,gate,status,category,description,evidence,owner,resolution,updated_at
+ISS-001,critical,1,open,source_gap,Original 2013 EIA PDF and exact page locators are not locally verified,research/official_docs_findings.md,source_harvester,,2026-10-13T15:27:53+07:00
+ISS-002,critical,1,open,data_gap,CP03 borehole logs with verified coordinates or chainage are missing,README.md,gis_analyst,,2026-10-13T15:27:53+07:00
+ISS-003,high,1,open,data_gap,Ring-level TBM operational data and time-series settlement monitoring are missing,README.md,source_harvester,,2026-10-13T15:27:53+07:00
+ISS-004,high,2,open,spatial_gap,Verified alignment and nearby-building geometry with declared CRS are missing,research/data_dictionary.md,gis_analyst,,2026-10-13T15:27:53+07:00
+ISS-005,critical,4,open,equation_source,Original Loganathan and Poulos equation text and validity range are not in the local source pool,AGENTS.md,mechanics_reviewer,,2026-10-13T15:27:53+07:00
+ISS-006,medium,2,open,source_conflict,BH12 soft-clay top is 12.3 m by cumulative table but 12.7 m in narrative,research/academic_findings.md,evidence_auditor,,2026-10-13T15:27:53+07:00

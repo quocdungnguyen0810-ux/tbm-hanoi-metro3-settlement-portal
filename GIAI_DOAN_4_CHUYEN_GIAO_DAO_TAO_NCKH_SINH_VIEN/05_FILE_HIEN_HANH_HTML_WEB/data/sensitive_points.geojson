@@ -1,0 +1,90 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "POI_01",
+        "name": "Đền Voi Phục (Trấn Tây Thăng Long)",
+        "type": "Di tích lịch sử văn hóa",
+        "distance_to_tunnel_m": 25.0,
+        "mitigation": "Khoan cọc chắn chấn động & lắp đặt mốc quan trắc độ nghiêng"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8185,
+          21.0318
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "POI_02",
+        "name": "Khu tập thể Giảng Võ / Cát Linh",
+        "type": "Chung cư cũ lắp ghép tấm lớn 5 tầng",
+        "distance_to_tunnel_m": 14.2,
+        "mitigation": "Ưu tiên giám sát lún tự động 24/7 và mua bảo hiểm công trình"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8278,
+          21.0292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "POI_03",
+        "name": "Trường THCS Cát Linh",
+        "type": "Công trình giáo dục",
+        "distance_to_tunnel_m": 28.5,
+        "mitigation": "Đào hầm vào ca đêm tránh ảnh hưởng giờ học sinh đến trường"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8305,
+          21.0289
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "POI_04",
+        "name": "Văn Miếu - Quốc Tử Giám",
+        "type": "Di tích quốc gia đặc biệt",
+        "distance_to_tunnel_m": 38.0,
+        "mitigation": "Kiểm soát áp lực vữa TBM tối đa, giữ biến dạng mặt đất < 2mm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8355,
+          21.0272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "POI_05",
+        "name": "Ga Hà Nội (Toà nhà chính)",
+        "type": "Công trình kiến trúc di sản giao thông",
+        "distance_to_tunnel_m": 18.0,
+        "mitigation": "Gia cố móng cọc xi măng đất jet-grouting đáy giếng đào"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.841,
+          21.0242
+        ]
+      }
+    }
+  ]
+}

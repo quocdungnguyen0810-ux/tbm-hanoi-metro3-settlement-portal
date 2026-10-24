@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "project_id": "TBM_HANOI_EIA_SETTLEMENT_2027",
+  "title": "Phan tich do nhay va du bao vung anh huong lun mat dat do TBM tai do thi Ha Noi",
+  "study_area": "Ha Noi Metro Line 3 underground section S9-S12",
+  "execution": {
+    "mode": "auto_guarded",
+    "default_model": "inherit",
+    "max_parallel_agents": 3,
+    "max_transient_retries": 2,
+    "require_human_approval_for": ["closing_gate_with_waiver", "changing_scientific_scope", "publishing_or_external_submission", "using_restricted_or_personal_data"]
+  },
+  "methods": {
+    "primary": "Peck_1969_Gaussian_trough",
+    "secondary": "Loganathan_Poulos_1998_after_equation_verification",
+    "volume_loss_ratios": [0.005, 0.01, 0.015, 0.02],
+    "settlement_sign_convention": "downward_positive_in_tables; map_style_may_use_negative_with_explicit_label",
+    "minimum_sensitivity_outputs": ["maximum_settlement_mm", "trough_width_i_m", "influence_width_by_threshold_m", "settlement_at_asset_mm", "slope_at_asset_m_per_m", "curvature_at_asset_per_m"]
+  },
+  "data_policy": {
+    "raw_immutable": true,
+    "missing_value_policy": "blank_not_zero",
+    "required_provenance_fields": ["source_id", "source_locator", "value_basis", "confidence", "qa_flag"],
+    "freeze_hash": "SHA-256",
+    "crs_policy": "preserve source CRS; transform only after verification; WGS84 only for verified display coordinates"
+  },
+  "paths": {
+    "source_research": "research",
+    "agent_config": ".agents",
+    "current_run": "research_outputs/2026-10-13_152753",
+    "state": "AGENT_STATE.json"
+  }
+}

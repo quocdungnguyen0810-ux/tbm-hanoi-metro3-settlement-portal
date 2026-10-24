@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audit Dashboard - GIAI_DOAN_4</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f1f5f9; color: #0f172a; margin: 0; padding: 1.5rem 2rem; line-height: 1.5; }
+    .card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+    .badge { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; background: #e0f2fe; color: #0369a1; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+    
+.table-wrapper {
+  overflow: auto;
+  max-inline-size: 100%;
+  max-block-size: min(560px, 80vh);
+  container-type: inline-size;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+  margin-block-end: 1.25rem;
+}
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9rem;
+}
+caption {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+thead {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 2;
+  background: #0f172a;
+  color: #f8fafc;
+}
+th, td {
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+tbody tr:nth-child(even) td {
+  background: #f8fafc;
+}
+tbody th {
+  position: sticky;
+  inset-inline-start: 0;
+  z-index: 1;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 600;
+  border-right: 1px solid #cbd5e1;
+}
+@container (width < 600px) {
+  table, thead, tbody, tr, th, td {
+    display: block;
+  }
+  thead {
+    display: none;
+  }
+  tr {
+    margin-block-end: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+  }
+  tbody th {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 2;
+    background: #e2e8f0;
+  }
+  td:nth-child(2)::before { content: var(--label-2, "Cột 2") ": "; font-weight: 700; }
+  td:nth-child(3)::before { content: var(--label-3, "Cột 3") ": "; font-weight: 700; }
+  td:nth-child(4)::before { content: var(--label-4, "Cột 4") ": "; font-weight: 700; }
+  td:nth-child(5)::before { content: var(--label-5, "Cột 5") ": "; font-weight: 700; }
+  td:nth-child(6)::before { content: var(--label-6, "Cột 6") ": "; font-weight: 700; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">GIAI_DOAN_4 • Năm học 2026 – 2027 (Lan tỏa Học thuật, Đào tạo Kỹ sư Địa kỹ thuật - Đô thị & Chuyển giao Bộ môn/MRB)</span>
+    <h1 style="margin: 0.5rem 0;">Giai đoạn 4: Chuyển giao Công nghệ, Đào tạo & Phát triển 02 Đề tài NCKH Sinh viên (Hướng 4 WebGIS StoryMap & Quản lý Đô thị)</h1>
+    <p><a href="../../INDEX_PORTAL_TOAN_DU_AN.html">⬅ Quay lại Cổng Quản trị Toàn Dự án</a></p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h2>1. Hệ thống Nhân sự & Tác tử AI</h2>
+      <p><strong>Chủ trì con người:</strong> ThS. Nguyễn Hải Hà (Giảng viên hướng dẫn chính – Bộ môn Địa kỹ thuật và Không gian ngầm, Trường ĐH GTVT)</p>
+      <p><strong>Phối hợp:</strong> ThS. Lê Anh Đức & KS. Trần Văn Long (Đồng hướng dẫn kỹ thuật GIS, khảo sát hiện trường và sổ tay hướng dẫn sinh viên), Nhóm Sinh viên NCKH Hướng 4 (Xây dựng WebGIS StoryMap tương tác truyền thông rủi ro lún TBM tuyến Nhổn – Ga Hà Nội), Nhóm Sinh viên NCKH Quản lý Đô thị (Khảo sát thực địa hành lang an toàn công trình ngầm và lập biểu mẫu quản lý đô thị)</p>
+      <p><strong>Tác tử AI Chủ trì:</strong> gis_analyst (Thiết kế `NCKH_SV_2026_Huong4_WebGIS_StoryMap/05_WEBGIS_PROTOTYPE/index.html` và 4 lớp GeoJSON), reporting_editor (Biên soạn Đề cương thuyết minh, Kế hoạch triển khai và Sổ tay hướng dẫn kỹ thuật cho 2 nhóm SV)</p>
+      <p><strong>Tác tử AI Hỗ trợ:</strong> pipeline_engineer (Lập trình `generate_huong4_deliverables.py`, `build_huong4_webgis.py`, `generate_nckh_sv_deliverables.py`), data_engineer (Xây dựng biểu mẫu thu thập dữ liệu thực địa Excel & sơ đồ tiến độ Gantt)</p>
+    </div>
+    <div class="card">
+      <h2>2. Hệ thống Skill, Công cụ & MCP</h2>
+      <ul>
+        <li>Skill `modern-web-guidance` – Tối ưu giao diện StoryMap tương tác cho sinh viên</li><li>Công cụ Python: `openpyxl` (biểu mẫu khảo sát thực địa & Gantt chart), `python-docx` (6 tài liệu đề cương & sổ tay)</li><li>Công cụ WebGIS StoryMap: `Leaflet.js`, HTML5/CSS3 (`05_WEBGIS_PROTOTYPE/index.html`)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3. Kết quả Audit Cổng Kiểm soát (Gates) & Phát hiện Trọng yếu</h2>
+    <ul>
+      <li><strong>GATE_SV_1_PROPOSAL_AND_MANUAL_QC:</strong> PASSED (Đầy đủ Đề cương, Kế hoạch phân công, Sổ tay kỹ thuật `.md` & `.docx` và bảng tiến độ Gantt `.xlsx` cho cả 2 đề tài NCKH Sinh viên)</li><li><strong>GATE_SV_2_STORYMAP_PROTOTYPE_VERIFICATION:</strong> PASSED (Ứng dụng mẫu `05_WEBGIS_PROTOTYPE/index.html` và 4 lớp GeoJSON hoạt động tốt, phân biệt rõ dữ liệu mẫu phục vụ đào tạo sinh viên)</li>
+    </ul>
+    hr
+    <ul>
+      <li>[ĐẠT] Toàn bộ 4 file Excel và 6 file Word của 2 nhóm NCKH Sinh viên đều đọc tốt, định dạng chuẩn mực, không có lỗi công thức.</li><li>[ĐẠT] Biểu mẫu thu thập dữ liệu thực địa (`04_BIEU_MAU_THU_THAP_DU_LIEU_THUC_DIA.xlsx` và `04_BO_CO_SO_DU_LIEU_VA_MAU_THU_THAP_GIS.xlsx`) là công cụ chuẩn để thu thập dữ liệu thực tế thay thế các bộ dữ liệu giả định ở GĐ1–GĐ3.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>4. Danh mục Tệp tin Đã Phân bổ trong Giai đoạn (31 tệp)</h2>
+    <div tabindex="0" role="region" aria-labelledby="stage-files-caption" class="table-wrapper">
+      <table style="--label-2: 'Phân khu'; --label-3: 'Dung lượng'; --label-4: 'Value Basis'; --label-5: 'QA Flag'; --label-6: 'SHA-256';">
+        <caption id="stage-files-caption">Danh mục tệp tin và trạng thái kiểm toán của GIAI_DOAN_4</caption>
+        <thead>
+          <tr>
+            <th>Tên tệp tin (Nhấn để mở)</th>
+            <th>Thư mục chức năng</th>
+            <th>Dung lượng</th>
+            <th>Value Basis</th>
+            <th>QA Flag</th>
+            <th>SHA-256 (16 ký tự đầu)</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/alignment_wgs84.geojson" style="color:#0284c7; text-decoration:none;">alignment_wgs84.geojson</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>1,836 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>df81e6972724b959…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/stations_wgs84.geojson" style="color:#0284c7; text-decoration:none;">stations_wgs84.geojson</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>1,550 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>ae1330a66bd7e782…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../02_DU_LIEU_DAU_VAO/TBM_HANOI_GEOTECHNICAL_BASELINE.xlsx" style="color:#0284c7; text-decoration:none;">TBM_HANOI_GEOTECHNICAL_BASELINE.xlsx</a></th>
+              <td><code>02_DU_LIEU_DAU_VAO</code></td>
+              <td>14,668 B</td>
+              <td><code>direct_table</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>91302aae5f63206c…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/02_KE_HOACH_VA_TIEN_DO_GANTT.xlsx" style="color:#0284c7; text-decoration:none;">02_KE_HOACH_VA_TIEN_DO_GANTT.xlsx</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>7,974 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>40e8d493124bceb7…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/04_BO_CO_SO_DU_LIEU_VA_MAU_THU_THAP_GIS.xlsx" style="color:#0284c7; text-decoration:none;">04_BO_CO_SO_DU_LIEU_VA_MAU_THU_THAP_GIS.xlsx</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>12,344 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>4d47319020785c5b…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/metro_line.geojson" style="color:#0284c7; text-decoration:none;">metro_line.geojson</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>1,096 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>2a911f119e99f9b9…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/sensitive_points.geojson" style="color:#0284c7; text-decoration:none;">sensitive_points.geojson</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>2,488 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>0341e766381816f0…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/settlement_zones.geojson" style="color:#0284c7; text-decoration:none;">settlement_zones.geojson</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>6,839 B</td>
+              <td><code>derived</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>753338d4ba69f017…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/stations.geojson" style="color:#0284c7; text-decoration:none;">stations.geojson</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>2,404 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>bd553c9902bcece4…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/NCKH_SV_2026_QuanLyDoThi__02_KE_HOACH_VA_TIEN_DO_GANTT.xlsx" style="color:#0284c7; text-decoration:none;">NCKH_SV_2026_QuanLyDoThi__02_KE_HOACH_VA_TIEN_DO_GANTT.xlsx</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>8,593 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>e92c660e675794f8…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../03_DU_LIEU_PHAN_TICH/04_BIEU_MAU_THU_THAP_DU_LIEU_THUC_DIA.xlsx" style="color:#0284c7; text-decoration:none;">04_BIEU_MAU_THU_THAP_DU_LIEU_THUC_DIA.xlsx</a></th>
+              <td><code>03_DU_LIEU_PHAN_TICH</code></td>
+              <td>8,201 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>e70146aba4988dad…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/02_KE_HOACH_VA_TIEN_DO_GANTT.xlsx" style="color:#0284c7; text-decoration:none;">02_KE_HOACH_VA_TIEN_DO_GANTT.xlsx</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>7,974 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>40e8d493124bceb7…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/04_BO_CO_SO_DU_LIEU_VA_MAU_THU_THAP_GIS.xlsx" style="color:#0284c7; text-decoration:none;">04_BO_CO_SO_DU_LIEU_VA_MAU_THU_THAP_GIS.xlsx</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>12,344 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>4d47319020785c5b…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/NCKH_SV_2026_QuanLyDoThi__02_KE_HOACH_VA_TIEN_DO_GANTT.xlsx" style="color:#0284c7; text-decoration:none;">NCKH_SV_2026_QuanLyDoThi__02_KE_HOACH_VA_TIEN_DO_GANTT.xlsx</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>8,593 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>e92c660e675794f8…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO/04_BIEU_MAU_THU_THAP_DU_LIEU_THUC_DIA.xlsx" style="color:#0284c7; text-decoration:none;">04_BIEU_MAU_THU_THAP_DU_LIEU_THUC_DIA.xlsx</a></th>
+              <td><code>04_KET_QUA_BANG_BIEU_HINH_VE_CHAT_LUONG_CAO</code></td>
+              <td>8,201 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>e70146aba4988dad…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../05_FILE_HIEN_HANH_HTML_WEB/index.html" style="color:#0284c7; text-decoration:none;">index.html</a></th>
+              <td><code>05_FILE_HIEN_HANH_HTML_WEB</code></td>
+              <td>22,374 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>5e74743191a011b6…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/generate_huong4_deliverables.py" style="color:#0284c7; text-decoration:none;">generate_huong4_deliverables.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>24,058 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>53eeceed8b1f0a27…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/build_huong4_webgis.py" style="color:#0284c7; text-decoration:none;">build_huong4_webgis.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>33,303 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>d57031c818142032…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../06_MA_NGUON_SCRIPT_VA_KIEM_THU/generate_nckh_sv_deliverables.py" style="color:#0284c7; text-decoration:none;">generate_nckh_sv_deliverables.py</a></th>
+              <td><code>06_MA_NGUON_SCRIPT_VA_KIEM_THU</code></td>
+              <td>35,665 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>d255cd9ab346d69e…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/01_DE_CUONG_THUYET_MINH_NCKHSV.md" style="color:#0284c7; text-decoration:none;">01_DE_CUONG_THUYET_MINH_NCKHSV.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>21,262 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>640bb7260a77db57…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/01_DE_CUONG_THUYET_MINH_NCKHSV.docx" style="color:#0284c7; text-decoration:none;">01_DE_CUONG_THUYET_MINH_NCKHSV.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>39,618 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>8096448cf920130f…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/02_KE_HOACH_TRIEN_KHAI_CHI_TIET_VA_PHAN_CONG.md" style="color:#0284c7; text-decoration:none;">02_KE_HOACH_TRIEN_KHAI_CHI_TIET_VA_PHAN_CONG.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>12,010 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>d1ce33df25c456d4…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/02_KE_HOACH_TRIEN_KHAI_CHI_TIET_VA_PHAN_CONG.docx" style="color:#0284c7; text-decoration:none;">02_KE_HOACH_TRIEN_KHAI_CHI_TIET_VA_PHAN_CONG.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>30,277 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>6f99b3295c14b8e4…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/03_SO_TAY_HUONG_DAN_KY_THUAT_CHO_SINH_VIEN.md" style="color:#0284c7; text-decoration:none;">03_SO_TAY_HUONG_DAN_KY_THUAT_CHO_SINH_VIEN.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>15,793 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>71c7b411b407a94c…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/03_SO_TAY_HUONG_DAN_KY_THUAT_CHO_SINH_VIEN.docx" style="color:#0284c7; text-decoration:none;">03_SO_TAY_HUONG_DAN_KY_THUAT_CHO_SINH_VIEN.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>37,550 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>c82fe2084421b73f…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/NCKH_SV_2026_QuanLyDoThi__01_DE_CUONG_THUYET_MINH_NCKHSV.md" style="color:#0284c7; text-decoration:none;">NCKH_SV_2026_QuanLyDoThi__01_DE_CUONG_THUYET_MINH_NCKHSV.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>12,147 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>7b18f64bd7bf5d6d…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/NCKH_SV_2026_QuanLyDoThi__01_DE_CUONG_THUYET_MINH_NCKHSV.docx" style="color:#0284c7; text-decoration:none;">NCKH_SV_2026_QuanLyDoThi__01_DE_CUONG_THUYET_MINH_NCKHSV.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>30,269 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>c18599b4bd58a874…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/NCKH_SV_2026_QuanLyDoThi__02_KE_HOACH_TRIEN_KHAI_CHI_TIET_VA_PHAN_CONG.md" style="color:#0284c7; text-decoration:none;">NCKH_SV_2026_QuanLyDoThi__02_KE_HOACH_TRIEN_KHAI_CHI_TIET_VA_PHAN_CONG.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>8,037 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>22a95810aac45929…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/NCKH_SV_2026_QuanLyDoThi__02_KE_HOACH_TRIEN_KHAI_CHI_TIET_VA_PHAN_CONG.docx" style="color:#0284c7; text-decoration:none;">NCKH_SV_2026_QuanLyDoThi__02_KE_HOACH_TRIEN_KHAI_CHI_TIET_VA_PHAN_CONG.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>29,861 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>3cd074fc60d66f96…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/NCKH_SV_2026_QuanLyDoThi__03_SO_TAY_HUONG_DAN_KY_THUAT_CHO_SINH_VIEN.md" style="color:#0284c7; text-decoration:none;">NCKH_SV_2026_QuanLyDoThi__03_SO_TAY_HUONG_DAN_KY_THUAT_CHO_SINH_VIEN.md</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>10,113 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>51539105fe747e80…</code></td>
+            </tr>
+            
+            <tr>
+              <th><a href="../07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU/NCKH_SV_2026_QuanLyDoThi__03_SO_TAY_HUONG_DAN_KY_THUAT_CHO_SINH_VIEN.docx" style="color:#0284c7; text-decoration:none;">NCKH_SV_2026_QuanLyDoThi__03_SO_TAY_HUONG_DAN_KY_THUAT_CHO_SINH_VIEN.docx</a></th>
+              <td><code>07_FILE_DU_THAO_BAO_CAO_VA_NGHIEM_THU</code></td>
+              <td>28,470 B</td>
+              <td><code>direct_text</code></td>
+              <td><code>VERIFIED_BYTE_INTEGRITY</code></td>
+              <td><code>945fec12474def5d…</code></td>
+            </tr>
+            
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

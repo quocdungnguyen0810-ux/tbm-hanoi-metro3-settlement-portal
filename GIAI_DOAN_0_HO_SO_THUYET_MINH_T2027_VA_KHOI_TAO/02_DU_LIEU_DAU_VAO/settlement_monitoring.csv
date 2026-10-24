@@ -1,0 +1,11 @@
+MODEL STATUS;Delta;Where to fix;Description;Owner;Last checked
+PASS;0;Du_lieu!A1:J300;Ki?m tra c?u trúc b?ng d? li?u;Data Owner;10/24/2026
+PASS;0;Du_lieu!D:D;Ki?m tra tr?ng thái h?p l?;Operations;10/24/2026
+PASS;0;Du_lieu!E:E;Ki?m tra giá tr? không âm;Finance;10/24/2026
+PASS;0;Bao_cao_phan_tich!A1:N35;Ki?m tra công th?c báo cáo;Finance;10/24/2026
+PASS;0;Bao_cao_phan_tich!F4;Ki?m tra tr?ng thái mô hình;Finance;10/24/2026
+;;;;;
+GHI CHÚ;;;;;
+Các ki?m soát trên là khung m?c ??nh và s? ph?n ánh t?t h?n sau khi n?p d? li?u th?c t?.;;;;;
+Khi có d? li?u, c?p nh?t l?i vùng Kiem_soat ?? b? sung các ki?m tra nghi?p v? riêng.;;;;;
+Không nh?p công th?c hay d? li?u v?n hành vào sheet báo cáo.;;;;;

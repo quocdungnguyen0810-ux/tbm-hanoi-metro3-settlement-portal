@@ -1,0 +1,3161 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_001",
+        "name": "Số 1 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 25.3,
+        "settlement_mm": 11.2,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.815243,
+          21.031725
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_002",
+        "name": "Số 3 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 33.9,
+        "settlement_mm": 6.2,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.815453,
+          21.031766
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_003",
+        "name": "Số 5 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 23.6,
+        "settlement_mm": 12.6,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.81563,
+          21.03164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_004",
+        "name": "Số 7 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 31.5,
+        "settlement_mm": 7.3,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.815839,
+          21.031676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_005",
+        "name": "Số 9 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 2.8,
+        "settlement_mm": 33.2,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.815986,
+          21.031387
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_006",
+        "name": "Số 11 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 32.8,
+        "settlement_mm": 6.7,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.816121,
+          21.031036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_007",
+        "name": "Số 13 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 28.7,
+        "settlement_mm": 8.8,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.81642,
+          21.031547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_008",
+        "name": "Số 15 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 22.6,
+        "settlement_mm": 13.5,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.816528,
+          21.031058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_009",
+        "name": "Số 17 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 29.1,
+        "settlement_mm": 8.6,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.816811,
+          21.031481
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_010",
+        "name": "Số 19 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 30.4,
+        "settlement_mm": 7.9,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.817009,
+          21.031459
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_011",
+        "name": "Số 21 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 10.8,
+        "settlement_mm": 26.6,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.817134,
+          21.031059
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_012",
+        "name": "Số 23 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 32.9,
+        "settlement_mm": 6.6,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.817403,
+          21.031411
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_013",
+        "name": "Số 25 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 2.9,
+        "settlement_mm": 33.2,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.817538,
+          21.031059
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_014",
+        "name": "Số 27 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 2.3,
+        "settlement_mm": 33.4,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.817742,
+          21.031071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_015",
+        "name": "Số 29 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 0.4,
+        "settlement_mm": 33.8,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.817933,
+          21.031012
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_016",
+        "name": "Số 31 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 25.1,
+        "settlement_mm": 11.3,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.818171,
+          21.031204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_017",
+        "name": "Số 33 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 28.5,
+        "settlement_mm": 9.0,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.818372,
+          21.0312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_018",
+        "name": "Số 35 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 41.8,
+        "settlement_mm": 3.6,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.818448,
+          21.030541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_019",
+        "name": "Số 37 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 39.8,
+        "settlement_mm": 4.1,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.818782,
+          21.031231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_020",
+        "name": "Số 39 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 8.9,
+        "settlement_mm": 28.6,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.818894,
+          21.030764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_021",
+        "name": "Số 41 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 0.8,
+        "settlement_mm": 33.8,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.819106,
+          21.030816
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_022",
+        "name": "Số 43 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 39.9,
+        "settlement_mm": 4.1,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.819368,
+          21.031128
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_023",
+        "name": "Số 45 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 23.3,
+        "settlement_mm": 12.9,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.819456,
+          21.030533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_024",
+        "name": "Số 47 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 29.6,
+        "settlement_mm": 8.3,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.81964,
+          21.030442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_025",
+        "name": "Số 49 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 35.9,
+        "settlement_mm": 5.4,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.819947,
+          21.030989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_026",
+        "name": "Số 51 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 5.3,
+        "settlement_mm": 31.9,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.820072,
+          21.030589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_027",
+        "name": "Số 53 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 29.4,
+        "settlement_mm": 8.4,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.820227,
+          21.03034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_028",
+        "name": "Số 55 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 39.7,
+        "settlement_mm": 4.1,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.820539,
+          21.030919
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_029",
+        "name": "Số 57 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 37.8,
+        "settlement_mm": 4.7,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.820603,
+          21.030197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_030",
+        "name": "Số 59 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 3.8,
+        "settlement_mm": 32.8,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.820855,
+          21.030463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_031",
+        "name": "Số 61 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 33.2,
+        "settlement_mm": 6.5,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.821001,
+          21.030168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_032",
+        "name": "Số 63 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 9.5,
+        "settlement_mm": 28.0,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.821269,
+          21.030513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_033",
+        "name": "Số 65 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 8.8,
+        "settlement_mm": 28.8,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.821463,
+          21.030472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_034",
+        "name": "Số 67 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 36.2,
+        "settlement_mm": 5.3,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.821582,
+          21.030038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_035",
+        "name": "Số 69 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 1.1,
+        "settlement_mm": 33.7,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.821836,
+          21.030315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_036",
+        "name": "Số 71 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 6.3,
+        "settlement_mm": 31.1,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.822023,
+          21.030234
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_037",
+        "name": "Số 73 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 27.2,
+        "settlement_mm": 9.8,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.822183,
+          21.030014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_038",
+        "name": "Số 75 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 41.4,
+        "settlement_mm": 3.7,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.822494,
+          21.030588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_039",
+        "name": "Số 77 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 39.2,
+        "settlement_mm": 4.3,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.822553,
+          21.029838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_040",
+        "name": "Số 79 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 27.2,
+        "settlement_mm": 9.8,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.822768,
+          21.02991
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_041",
+        "name": "Số 81 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 2.1,
+        "settlement_mm": 33.5,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.823013,
+          21.030136
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_042",
+        "name": "Số 83 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 23.6,
+        "settlement_mm": 12.6,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.823245,
+          21.030292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_043",
+        "name": "Số 85 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 26.6,
+        "settlement_mm": 10.2,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.823445,
+          21.030284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_044",
+        "name": "Số 87 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 33.3,
+        "settlement_mm": 6.5,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.823539,
+          21.029718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_045",
+        "name": "Số 89 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 6.1,
+        "settlement_mm": 31.2,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.823801,
+          21.030033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_046",
+        "name": "Số 91 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 26.1,
+        "settlement_mm": 10.6,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.823942,
+          21.029712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_047",
+        "name": "Số 93 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 40.9,
+        "settlement_mm": 3.8,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.82425,
+          21.030273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_048",
+        "name": "Số 95 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 15.7,
+        "settlement_mm": 20.8,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.824403,
+          21.030014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_049",
+        "name": "Số 97 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 22.5,
+        "settlement_mm": 13.6,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.82461,
+          21.03004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_050",
+        "name": "Số 99 phố Kim Mã",
+        "street": "Kim Mã",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 25.2,
+        "settlement_mm": 11.2,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.82481,
+          21.03003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_051",
+        "name": "Số 101 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 37.9,
+        "settlement_mm": 4.7,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.825044,
+          21.030112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_052",
+        "name": "Số 103 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 33.1,
+        "settlement_mm": 6.5,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.82518,
+          21.029445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_053",
+        "name": "Số 105 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 5.8,
+        "settlement_mm": 31.5,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.825448,
+          21.029656
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_054",
+        "name": "Số 107 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 27.5,
+        "settlement_mm": 9.6,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.825651,
+          21.02943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_055",
+        "name": "Số 109 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 28.1,
+        "settlement_mm": 9.2,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.825958,
+          21.029893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_056",
+        "name": "Số 111 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 19.1,
+        "settlement_mm": 16.9,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.826126,
+          21.02944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_057",
+        "name": "Số 113 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 18.0,
+        "settlement_mm": 18.1,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.826408,
+          21.029738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_058",
+        "name": "Số 115 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 38.4,
+        "settlement_mm": 4.5,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.826564,
+          21.029202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_059",
+        "name": "Số 117 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 40.9,
+        "settlement_mm": 3.8,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.826792,
+          21.029148
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_060",
+        "name": "Số 119 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 4.3,
+        "settlement_mm": 32.5,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.827073,
+          21.029442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_061",
+        "name": "Số 121 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 7.6,
+        "settlement_mm": 29.9,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.827301,
+          21.029379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_062",
+        "name": "Số 123 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 0.6,
+        "settlement_mm": 33.8,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.827544,
+          21.02942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_063",
+        "name": "Số 125 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 32.5,
+        "settlement_mm": 6.8,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.827819,
+          21.029673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_064",
+        "name": "Số 127 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 4.0,
+        "settlement_mm": 32.7,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.828012,
+          21.029385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_065",
+        "name": "Số 129 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 2.9,
+        "settlement_mm": 33.2,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.828234,
+          21.029292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_066",
+        "name": "Số 131 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 17.2,
+        "settlement_mm": 19.1,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.828493,
+          21.029438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_067",
+        "name": "Số 133 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 28.4,
+        "settlement_mm": 9.0,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.828664,
+          21.028999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_068",
+        "name": "Số 135 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 8.3,
+        "settlement_mm": 29.3,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.828923,
+          21.029146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_069",
+        "name": "Số 137 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 37.0,
+        "settlement_mm": 5.0,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.829216,
+          21.029517
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_070",
+        "name": "Số 139 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 37.5,
+        "settlement_mm": 4.8,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.829347,
+          21.02882
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_071",
+        "name": "Số 141 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 41.5,
+        "settlement_mm": 3.6,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.829685,
+          21.029493
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_072",
+        "name": "Số 143 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 40.4,
+        "settlement_mm": 3.9,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.829916,
+          21.02945
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_073",
+        "name": "Số 145 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 5.6,
+        "settlement_mm": 31.6,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.830101,
+          21.029107
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_074",
+        "name": "Số 147 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 29.5,
+        "settlement_mm": 8.4,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.830365,
+          21.029288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_075",
+        "name": "Số 149 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 11.3,
+        "settlement_mm": 26.0,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.830542,
+          21.028891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_076",
+        "name": "Số 151 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 5.7,
+        "settlement_mm": 31.5,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.830781,
+          21.028908
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_077",
+        "name": "Số 153 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 18.2,
+        "settlement_mm": 17.9,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.831045,
+          21.02909
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_078",
+        "name": "Khu di tích Văn Miếu - Quốc Tử Giám",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng băng đá cổ truyền thống",
+        "dist_centerline_m": 19.9,
+        "settlement_mm": 16.1,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.831279,
+          21.029072
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_079",
+        "name": "Khu di tích Văn Miếu - Quốc Tử Giám",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng băng đá cổ truyền thống",
+        "dist_centerline_m": 17.5,
+        "settlement_mm": 18.7,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.831461,
+          21.028706
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_080",
+        "name": "Khu di tích Văn Miếu - Quốc Tử Giám",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng băng đá cổ truyền thống",
+        "dist_centerline_m": 39.4,
+        "settlement_mm": 4.2,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.831663,
+          21.028478
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_081",
+        "name": "Số 161 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 28.3,
+        "settlement_mm": 9.1,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.83191,
+          21.028544
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_082",
+        "name": "Số 163 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 15.2,
+        "settlement_mm": 21.4,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.832159,
+          21.028629
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_083",
+        "name": "Số 165 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 18.9,
+        "settlement_mm": 17.2,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.832386,
+          21.028563
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_084",
+        "name": "Số 167 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 35.5,
+        "settlement_mm": 5.6,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.832596,
+          21.028383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_085",
+        "name": "Chùa Phổ Giác (Cát Linh)",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng gạch tự nhiên nhạy cảm",
+        "dist_centerline_m": 36.2,
+        "settlement_mm": 5.3,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.832827,
+          21.028344
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_086",
+        "name": "Chùa Phổ Giác (Cát Linh)",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng gạch tự nhiên nhạy cảm",
+        "dist_centerline_m": 18.3,
+        "settlement_mm": 17.8,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.833082,
+          21.028471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_087",
+        "name": "Số 173 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 17.1,
+        "settlement_mm": 19.1,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.833316,
+          21.028449
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_088",
+        "name": "Số 175 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 34.3,
+        "settlement_mm": 6.0,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.833525,
+          21.028263
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_089",
+        "name": "Số 177 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 12.0,
+        "settlement_mm": 25.2,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.833787,
+          21.02843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_090",
+        "name": "Số 179 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 40.2,
+        "settlement_mm": 4.0,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.83398,
+          21.028145
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_091",
+        "name": "Số 181 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 41.8,
+        "settlement_mm": 3.6,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.834323,
+          21.028844
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_092",
+        "name": "Số 183 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 21.6,
+        "settlement_mm": 14.4,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.834469,
+          21.028246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_093",
+        "name": "Số 185 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 31.5,
+        "settlement_mm": 7.3,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.834688,
+          21.028125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_094",
+        "name": "Số 187 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 35.9,
+        "settlement_mm": 5.4,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.83501,
+          21.028694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_095",
+        "name": "Số 189 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 39.9,
+        "settlement_mm": 4.1,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.835248,
+          21.028697
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_096",
+        "name": "Số 191 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 20.2,
+        "settlement_mm": 15.7,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.835453,
+          21.028489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_097",
+        "name": "Số 193 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 34.1,
+        "settlement_mm": 6.1,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.835704,
+          21.028581
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_098",
+        "name": "Số 195 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 30.2,
+        "settlement_mm": 8.0,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.83593,
+          21.028513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_099",
+        "name": "Số 197 phố Cát Linh",
+        "street": "Cát Linh",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 4.0,
+        "settlement_mm": 32.7,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.836116,
+          21.028175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_100",
+        "name": "Số 199 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 11.0,
+        "settlement_mm": 26.4,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.836324,
+          21.028256
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_101",
+        "name": "Số 201 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 26.7,
+        "settlement_mm": 10.2,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.836508,
+          21.028332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_102",
+        "name": "Số 203 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 5.6,
+        "settlement_mm": 31.6,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.836552,
+          21.028105
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_103",
+        "name": "Số 205 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 22.7,
+        "settlement_mm": 13.4,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.836568,
+          21.027817
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_104",
+        "name": "Số 207 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 27.8,
+        "settlement_mm": 9.4,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.836673,
+          21.027721
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_105",
+        "name": "Số 209 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 12.3,
+        "settlement_mm": 24.8,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.836857,
+          21.027796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_106",
+        "name": "Số 211 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 16.0,
+        "settlement_mm": 20.4,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.83709,
+          21.027978
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_107",
+        "name": "Số 213 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 14.6,
+        "settlement_mm": 22.1,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.837208,
+          21.027913
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_108",
+        "name": "Số 215 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 36.1,
+        "settlement_mm": 5.3,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.837415,
+          21.028038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_109",
+        "name": "Số 217 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 11.7,
+        "settlement_mm": 25.5,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.837356,
+          21.027588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_110",
+        "name": "Số 219 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 35.3,
+        "settlement_mm": 5.6,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.837661,
+          21.027924
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_111",
+        "name": "Số 221 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 1.2,
+        "settlement_mm": 33.7,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.837654,
+          21.027588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_112",
+        "name": "Số 223 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 18.9,
+        "settlement_mm": 17.2,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.837847,
+          21.027682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_113",
+        "name": "Số 225 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 15.1,
+        "settlement_mm": 21.5,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.837841,
+          21.027347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_114",
+        "name": "Số 227 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 40.0,
+        "settlement_mm": 4.1,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.83787,
+          21.027087
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_115",
+        "name": "Số 229 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 19.6,
+        "settlement_mm": 16.4,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.838223,
+          21.027528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_116",
+        "name": "Số 231 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 9.4,
+        "settlement_mm": 28.1,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.838308,
+          21.02739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_117",
+        "name": "Số 233 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 15.5,
+        "settlement_mm": 21.0,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.838456,
+          21.027387
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_118",
+        "name": "Số 235 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 29.5,
+        "settlement_mm": 8.4,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.838633,
+          21.02745
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_119",
+        "name": "Số 237 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 9.7,
+        "settlement_mm": 27.8,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.838682,
+          21.027233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_120",
+        "name": "Số 239 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 31.9,
+        "settlement_mm": 7.1,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.838891,
+          21.027363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_121",
+        "name": "Số 241 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 27.3,
+        "settlement_mm": 9.8,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.838789,
+          21.02682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_122",
+        "name": "Số 243 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 31.5,
+        "settlement_mm": 7.3,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.839138,
+          21.027253
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_123",
+        "name": "Số 245 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 20.6,
+        "settlement_mm": 15.3,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.839221,
+          21.02711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_124",
+        "name": "Số 247 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 25.6,
+        "settlement_mm": 11.0,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.839169,
+          21.026674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_125",
+        "name": "Số 249 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 0.8,
+        "settlement_mm": 33.8,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.839394,
+          21.026839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_126",
+        "name": "Số 251 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 10.1,
+        "settlement_mm": 27.4,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.839554,
+          21.026862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_127",
+        "name": "Số 253 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 37.5,
+        "settlement_mm": 4.8,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.839783,
+          21.027036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_128",
+        "name": "Số 255 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 23.8,
+        "settlement_mm": 12.4,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.839855,
+          21.026869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_129",
+        "name": "Số 257 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 37.6,
+        "settlement_mm": 4.8,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.839745,
+          21.026308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_130",
+        "name": "Số 259 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 22.7,
+        "settlement_mm": 13.4,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.839926,
+          21.026378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_131",
+        "name": "Số 261 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 19.7,
+        "settlement_mm": 16.3,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.840213,
+          21.026676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_132",
+        "name": "Số 263 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 15.3,
+        "settlement_mm": 21.3,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.840203,
+          21.026333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_133",
+        "name": "Số 265 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 0.1,
+        "settlement_mm": 33.8,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.840385,
+          21.026405
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_134",
+        "name": "Số 267 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 6.3,
+        "settlement_mm": 31.1,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.840534,
+          21.026405
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_135",
+        "name": "Số 269 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 1.2,
+        "settlement_mm": 33.7,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.840639,
+          21.026309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_136",
+        "name": "Số 271 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 21.9,
+        "settlement_mm": 14.1,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.840675,
+          21.026065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_137",
+        "name": "Số 273 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 32.6,
+        "settlement_mm": 6.8,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.840759,
+          21.025923
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_138",
+        "name": "Số 275 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 2.7,
+        "settlement_mm": 33.3,
+        "tarp_level": "MỨC 3: KHẨN CẤP (ĐỎ)",
+        "tarp_color": "#e74c3c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.841018,
+          21.026162
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_139",
+        "name": "Số 277 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 12.5,
+        "settlement_mm": 24.6,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.841084,
+          21.025983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_140",
+        "name": "Số 279 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 13.7,
+        "settlement_mm": 23.2,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.841309,
+          21.026146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_141",
+        "name": "Số 281 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 29.0,
+        "settlement_mm": 8.7,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.84127,
+          21.02574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_142",
+        "name": "Số 283 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 38.8,
+        "settlement_mm": 4.4,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.841654,
+          21.026248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_143",
+        "name": "Số 285 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 41.8,
+        "settlement_mm": 3.6,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.841789,
+          21.026219
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_144",
+        "name": "Số 287 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 37.0,
+        "settlement_mm": 5.0,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.841896,
+          21.026126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_145",
+        "name": "Số 289 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 32.3,
+        "settlement_mm": 6.9,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.842002,
+          21.026034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_146",
+        "name": "Số 291 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Nhà ống gạch 2-4 tầng",
+        "foundation": "Móng nông tự nhiên",
+        "dist_centerline_m": 29.6,
+        "settlement_mm": 8.3,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.842116,
+          21.025959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_147",
+        "name": "Số 293 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Khung BTCT 5-9 tầng",
+        "foundation": "Móng băng gạch/BT",
+        "dist_centerline_m": 40.9,
+        "settlement_mm": 3.8,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.842283,
+          21.025999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_148",
+        "name": "Số 295 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Chung cư cũ lắp ghép",
+        "foundation": "Móng cọc ma sát ngắn",
+        "dist_centerline_m": 31.0,
+        "settlement_mm": 7.6,
+        "tarp_level": "MỨC 0: BÌNH THƯỜNG (XANH)",
+        "tarp_color": "#2ca02c"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.84237,
+          21.025863
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_149",
+        "name": "Số 297 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Di tích lịch sử cấp quốc gia",
+        "foundation": "Móng bè BTCT",
+        "dist_centerline_m": 15.9,
+        "settlement_mm": 20.6,
+        "tarp_level": "MỨC 2: HÀNH ĐỘNG (CAM)",
+        "tarp_color": "#e67e22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.842436,
+          21.025685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BLD_150",
+        "name": "Số 299 phố Quốc Tử Giám - Trần Hưng Đạo",
+        "street": "Quốc Tử Giám - Trần Hưng Đạo",
+        "type": "Trụ sở cơ quan / Ngoại giao",
+        "foundation": "Móng cọc khoan nhồi sâu",
+        "dist_centerline_m": 30.0,
+        "settlement_mm": 8.1,
+        "tarp_level": "MỨC 1: LƯU Ý (VÀNG)",
+        "tarp_color": "#f1c40f"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.842385,
+          21.025251
+        ]
+      }
+    }
+  ]
+}

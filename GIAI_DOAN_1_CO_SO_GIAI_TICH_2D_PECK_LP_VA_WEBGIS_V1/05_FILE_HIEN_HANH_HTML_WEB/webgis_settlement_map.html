@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống WebGIS Giám sát & Dự báo Lún TBM Metro Tuyến 3 Hà Nội (S9–S12)</title>
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        :root {
+            --primary: #1e3c72;
+            --primary-dark: #122549;
+            --secondary: #2a5298;
+            --accent: #e74c3c;
+            --bg-panel: rgba(255, 255, 255, 0.96);
+            --border-color: #d1d8e0;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f6f9;
+            color: #2c3e50;
+            overflow: hidden;
+        }
+        #app { display: flex; height: 100vh; width: 100vw; position: relative; }
+        #map { flex: 1; height: 100%; z-index: 1; }
+        
+        /* Top Navigation Header */
+        .top-header {
+            position: absolute;
+            top: 12px;
+            left: 60px;
+            z-index: 1000;
+            background: var(--bg-panel);
+            backdrop-filter: blur(8px);
+            padding: 8px 18px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border-left: 5px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .top-header h1 {
+            margin: 0; font-size: 15px; font-weight: 700; color: var(--primary);
+            letter-spacing: 0.3px;
+        }
+        .top-header .subtitle {
+            font-size: 12px; color: #7f8c8d; font-weight: 500;
+        }
+        
+        /* Control Sidebar / Floating Panel */
+        .sidebar {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            bottom: 12px;
+            width: 400px;
+            z-index: 1000;
+            background: var(--bg-panel);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+        
+        .sidebar-header {
+            padding: 14px 18px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sidebar-header h2 { margin: 0; font-size: 14px; font-weight: 600; }
+        .sidebar-header .badge-mode {
+            background: rgba(255,255,255,0.25);
+            padding: 3px 8px; border-radius: 12px; font-size: 11px;
+        }
+        
+        .sidebar-content {
+            flex: 1;
+            padding: 14px 18px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 12px 14px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
+        }
+        .card-title {
+            font-size: 12px; font-weight: 700; color: var(--primary);
+            text-transform: uppercase; margin-bottom: 10px;
+            display: flex; align-items: center; gap: 6px;
+        }
+        
+        /* Slider & Controls */
+        .form-group { margin-bottom: 10px; }
+        .form-group label {
+            display: flex; justify-content: space-between;
+            font-size: 12px; font-weight: 600; margin-bottom: 5px;
+        }
+        .form-control {
+            width: 100%; padding: 6px 10px; border-radius: 5px;
+            border: 1px solid #ccc; font-size: 12px;
+        }
+        .slider-val {
+            color: var(--accent); font-weight: 700; font-size: 13px;
+        }
+        
+        /* KPI Metrics Grid */
+        .metrics-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+        }
+        .metric-box {
+            background: #f8f9fa; border-radius: 6px; padding: 8px 10px;
+            border-left: 3px solid var(--secondary);
+        }
+        .metric-box .label { font-size: 11px; color: #6c757d; font-weight: 500; }
+        .metric-box .value { font-size: 16px; font-weight: 700; color: var(--primary); margin-top: 2px; }
+        
+        /* Chart container */
+        .chart-container {
+            position: relative; height: 160px; width: 100%;
+        }
+        
+        /* Building list table */
+        .table-container {
+            max-height: 180px; overflow-y: auto; font-size: 11px;
+            border: 1px solid #e9ecef; border-radius: 4px;
+        }
+        .bld-table {
+            width: 100%; border-collapse: collapse;
+        }
+        .bld-table th {
+            position: sticky; top: 0; background: #e9ecef;
+            padding: 6px; text-align: left; font-weight: 600;
+        }
+        .bld-table td {
+            padding: 5px 6px; border-bottom: 1px solid #f1f2f6; cursor: pointer;
+        }
+        .bld-table tr:hover { background: #f1f5f9; }
+        
+        /* Risk Badges */
+        .risk-badge {
+            display: inline-block; padding: 2px 6px; border-radius: 4px;
+            font-size: 10px; font-weight: 700; color: white; text-align: center;
+        }
+        .risk-c0 { background-color: #28a745; }
+        .risk-c1 { background-color: #17a2b8; }
+        .risk-c2 { background-color: #ffc107; color: #212529 !important; }
+        .risk-c3 { background-color: #fd7e14; }
+        .risk-c4 { background-color: #dc3545; }
+        
+        /* Legend */
+        .legend-box {
+            display: flex; flex-wrap: wrap; gap: 8px; font-size: 11px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 4px; }
+        .legend-color {
+            width: 12px; height: 12px; border-radius: 2px; display: inline-block;
+        }
+        
+        /* Station Marker Custom Icon */
+        .station-icon {
+            background: #d9534f; color: white; border: 2px solid white;
+            border-radius: 50%; text-align: center; font-weight: bold;
+            font-size: 11px; line-height: 22px; width: 26px; height: 26px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Bản đồ Leaflet -->
+        <div id="map"></div>
+        
+        <!-- Tiêu đề Header -->
+        <div class="top-header">
+            <div>
+                <h1>METRO TUYẾN 3 HÀ NỘI (ĐOẠN S9–S12) | HỆ THỐNG WEBGIS GIÁM SÁT LÚN TBM</h1>
+                <div class="subtitle">Đề tài Luận án Tiến sĩ / Thạc sĩ | Bộ môn Địa kỹ thuật & Không gian ngầm - UTC</div>
+            </div>
+        </div>
+        
+        <!-- Bảng điều khiển Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fa-solid fa-layer-group"></i> TRUNG TÂM DỰ BÁO LÚN TBM</h2>
+                <span class="badge-mode">Peck (1969) & Burland (1995)</span>
+            </div>
+            
+            <div class="sidebar-content">
+                <!-- Điều khiển Kịch bản -->
+                <div class="card">
+                    <div class="card-title"><i class="fa-solid fa-sliders"></i> Kịch bản Vận hành & Địa chất</div>
+                    <div class="form-group">
+                        <label>
+                            <span>Tổn thất thể tích (V<sub>L</sub>):</span>
+                            <span class="slider-val" id="vl-text">1.00%</span>
+                        </label>
+                        <input type="range" id="vl-slider" min="0.5" max="2.0" step="0.1" value="1.0" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Mặt cắt địa chất phân tích:</label>
+                        <select id="section-select" class="form-control">
+                            <option value="S9_S10">S9–S10: Kim Mã - Cát Linh (z0=15.0m, K=0.50)</option>
+                            <option value="S10_S11">S10–S11: Cát Linh - Văn Miếu (z0=16.5m, K=0.55)</option>
+                            <option value="S11_S12" selected>S11–S12: Văn Miếu - Ga HN (z0=18.0m, K=0.60, Bùn sét)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Chỉ số KPI Kết quả tính -->
+                <div class="card">
+                    <div class="card-title"><i class="fa-solid fa-chart-pie"></i> Thông số Phễu lún tức thời</div>
+                    <div class="metrics-grid">
+                        <div class="metric-box">
+                            <div class="label">Lún cực đại S<sub>max</sub>:</div>
+                            <div class="value" id="kpi-smax">22.1 mm</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="label">Bề rộng phễu lún i:</div>
+                            <div class="value" id="kpi-i">10.8 m</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="label">Độ dốc cực đại θ<sub>max</sub>:</div>
+                            <div class="value" id="kpi-theta">1.24 ‰</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="label">Vùng nguy hại (S>10mm):</div>
+                            <div class="value" id="kpi-w10">±13.6 m</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Đồ thị Phễu lún ngang -->
+                <div class="card">
+                    <div class="card-title"><i class="fa-solid fa-chart-line"></i> Phân bố Lún Ngang S(x)</div>
+                    <div class="chart-container">
+                        <canvas id="troughChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Danh sách 60 Công trình -->
+                <div class="card">
+                    <div class="card-title" style="justify-content: space-between;">
+                        <span><i class="fa-solid fa-building"></i> Danh mục 60 Công trình</span>
+                        <select id="filter-risk" style="font-size: 11px; padding: 2px 4px;">
+                            <option value="ALL">Tất cả cấp</option>
+                            <option value="C2_C3">Cấp 2 & 3 (Cần quan sát)</option>
+                            <option value="PRIORITY">Ưu tiên cao</option>
+                        </select>
+                    </div>
+                    <div class="table-container">
+                        <table class="bld-table" id="bld-table">
+                            <thead>
+                                <tr>
+                                    <th>Mã</th>
+                                    <th>Khoảng cách</th>
+                                    <th>Lún Sv</th>
+                                    <th>Cấp Burland</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bld-tbody">
+                                <!-- Dữ liệu nạp bằng Javascript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Chú giải phân cấp rủi ro -->
+                <div class="card">
+                    <div class="card-title"><i class="fa-solid fa-shield-halved"></i> Chú giải Tiêu chuẩn Burland (1995)</div>
+                    <div class="legend-box">
+                        <div class="legend-item"><span class="legend-color" style="background:#28a745;"></span> Cấp 0: Không đáng kể (&lt;10mm)</div>
+                        <div class="legend-item"><span class="legend-color" style="background:#17a2b8;"></span> Cấp 1: Rất nhẹ (10-15mm)</div>
+                        <div class="legend-item"><span class="legend-color" style="background:#ffc107;"></span> Cấp 2: Nhẹ (15-25mm)</div>
+                        <div class="legend-item"><span class="legend-color" style="background:#fd7e14;"></span> Cấp 3: Vừa (25-50mm)</div>
+                        <div class="legend-item"><span class="legend-color" style="background:#dc3545;"></span> Cấp 4: Nghiêm trọng (&ge;50mm)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dữ liệu nạp từ Python backend
+        const RAW_BUILDINGS = [{"id": "BLD-001", "name": "Nhà dân / Trụ sở Km 8.400 (Trái)", "km": 8.4, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": -7.5, "structure": "Nhà chia lô tường gạch chịu lực", "floors": 2, "foundation": "Móng gạch / bè nông", "s_10": 18.76, "theta_10": 0.985, "risk_10": "Cấp 1 (Very Slight)", "s_20": 37.52, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.031565, "lng": 105.814219}, {"id": "BLD-002", "name": "Nhà dân / Trụ sở Km 8.442 (Trái)", "km": 8.442, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": -19.0, "structure": "Nhà ống đô thị kết cấu khung BTCT", "floors": 4, "foundation": "Móng băng", "s_10": 4.06, "theta_10": 0.914, "risk_10": "Cấp 0 (Negligible)", "s_20": 8.12, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.031523, "lng": 105.814818}, {"id": "BLD-003", "name": "Nhà dân / Trụ sở Km 8.484 (Phải)", "km": 8.484, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": 5.8, "structure": "Khu tập thể cũ xây lắp ghép", "floors": 5, "foundation": "Móng bè nông", "s_10": 20.21, "theta_10": 0.717, "risk_10": "Cấp 2 (Slight)", "s_20": 40.42, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.031164, "lng": 105.815328}, {"id": "BLD-004", "name": "Nhà dân / Trụ sở Km 8.526 (Trái)", "km": 8.526, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": -20.6, "structure": "Công trình công cộng / Di tích", "floors": 3, "foundation": "Móng nông cổ", "s_10": 2.77, "theta_10": 0.7, "risk_10": "Cấp 0 (Negligible)", "s_20": 5.54, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.031251, "lng": 105.815965}, {"id": "BLD-005", "name": "Nhà dân / Trụ sở Km 8.568 (Trái)", "km": 8.568, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": -2.4, "structure": "Nhà phố bê tông cốt thép", "floors": 3, "foundation": "Móng đơn / nông", "s_10": 21.81, "theta_10": 0.249, "risk_10": "Cấp 2 (Slight)", "s_20": 43.62, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.03095, "lng": 105.816491}, {"id": "BLD-006", "name": "Nhà dân / Trụ sở Km 8.611 (Phải)", "km": 8.611, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": 6.1, "structure": "Nhà chia lô tường gạch chịu lực", "floors": 4, "foundation": "Móng gạch / bè nông", "s_10": 19.99, "theta_10": 0.764, "risk_10": "Cấp 1 (Very Slight)", "s_20": 39.97, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.030729, "lng": 105.817054}, {"id": "BLD-007", "name": "Nhà dân / Trụ sở Km 8.653 (Trái)", "km": 8.653, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": -28.8, "structure": "Nhà ống đô thị kết cấu khung BTCT", "floors": 5, "foundation": "Móng băng", "s_10": 0.19, "theta_10": 0.077, "risk_10": "Cấp 0 (Negligible)", "s_20": 0.39, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.030891, "lng": 105.817712}, {"id": "BLD-008", "name": "Nhà dân / Trụ sở Km 8.695 (Phải)", "km": 8.695, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": 13.3, "structure": "Khu tập thể cũ xây lắp ghép", "floors": 5, "foundation": "Móng bè nông", "s_10": 11.16, "theta_10": 1.463, "risk_10": "Cấp 1 (Very Slight)", "s_20": 22.32, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.030381, "lng": 105.818179}, {"id": "BLD-009", "name": "Nhà dân / Trụ sở Km 8.737 (Trái)", "km": 8.737, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": -17.3, "structure": "Công trình công cộng / Di tích", "floors": 1, "foundation": "Móng nông cổ", "s_10": 5.81, "theta_10": 1.139, "risk_10": "Cấp 0 (Negligible)", "s_20": 11.62, "risk_20": "Cấp 1 (Very Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.030505, "lng": 105.818826}, {"id": "BLD-010", "name": "Nhà dân / Trụ sở Km 8.779 (Phải)", "km": 8.779, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": 7.0, "structure": "Nhà phố bê tông cốt thép", "floors": 4, "foundation": "Móng đơn / nông", "s_10": 19.23, "theta_10": 0.907, "risk_10": "Cấp 1 (Very Slight)", "s_20": 38.47, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.03015, "lng": 105.819337}, {"id": "BLD-011", "name": "Nhà dân / Trụ sở Km 8.821 (Phải)", "km": 8.821, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": 1.5, "structure": "Nhà chia lô tường gạch chịu lực", "floors": 2, "foundation": "Móng gạch / bè nông", "s_10": 21.99, "theta_10": 0.15, "risk_10": "Cấp 2 (Slight)", "s_20": 43.98, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.030056, "lng": 105.819922}, {"id": "BLD-012", "name": "Nhà dân / Trụ sở Km 8.863 (Trái)", "km": 8.863, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": -12.5, "structure": "Nhà ống đô thị kết cấu khung BTCT", "floors": 6, "foundation": "Móng băng", "s_10": 12.33, "theta_10": 1.466, "risk_10": "Cấp 1 (Very Slight)", "s_20": 24.66, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.030035, "lng": 105.820528}, {"id": "BLD-013", "name": "Nhà dân / Trụ sở Km 8.905 (Trái)", "km": 8.905, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": -6.0, "structure": "Khu tập thể cũ xây lắp ghép", "floors": 6, "foundation": "Móng bè nông", "s_10": 20.06, "theta_10": 0.749, "risk_10": "Cấp 2 (Slight)", "s_20": 40.12, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.029835, "lng": 105.821083}, {"id": "BLD-014", "name": "Nhà dân / Trụ sở Km 8.947 (Trái)", "km": 8.947, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": -2.6, "structure": "Công trình công cộng / Di tích", "floors": 3, "foundation": "Móng nông cổ", "s_10": 21.76, "theta_10": 0.272, "risk_10": "Cấp 2 (Slight)", "s_20": 43.52, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.029663, "lng": 105.821646}, {"id": "BLD-015", "name": "Di tích lịch sử / Công trình nhạy cảm #15", "km": 8.989, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": 7.1, "structure": "Di tích kiến trúc cổ", "floors": 5, "foundation": "Móng nông cổ truyền thống", "s_10": 19.14, "theta_10": 0.922, "risk_10": "Cấp 1 (Very Slight)", "s_20": 38.29, "risk_20": "Cấp 3 (Moderate)", "priority": "ĐẶC BIỆT NGUY CẤP", "lat": 21.029435, "lng": 105.822193}, {"id": "BLD-016", "name": "Nhà dân / Trụ sở Km 9.032 (Phải)", "km": 9.032, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": 29.0, "structure": "Nhà chia lô tường gạch chịu lực", "floors": 2, "foundation": "Móng gạch / bè nông", "s_10": 0.18, "theta_10": 0.072, "risk_10": "Cấp 0 (Negligible)", "s_20": 0.36, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.029098, "lng": 105.822723}, {"id": "BLD-017", "name": "Nhà dân / Trụ sở Km 9.074 (Trái)", "km": 9.074, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": -27.2, "structure": "Nhà ống đô thị kết cấu khung BTCT", "floors": 6, "foundation": "Móng băng", "s_10": 0.36, "theta_10": 0.132, "risk_10": "Cấp 0 (Negligible)", "s_20": 0.71, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.029446, "lng": 105.823434}, {"id": "BLD-018", "name": "Nhà dân / Trụ sở Km 9.116 (Phải)", "km": 9.116, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": 10.8, "structure": "Khu tập thể cũ xây lắp ghép", "floors": 4, "foundation": "Móng bè nông", "s_10": 14.77, "theta_10": 1.389, "risk_10": "Cấp 1 (Very Slight)", "s_20": 29.55, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.028971, "lng": 105.823911}, {"id": "BLD-019", "name": "Nhà dân / Trụ sở Km 9.158 (Trái)", "km": 9.158, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": -26.1, "structure": "Công trình công cộng / Di tích", "floors": 1, "foundation": "Móng nông cổ", "s_10": 0.53, "theta_10": 0.185, "risk_10": "Cấp 0 (Negligible)", "s_20": 1.06, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.02915, "lng": 105.824574}, {"id": "BLD-020", "name": "Nhà dân / Trụ sở Km 9.200 (Phải)", "km": 9.2, "section": "S9–S10 (Kim Mã - Cát Linh)", "offset": 27.9, "structure": "Nhà phố bê tông cốt thép", "floors": 4, "foundation": "Móng đơn / nông", "s_10": 0.27, "theta_10": 0.105, "risk_10": "Cấp 0 (Negligible)", "s_20": 0.55, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.028537, "lng": 105.825011}, {"id": "BLD-021", "name": "Nhà dân / Trụ sở Km 9.200 (Trái)", "km": 9.2, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": -6.9, "structure": "Nhà chia lô tường gạch chịu lực", "floors": 3, "foundation": "Móng gạch / bè nông", "s_10": 17.08, "theta_10": 0.762, "risk_10": "Cấp 1 (Very Slight)", "s_20": 34.25, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.02884, "lng": 105.825097}, {"id": "BLD-022", "name": "Nhà dân / Trụ sở Km 9.253 (Trái)", "km": 9.253, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": -24.1, "structure": "Nhà ống đô thị kết cấu khung BTCT", "floors": 6, "foundation": "Móng băng", "s_10": 2.0, "theta_10": 0.433, "risk_10": "Cấp 0 (Negligible)", "s_20": 4.01, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.02881, "lng": 105.825861}, {"id": "BLD-023", "name": "Nhà dân / Trụ sở Km 9.305 (Phải)", "km": 9.305, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": 11.0, "structure": "Khu tập thể cũ xây lắp ghép", "floors": 4, "foundation": "Móng bè nông", "s_10": 13.31, "theta_10": 1.041, "risk_10": "Cấp 1 (Very Slight)", "s_20": 26.69, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.028327, "lng": 105.826481}, {"id": "BLD-024", "name": "Nhà dân / Trụ sở Km 9.358 (Phải)", "km": 9.358, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": 20.0, "structure": "Công trình công cộng / Di tích", "floors": 3, "foundation": "Móng nông cổ", "s_10": 4.42, "theta_10": 0.752, "risk_10": "Cấp 0 (Negligible)", "s_20": 8.85, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.028068, "lng": 105.827179}, {"id": "BLD-025", "name": "Nhà dân / Trụ sở Km 9.411 (Phải)", "km": 9.411, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": 24.6, "structure": "Nhà phố bê tông cốt thép", "floors": 4, "foundation": "Móng đơn / nông", "s_10": 1.79, "theta_10": 0.399, "risk_10": "Cấp 0 (Negligible)", "s_20": 3.59, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.027864, "lng": 105.827841}, {"id": "BLD-026", "name": "Nhà dân / Trụ sở Km 9.463 (Phải)", "km": 9.463, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": 9.8, "structure": "Nhà chia lô tường gạch chịu lực", "floors": 3, "foundation": "Móng gạch / bè nông", "s_10": 14.53, "theta_10": 0.984, "risk_10": "Cấp 1 (Very Slight)", "s_20": 29.13, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.027906, "lng": 105.828303}, {"id": "BLD-027", "name": "Nhà dân / Trụ sở Km 9.516 (Trái)", "km": 9.516, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": -4.5, "structure": "Nhà ống đô thị kết cấu khung BTCT", "floors": 5, "foundation": "Móng băng", "s_10": 18.63, "theta_10": 0.516, "risk_10": "Cấp 1 (Very Slight)", "s_20": 37.35, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.027942, "lng": 105.828772}, {"id": "BLD-028", "name": "Nhà dân / Trụ sở Km 9.568 (Phải)", "km": 9.568, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": 2.8, "structure": "Khu tập thể cũ xây lắp ghép", "floors": 5, "foundation": "Móng bè nông", "s_10": 19.34, "theta_10": 0.326, "risk_10": "Cấp 1 (Very Slight)", "s_20": 38.78, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.02779, "lng": 105.829189}, {"id": "BLD-029", "name": "Nhà dân / Trụ sở Km 9.621 (Trái)", "km": 9.621, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": -28.1, "structure": "Công trình công cộng / Di tích", "floors": 2, "foundation": "Móng nông cổ", "s_10": 0.76, "theta_10": 0.202, "risk_10": "Cấp 0 (Negligible)", "s_20": 1.53, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.027972, "lng": 105.829692}, {"id": "BLD-030", "name": "Nhà dân / Trụ sở Km 9.674 (Phải)", "km": 9.674, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": 16.5, "structure": "Nhà phố bê tông cốt thép", "floors": 4, "foundation": "Móng đơn / nông", "s_10": 7.49, "theta_10": 0.99, "risk_10": "Cấp 0 (Negligible)", "s_20": 15.02, "risk_20": "Cấp 1 (Very Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.027489, "lng": 105.83004}, {"id": "BLD-031", "name": "Nhà dân / Trụ sở Km 9.726 (Trái)", "km": 9.726, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": -6.3, "structure": "Nhà chia lô tường gạch chịu lực", "floors": 3, "foundation": "Móng gạch / bè nông", "s_10": 17.52, "theta_10": 0.704, "risk_10": "Cấp 1 (Very Slight)", "s_20": 35.14, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.027601, "lng": 105.830519}, {"id": "BLD-032", "name": "Di tích lịch sử / Công trình nhạy cảm #32", "km": 9.779, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": 13.6, "structure": "Di tích kiến trúc cổ", "floors": 6, "foundation": "Móng nông cổ truyền thống", "s_10": 10.53, "theta_10": 1.08, "risk_10": "Cấp 1 (Very Slight)", "s_20": 21.1, "risk_20": "Cấp 2 (Slight)", "priority": "ĐẶC BIỆT NGUY CẤP", "lat": 21.027336, "lng": 105.830918}, {"id": "BLD-033", "name": "Nhà dân / Trụ sở Km 9.832 (Trái)", "km": 9.832, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": -24.7, "structure": "Khu tập thể cũ xây lắp ghép", "floors": 6, "foundation": "Móng bè nông", "s_10": 1.75, "theta_10": 0.392, "risk_10": "Cấp 0 (Negligible)", "s_20": 3.51, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.027583, "lng": 105.831436}, {"id": "BLD-034", "name": "Nhà dân / Trụ sở Km 9.884 (Phải)", "km": 9.884, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": 1.3, "structure": "Công trình công cộng / Di tích", "floors": 2, "foundation": "Móng nông cổ", "s_10": 19.7, "theta_10": 0.152, "risk_10": "Cấp 1 (Very Slight)", "s_20": 39.5, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.027266, "lng": 105.831815}, {"id": "BLD-035", "name": "Nhà dân / Trụ sở Km 9.937 (Trái)", "km": 9.937, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": -10.5, "structure": "Nhà phố bê tông cốt thép", "floors": 3, "foundation": "Móng đơn / nông", "s_10": 13.83, "theta_10": 1.02, "risk_10": "Cấp 1 (Very Slight)", "s_20": 27.72, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.02728, "lng": 105.832279}, {"id": "BLD-036", "name": "Nhà dân / Trụ sở Km 9.989 (Trái)", "km": 9.989, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": -13.7, "structure": "Nhà chia lô tường gạch chịu lực", "floors": 2, "foundation": "Móng gạch / bè nông", "s_10": 10.42, "theta_10": 1.08, "risk_10": "Cấp 1 (Very Slight)", "s_20": 20.89, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.027219, "lng": 105.832717}, {"id": "BLD-037", "name": "Nhà dân / Trụ sở Km 10.042 (Phải)", "km": 10.042, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": 5.2, "structure": "Nhà ống đô thị kết cấu khung BTCT", "floors": 4, "foundation": "Móng băng", "s_10": 18.24, "theta_10": 0.592, "risk_10": "Cấp 1 (Very Slight)", "s_20": 36.57, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.026963, "lng": 105.833118}, {"id": "BLD-038", "name": "Nhà dân / Trụ sở Km 10.095 (Trái)", "km": 10.095, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": -13.1, "structure": "Khu tập thể cũ xây lắp ghép", "floors": 4, "foundation": "Móng bè nông", "s_10": 11.07, "theta_10": 1.082, "risk_10": "Cấp 1 (Very Slight)", "s_20": 22.19, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.027034, "lng": 105.833595}, {"id": "BLD-039", "name": "Nhà dân / Trụ sở Km 10.147 (Trái)", "km": 10.147, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": -21.5, "structure": "Công trình công cộng / Di tích", "floors": 3, "foundation": "Móng nông cổ", "s_10": 3.38, "theta_10": 0.632, "risk_10": "Cấp 0 (Negligible)", "s_20": 6.77, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.02702, "lng": 105.834044}, {"id": "BLD-040", "name": "Nhà dân / Trụ sở Km 10.200 (Trái)", "km": 10.2, "section": "S10–S11 (Cát Linh - Văn Miếu)", "offset": -20.1, "structure": "Nhà phố bê tông cốt thép", "floors": 3, "foundation": "Móng đơn / nông", "s_10": 4.34, "theta_10": 0.744, "risk_10": "Cấp 0 (Negligible)", "s_20": 8.71, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.026917, "lng": 105.834481}, {"id": "BLD-041", "name": "Nhà dân / Trụ sở Km 10.200 (Phải)", "km": 10.2, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": 29.2, "structure": "Nhà chia lô tường gạch chịu lực", "floors": 2, "foundation": "Móng gạch / bè nông", "s_10": 1.24, "theta_10": 0.247, "risk_10": "Cấp 0 (Negligible)", "s_20": 2.49, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.026483, "lng": 105.83438}, {"id": "BLD-042", "name": "Nhà dân / Trụ sở Km 10.268 (Trái)", "km": 10.268, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": -18.1, "structure": "Nhà ống đô thị kết cấu khung BTCT", "floors": 6, "foundation": "Móng băng", "s_10": 6.94, "theta_10": 0.781, "risk_10": "Cấp 0 (Negligible)", "s_20": 13.88, "risk_20": "Cấp 1 (Very Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.026784, "lng": 105.835042}, {"id": "BLD-043", "name": "Nhà dân / Trụ sở Km 10.337 (Phải)", "km": 10.337, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": 18.9, "structure": "Khu tập thể cũ xây lắp ghép", "floors": 4, "foundation": "Móng bè nông", "s_10": 6.33, "theta_10": 0.749, "risk_10": "Cấp 0 (Negligible)", "s_20": 12.66, "risk_20": "Cấp 1 (Very Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.02634, "lng": 105.835538}, {"id": "BLD-044", "name": "Nhà dân / Trụ sở Km 10.405 (Phải)", "km": 10.405, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": 12.7, "structure": "Công trình công cộng / Di tích", "floors": 3, "foundation": "Móng nông cổ", "s_10": 11.5, "theta_10": 0.861, "risk_10": "Cấp 1 (Very Slight)", "s_20": 22.99, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.026283, "lng": 105.836085}, {"id": "BLD-045", "name": "Nhà dân / Trụ sở Km 10.474 (Phải)", "km": 10.474, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": 16.3, "structure": "Nhà phố bê tông cốt thép", "floors": 3, "foundation": "Móng đơn / nông", "s_10": 8.4, "theta_10": 0.837, "risk_10": "Cấp 0 (Negligible)", "s_20": 16.8, "risk_20": "Cấp 1 (Very Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.026114, "lng": 105.836461}, {"id": "BLD-046", "name": "Nhà dân / Trụ sở Km 10.542 (Phải)", "km": 10.542, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": 25.6, "structure": "Nhà chia lô tường gạch chịu lực", "floors": 3, "foundation": "Móng gạch / bè nông", "s_10": 2.41, "theta_10": 0.41, "risk_10": "Cấp 0 (Negligible)", "s_20": 4.83, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.0259, "lng": 105.836813}, {"id": "BLD-047", "name": "Nhà dân / Trụ sở Km 10.611 (Trái)", "km": 10.611, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": -23.0, "structure": "Nhà ống đô thị kết cấu khung BTCT", "floors": 6, "foundation": "Móng băng", "s_10": 3.66, "theta_10": 0.546, "risk_10": "Cấp 0 (Negligible)", "s_20": 7.31, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.026172, "lng": 105.837368}, {"id": "BLD-048", "name": "Di tích lịch sử / Công trình nhạy cảm #48", "km": 10.679, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": 21.0, "structure": "Di tích kiến trúc cổ", "floors": 5, "foundation": "Móng nông cổ truyền thống", "s_10": 4.86, "theta_10": 0.651, "risk_10": "Cấp 0 (Negligible)", "s_20": 9.71, "risk_20": "Cấp 0 (Negligible)", "priority": "ĐẶC BIỆT NGUY CẤP", "lat": 21.025665, "lng": 105.837601}, {"id": "BLD-049", "name": "Nhà dân / Trụ sở Km 10.747 (Trái)", "km": 10.747, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": -24.3, "structure": "Công trình công cộng / Di tích", "floors": 3, "foundation": "Móng nông cổ", "s_10": 2.99, "theta_10": 0.477, "risk_10": "Cấp 0 (Negligible)", "s_20": 5.98, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.025911, "lng": 105.838139}, {"id": "BLD-050", "name": "Nhà dân / Trụ sở Km 10.816 (Trái)", "km": 10.816, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": -11.3, "structure": "Nhà phố bê tông cốt thép", "floors": 3, "foundation": "Móng đơn / nông", "s_10": 12.69, "theta_10": 0.835, "risk_10": "Cấp 1 (Very Slight)", "s_20": 25.37, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.025663, "lng": 105.838483}, {"id": "BLD-051", "name": "Nhà dân / Trụ sở Km 10.884 (Phải)", "km": 10.884, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": 13.8, "structure": "Nhà chia lô tường gạch chịu lực", "floors": 3, "foundation": "Móng gạch / bè nông", "s_10": 10.54, "theta_10": 0.868, "risk_10": "Cấp 1 (Very Slight)", "s_20": 21.09, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.025316, "lng": 105.838781}, {"id": "BLD-052", "name": "Nhà dân / Trụ sở Km 10.953 (Phải)", "km": 10.953, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": 23.2, "structure": "Nhà ống đô thị kết cấu khung BTCT", "floors": 4, "foundation": "Móng băng", "s_10": 3.55, "theta_10": 0.536, "risk_10": "Cấp 0 (Negligible)", "s_20": 7.1, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.025098, "lng": 105.839138}, {"id": "BLD-053", "name": "Nhà dân / Trụ sở Km 11.021 (Trái)", "km": 11.021, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": -7.0, "structure": "Khu tập thể cũ xây lắp ghép", "floors": 6, "foundation": "Móng bè nông", "s_10": 15.89, "theta_10": 0.625, "risk_10": "Cấp 1 (Very Slight)", "s_20": 31.78, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.025217, "lng": 105.839624}, {"id": "BLD-054", "name": "Nhà dân / Trụ sở Km 11.089 (Phải)", "km": 11.089, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": 12.8, "structure": "Công trình công cộng / Di tích", "floors": 1, "foundation": "Móng nông cổ", "s_10": 11.41, "theta_10": 0.862, "risk_10": "Cấp 1 (Very Slight)", "s_20": 22.82, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.024914, "lng": 105.83994}, {"id": "BLD-055", "name": "Nhà dân / Trụ sở Km 11.158 (Phải)", "km": 11.158, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": 13.3, "structure": "Nhà phố bê tông cốt thép", "floors": 5, "foundation": "Móng đơn / nông", "s_10": 10.98, "theta_10": 0.866, "risk_10": "Cấp 1 (Very Slight)", "s_20": 21.95, "risk_20": "Cấp 2 (Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.024772, "lng": 105.840327}, {"id": "BLD-056", "name": "Nhà dân / Trụ sở Km 11.226 (Phải)", "km": 11.226, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": 16.3, "structure": "Nhà chia lô tường gạch chịu lực", "floors": 4, "foundation": "Móng gạch / bè nông", "s_10": 8.4, "theta_10": 0.837, "risk_10": "Cấp 0 (Negligible)", "s_20": 16.8, "risk_20": "Cấp 1 (Very Slight)", "priority": "ƯU TIÊN VỪA", "lat": 21.02461, "lng": 105.8407}, {"id": "BLD-057", "name": "Nhà dân / Trụ sở Km 11.295 (Trái)", "km": 11.295, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": -27.6, "structure": "Nhà ống đô thị kết cấu khung BTCT", "floors": 6, "foundation": "Móng băng", "s_10": 1.69, "theta_10": 0.314, "risk_10": "Cấp 0 (Negligible)", "s_20": 3.38, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.024843, "lng": 105.841239}, {"id": "BLD-058", "name": "Nhà dân / Trụ sở Km 11.363 (Trái)", "km": 11.363, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": -4.3, "structure": "Khu tập thể cũ xây lắp ghép", "floors": 5, "foundation": "Móng bè nông", "s_10": 17.3, "theta_10": 0.411, "risk_10": "Cấp 1 (Very Slight)", "s_20": 34.6, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.02451, "lng": 105.841542}, {"id": "BLD-059", "name": "Nhà dân / Trụ sở Km 11.432 (Trái)", "km": 11.432, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": -3.6, "structure": "Công trình công cộng / Di tích", "floors": 3, "foundation": "Móng nông cổ", "s_10": 17.56, "theta_10": 0.348, "risk_10": "Cấp 1 (Very Slight)", "s_20": 35.13, "risk_20": "Cấp 3 (Moderate)", "priority": "ƯU TIÊN CAO", "lat": 21.024366, "lng": 105.841929}, {"id": "BLD-060", "name": "Nhà dân / Trụ sở Km 11.500 (Trái)", "km": 11.5, "section": "S11–S12 (Văn Miếu - Ga Hà Nội)", "offset": -28.1, "structure": "Nhà phố bê tông cốt thép", "floors": 5, "foundation": "Móng đơn / nông", "s_10": 1.54, "theta_10": 0.292, "risk_10": "Cấp 0 (Negligible)", "s_20": 3.08, "risk_20": "Cấp 0 (Negligible)", "priority": "THEO DÕI THƯỜNG", "lat": 21.024437, "lng": 105.842396}];
+        const STATIONS = [{"id": "S9", "name": "Ga S9 - Kim Mã", "lat": 21.0315, "lng": 105.8142, "km": 8.4, "z0": 15.0, "type": "Ga ngầm trung chuyển"}, {"id": "S10", "name": "Ga S10 - Cát Linh", "lat": 21.0281, "lng": 105.8278, "km": 9.4, "z0": 16.5, "type": "Ga ngầm kết nối Tuyến 2A"}, {"id": "S11", "name": "Ga S11 - Văn Miếu", "lat": 21.0264, "lng": 105.8361, "km": 10.4, "z0": 18.0, "type": "Ga ngầm khu vực di tích"}, {"id": "S12", "name": "Ga S12 - Ga Hà Nội", "lat": 21.0242, "lng": 105.8423, "km": 11.5, "z0": 18.0, "type": "Ga ngầm trung tâm đường sắt quốc gia"}];
+        
+        // Khởi tạo bản đồ Leaflet
+        const map = L.map('map', {
+            center: [21.0280, 105.8280],
+            zoom: 15,
+            zoomControl: false
+        });
+        L.control.zoom({ position: 'bottomleft' }).addTo(map);
+        
+        // Lớp bản đồ nền (Basemaps)
+        const cartoVoyager = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; CARTO &copy; OpenStreetMap',
+            maxZoom: 19
+        }).addTo(map);
+        
+        const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        });
+        
+        const esriSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '&copy; Esri &copy; Maxar'
+        });
+        
+        // Vẽ Tuyến hầm ngầm (Twin tunnels)
+        const stationCoords = STATIONS.map(s => [s.lat, s.lng]);
+        const tunnelCenterLine = L.polyline(stationCoords, {
+            color: '#1e3c72', weight: 6, opacity: 0.85, dashArray: '10, 8'
+        }).addTo(map);
+        tunnelCenterLine.bindPopup("<b>Tuyến hầm đôi TBM EPB Tuyến 3 (S9–S12)</b><br>Đường kính đào D = 6.30 m<br>Chiều dài đi ngầm: ~3.5 km");
+        
+        // Vẽ Các Ga ngầm S9 - S12
+        const stationLayer = L.layerGroup().addTo(map);
+        STATIONS.forEach(st => {
+            const divIcon = L.divIcon({
+                className: 'station-div',
+                html: `<div class="station-icon">${st.id}</div>`,
+                iconSize: [26, 26],
+                iconAnchor: [13, 13]
+            });
+            const marker = L.marker([st.lat, st.lng], { icon: divIcon }).addTo(stationLayer);
+            marker.bindPopup(`<b>${st.name}</b><br>Lý trình: Km ${st.km.toFixed(3)}<br>Độ sâu đỉnh hầm z0: ${st.z0} m<br>Đặc điểm: ${st.type}`);
+        });
+        
+        // Layer chứa các vùng đệm phễu lún và các công trình
+        const bufferLayer = L.layerGroup().addTo(map);
+        const buildingsLayer = L.layerGroup().addTo(map);
+        
+        // Điều khiển Layer
+        const baseMaps = { "Bản đồ Đô thị (Voyager)": cartoVoyager, "OpenStreetMap": osm, "Ảnh Vệ tinh (Esri)": esriSat };
+        const overlayMaps = { "Tuyến hầm TBM": tunnelCenterLine, "Ga ngầm S9-S12": stationLayer, "Vùng đệm lún": bufferLayer, "60 Công trình": buildingsLayer };
+        L.control.layers(baseMaps, overlayMaps, { position: 'topleft' }).addTo(map);
+        
+        // Khởi tạo đồ thị Chart.js
+        const ctx = document.getElementById('troughChart').getContext('2d');
+        const troughChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Độ lún S(x) (mm)',
+                    data: [],
+                    borderColor: '#1e3c72',
+                    backgroundColor: 'rgba(30, 60, 114, 0.2)',
+                    fill: true,
+                    tension: 0.35,
+                    borderWidth: 2,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        reverse: true,
+                        title: { display: true, text: 'Lún (mm)', font: { size: 10 } },
+                        suggestedMax: 25,
+                        suggestedMin: 0
+                    },
+                    x: {
+                        title: { display: true, text: 'Khoảng cách x (m)', font: { size: 10 } }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'Lún: ' + context.parsed.y.toFixed(2) + ' mm';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Hàm tính toán tham số cơ học Peck
+        function calculateTroughParams(vl_percent, sectionKey) {
+            const D = 6.30;
+            const At = Math.PI * D * D / 4.0;
+            let z0 = 18.0;
+            let K = 0.60;
+            
+            if (sectionKey === 'S9_S10') {
+                z0 = 15.0; K = 0.50;
+            } else if (sectionKey === 'S10_S11') {
+                z0 = 16.5; K = 0.55;
+            } else {
+                z0 = 18.0; K = 0.60;
+            }
+            
+            const i = K * z0;
+            const Vloss = (vl_percent / 100.0) * At;
+            const Smax = (Vloss / (Math.sqrt(2 * Math.PI) * i)) * 1000.0; // mm
+            const theta_max = (Smax / (Math.exp(0.5) * i)); // mm/m (hay 10^-3)
+            
+            // Bán kính vùng lún S > 10 mm
+            let w10 = 0.0;
+            if (Smax > 10.0) {
+                w10 = i * Math.sqrt(2.0 * Math.log(Smax / 10.0));
+            }
+            
+            return { D, At, z0, K, i, Smax, theta_max, w10 };
+        }
+        
+        // Hàm phân cấp Burland (1995)
+        function getBurlandRisk(Sv_mm, theta_rad_1000) {
+            if (Sv_mm < 10.0 && theta_rad_1000 < 2.0) {
+                return { code: 'C0', name: 'Cấp 0 (Không đáng kể)', color: '#28a745' };
+            } else if (Sv_mm < 15.0 && theta_rad_1000 < 3.33) {
+                return { code: 'C1', name: 'Cấp 1 (Rất nhẹ)', color: '#17a2b8' };
+            } else if (Sv_mm < 25.0 && theta_rad_1000 < 6.67) {
+                return { code: 'C2', name: 'Cấp 2 (Nhẹ)', color: '#ffc107' };
+            } else if (Sv_mm < 50.0 && theta_rad_1000 < 13.33) {
+                return { code: 'C3', name: 'Cấp 3 (Vừa)', color: '#fd7e14' };
+            } else {
+                return { code: 'C4', name: 'Cấp 4 (Nghiêm trọng)', color: '#dc3545' };
+            }
+        }
+        
+        // Cập nhật toàn bộ hệ thống
+        function updateModel() {
+            const vl = parseFloat(document.getElementById('vl-slider').value);
+            document.getElementById('vl-text').innerText = vl.toFixed(2) + '%';
+            
+            const section = document.getElementById('section-select').value;
+            const params = calculateTroughParams(vl, section);
+            
+            // Cập nhật KPI
+            document.getElementById('kpi-smax').innerText = params.Smax.toFixed(1) + ' mm';
+            document.getElementById('kpi-i').innerText = params.i.toFixed(1) + ' m';
+            document.getElementById('kpi-theta').innerText = params.theta_max.toFixed(2) + ' ‰';
+            document.getElementById('kpi-w10').innerText = params.w10 > 0 ? ('±' + params.w10.toFixed(1) + ' m') : '0 m';
+            
+            // Cập nhật Đồ thị phễu lún
+            const xLabels = [];
+            const yData = [];
+            for (let x = -35; x <= 35; x += 1) {
+                xLabels.push(x);
+                const s = params.Smax * Math.exp(-(x * x) / (2.0 * params.i * params.i));
+                yData.push(s.toFixed(2));
+            }
+            troughChart.data.labels = xLabels;
+            troughChart.data.datasets[0].data = yData;
+            troughChart.update();
+            
+            // Cập nhật hiển thị 60 Công trình trên bản đồ và trong bảng
+            renderBuildings(params);
+        }
+        
+        const buildingMarkers = {};
+        
+        function renderBuildings(params) {
+            buildingsLayer.clearLayers();
+            const filterVal = document.getElementById('filter-risk').value;
+            const tbody = document.getElementById('bld-tbody');
+            tbody.innerHTML = '';
+            
+            RAW_BUILDINGS.forEach(b => {
+                // Tính độ lún Sv và độ dốc theta theo tham số hiện hành
+                const x = b.offset;
+                const sv = params.Smax * Math.exp(-(x * x) / (2.0 * params.i * params.i));
+                const theta = (Math.abs(x) / (params.i * params.i)) * sv; // mm/m hay 10^-3
+                const risk = getBurlandRisk(sv, theta);
+                
+                // Lọc danh sách
+                let passFilter = true;
+                if (filterVal === 'C2_C3' && (risk.code !== 'C2' && risk.code !== 'C3' && risk.code !== 'C4')) {
+                    passFilter = false;
+                }
+                if (filterVal === 'PRIORITY' && b.priority !== 'ƯU TIÊN CAO') {
+                    passFilter = false;
+                }
+                
+                // Vẽ mặt bằng công trình (polygon)
+                const w_lat = 0.00007;
+                const w_lng = 0.00008;
+                const bounds = [
+                    [b.lat - w_lat, b.lng - w_lng],
+                    [b.lat + w_lat, b.lng + w_lng]
+                ];
+                
+                const rect = L.rectangle(bounds, {
+                    color: risk.color,
+                    weight: 2,
+                    fillColor: risk.color,
+                    fillOpacity: 0.7
+                }).addTo(buildingsLayer);
+                
+                const popupContent = `
+                    <div style="font-size:12px; line-height:1.4;">
+                        <h4 style="margin:0 0 6px 0; color:#1e3c72; border-bottom:1px solid #ccc; padding-bottom:3px;">
+                            ${b.id} - ${b.name}
+                        </h4>
+                        <b>Lý trình:</b> Km ${b.km.toFixed(3)} (${b.section})<br>
+                        <b>Khoảng cách tim hầm:</b> ${b.offset > 0 ? ('+' + b.offset.toFixed(1) + ' m (Phải)') : (b.offset.toFixed(1) + ' m (Trái)')}<br>
+                        <b>Kết cấu:</b> ${b.structure} (${b.floors} tầng)<br>
+                        <b>Loại móng:</b> ${b.foundation}<br>
+                        <hr style="margin:4px 0; border:none; border-top:1px dashed #eee;">
+                        <b>Độ lún dự báo Sv:</b> <span style="font-size:13px; font-weight:bold; color:${risk.color};">${sv.toFixed(2)} mm</span><br>
+                        <b>Độ dốc móng θ:</b> ${theta.toFixed(3)} &times; 10<sup>-3</sup><br>
+                        <b>Phân cấp rủi ro Burland:</b> <span class="risk-badge" style="background:${risk.color};">${risk.name}</span><br>
+                        <b>Ưu tiên bảo vệ:</b> <b>${b.priority}</b>
+                    </div>
+                `;
+                rect.bindPopup(popupContent);
+                buildingMarkers[b.id] = rect;
+                
+                // Thêm vào bảng danh mục nếu vượt qua bộ lọc
+                if (passFilter) {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><strong>${b.id}</strong></td>
+                        <td>${b.offset.toFixed(1)} m</td>
+                        <td style="font-weight:bold; color:${risk.color};">${sv.toFixed(1)} mm</td>
+                        <td><span class="risk-badge" style="background:${risk.color};">${risk.code}</span></td>
+                    `;
+                    tr.onclick = function() {
+                        map.flyTo([b.lat, b.lng], 18);
+                        rect.openPopup();
+                    };
+                    tbody.appendChild(tr);
+                }
+            });
+        }
+        
+        // Lắng nghe sự kiện
+        document.getElementById('vl-slider').addEventListener('input', updateModel);
+        document.getElementById('section-select').addEventListener('change', updateModel);
+        document.getElementById('filter-risk').addEventListener('change', function() {
+            const vl = parseFloat(document.getElementById('vl-slider').value);
+            const section = document.getElementById('section-select').value;
+            const params = calculateTroughParams(vl, section);
+            renderBuildings(params);
+        });
+        
+        // Khởi động mô hình lần đầu
+        updateModel();
+    </script>
+</body>
+</html>

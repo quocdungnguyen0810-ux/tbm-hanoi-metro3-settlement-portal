@@ -1,0 +1,81 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "S09",
+        "name": "Ga Kim Mã (S9)",
+        "chainage": "Km 8+400",
+        "depth_m": 18.5,
+        "role": "Giếng phóng 2 máy đào hầm TBM (Điểm xuất phát)",
+        "status": "Đang vận hành giếng phóng TBM",
+        "location_desc": "Đối diện Đền Voi Phục và Công viên Thủ Lệ, Q. Ba Đình"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8192,
+          21.0315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "S10",
+        "name": "Ga Cát Linh (S10)",
+        "chainage": "Km 9+500",
+        "depth_m": 16.8,
+        "role": "Ga trung chuyển kết nối Tuyến số 2A Cát Linh - Hà Đông",
+        "status": "Đang đào đất tầng hầm B1, thi công bản đỉnh",
+        "location_desc": "Nút giao Cát Linh - Giảng Võ - Hào Nam, Q. Đống Đa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8295,
+          21.0286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "S11",
+        "name": "Ga Văn Miếu (S11)",
+        "chainage": "Km 10+600",
+        "depth_m": 15.5,
+        "role": "Ga ngầm phục vụ khách du lịch khu di tích lịch sử",
+        "status": "Đang thi công tường dẫn và tường vây D-wall",
+        "location_desc": "Đường Quốc Tử Giám, trước cổng Văn Miếu, Q. Đống Đa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8368,
+          21.0264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "S12",
+        "name": "Ga Hà Nội (S12)",
+        "chainage": "Km 11+800",
+        "depth_m": 17.2,
+        "role": "Ga ngầm trung tâm & Giếng tiếp nhận 2 máy TBM (Điểm đích)",
+        "status": "Đang thi công hố đào giếng thu hồi khiên đào",
+        "location_desc": "Phố Trần Hưng Đạo, trước cổng Ga Hà Nội, Q. Hoàn Kiếm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8415,
+          21.0238
+        ]
+      }
+    }
+  ]
+}

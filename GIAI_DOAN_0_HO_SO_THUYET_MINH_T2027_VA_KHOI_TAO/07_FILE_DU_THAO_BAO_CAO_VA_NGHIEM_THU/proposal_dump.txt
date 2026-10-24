@@ -1,0 +1,286 @@
+============================== TABLE 0 ==============================
+--- ROW 0 ---
+CELL (0, 0):
+A. THÔNG TIN CHUNG
+
+--- ROW 1 ---
+CELL (1, 0):
+1. TÊN ĐỀ TÀI
+Nghiên cứu đánh giá độ nhạy và dự báo vùng ảnh hưởng lún mặt đất do thi công hầm khiên đào (TBM) trong điều kiện địa chất đô thị Hà Nội
+
+CELL (1, 9):
+2. MÃ SỐ (do Khoa cấp)
+
+
+--- ROW 2 ---
+CELL (2, 0):
+3. THỜI GIAN THỰC HIỆN                  12 tháng
+                             Từ 01/01/2027 đến  31/12/2027
+
+--- ROW 3 ---
+CELL (3, 0):
+4. CHỦ NHIỆM ĐỀ TÀI 
+           Họ và tên: Nguyễn Hải Hà          
+           Đơn vị công tác: Bộ môn Địa kỹ thuật và Không gian ngầm, Khoa Công trình và Môi trường                                             
+           Điện thoại đơn vị: 
+
+CELL (3, 5):
+
+Học vị: ThS        Chức danh khoa học:                                                  
+Điện thoại di động:
+E-mail:
+
+--- ROW 4 ---
+CELL (4, 0):
+5. NHỮNG THÀNH VIÊN THAM GIA NGHIÊN CỨU ĐỀ TÀI
+
+--- ROW 5 ---
+CELL (5, 0):
+TT
+
+CELL (5, 1):
+Họ và tên
+
+CELL (5, 3):
+Đơn vị công tác và lĩnh vực chuyên môn
+
+CELL (5, 8):
+Vai trò
+
+CELL (5, 10):
+Chữ ký
+
+--- ROW 6 ---
+CELL (6, 0):
+1
+
+CELL (6, 1):
+ThS Lê Anh Đức
+
+CELL (6, 3):
+Bộ môn Địa kỹ thuật và Không gian ngầm
+
+CELL (6, 8):
+Thành viên
+
+CELL (6, 10):
+
+
+--- ROW 7 ---
+CELL (7, 0):
+6. TỔ CHỨC PHỐI HỢP CHÍNH 
+
+--- ROW 8 ---
+CELL (8, 0):
+Tên đơn vị
+trong và ngoài nước
+
+CELL (8, 3):
+Nội dung phối hợp nghiên cứu
+
+CELL (8, 6):
+Họ và tên người đại diện đơn vị
+
+CELL (8, 11):
+Kinh phí hỗ trợ (nếu có)
+
+--- ROW 9 ---
+CELL (9, 0):
+7. MỤC TIÊU ĐỀ TÀI (Giải thích về các mục tiêu cơ bản của đề tài, các vấn đề mà đề tài sẽ giải quyết)
+Nghiên cứu đánh giá định lượng độ nhạy biến dạng lún mặt đất và phân vùng ảnh hưởng nguy hại do thi công hầm đôi TBM, xây dựng bộ công cụ tích hợp phục vụ kiểm soát rủi ro công trình và cung cấp cơ sở khoa học cho công tác quan trắc hiện trường.	
+
+--- ROW 10 ---
+CELL (10, 0):
+8. NỘI DUNG NGHIÊN CỨU CHÍNH (Tóm tắt những nội dung nghiên cứu của đề tài)
+Thu thập, chuẩn hóa và kiểm toán minh bạch cơ sở dữ liệu địa tầng, cơ lý đất nền và hình học tuyến hầm phục vụ nghiên cứu
+Xây dựng mô hình toán giải tích tính toán lún hầm và phân tích độ nhạy biến dạng lún và xác định ngưỡng an toàn và vùng ảnh hưởng nguy hại
+Đề xuất quy trình quan trắc địa kỹ thuật và ngưỡng phản ứng khẩn cấp bảo vệ an toàn công trình đô thị.
+
+--- ROW 11 ---
+CELL (11, 0):
+9. DỰ KIẾN SẢN PHẨM VÀ ĐỊA CHỈ ỨNG DỤNG
+9.1. Sản phẩm:
+
+--- ROW 12 ---
+CELL (12, 0):
+STT
+
+CELL (12, 1):
+Tên sản phẩm
+
+CELL (12, 2):
+Số lượng
+
+CELL (12, 4):
+Yêu cầu chất lượng sản phẩm
+(mô tả chi tiết chất lượng sản phẩm 
+đạt được như nội dung, hình thức, các chỉ tiêu, thông số kỹ thuật,...)
+
+CELL (12, 7):
+Yêu cầu khác
+
+--- ROW 13 ---
+CELL (13, 2):
+1
+
+CELL (13, 4):
+- Nội dung bài báo là kết quả nghiên cứu của đề tài.
+- Được đăng trong thời gian thực hiện đề tài.
+
+CELL (13, 7):
+- Chủ nhiệm đề tài là tác giả đầu tiên hoặc tác giả liên hệ (theo email @utc.edu.vn và cơ quan làm việc chính là Trường ĐH GTVT).
+- Trong bài báo phải ghi nhận sự tài trợ trong mục “Lời cảm ơn” (“Acknowledgements”), theo mẫu:
++ Bài báo viết bằng tiếng Anh: "This research is funded by University of Transport and Communications (UTC) under grant number T2027-…-…".
++ Bài báo viết bằng tiếng Việt: “Nghiên cứu này được tài trợ bởi Trường Đại học Giao thông vận tải (ĐH GTVT) trong đề tài mã số  T2027-…-…".
++ Đối với bài báo viết bằng ngôn ngữ khác: sử dụng cụm từ tương đương.
+
+--- ROW 14 ---
+============================== TABLE 1 ==============================
+--- ROW 0 ---
+CELL (0, 0):
+B. NỘI DUNG CHI TIẾT
+
+--- ROW 1 ---
+CELL (1, 0):
+10.  TỔNG QUAN TÌNH HÌNH NGHIÊN CỨU  
+10.1. Tình trạng đề tài : 
+ 	 Mới	 Kế tiếp (tiếp tục hướng nghiên cứu của chính nhóm tác giả)  
+10.2. Đánh giá tổng quan tình hình nghiên cứu thuộc lĩnh vực của đề tài  
+Ngoài nước (phân tích, đánh giá được những công trình nghiên cứu có liên quan đến đề tài, những kết quả nghiên cứu mới nhất trong lĩnh vực nghiên cứu đề tài; nêu được những khác biệt về trình độ KH&CN trong nước và thế giới): 
+Dự báo biến dạng đất nền và độ lún bề mặt do thi công hầm trong đất yếu là chủ đề nghiên cứu trọng điểm của cơ học đất và kỹ thuật công trình ngầm trong hơn 50 năm qua.
+Peck (1969): Dựa trên quan sát thực nghiệm tại nhiều công trình đường hầm ở Chicago và châu Âu, Ralph B. Peck là người đầu tiên chứng minh rằng mặt cắt ngang của phễu lún bề mặt đất phía trên một đường hầm đơn đào trong điều kiện không thoát nước có dạng phân bố chuẩn (phễu lún Gaussian):
+trong đó Smax là độ lún cực đại tại tim hầm, i là khoảng cách ngang từ tim hầm đến điểm uốn của đường cong lún (nơi độ dốc lún đạt giá trị lớn nhất).
+O'Reilly & New (1982), Mair et al. (1993): Phân tích dữ liệu đo đạc tại Vương quốc Anh và thiết lập mối quan hệ tuyến tính giữa khoảng cách điểm uốn i và chiều sâu trục hầm z0: 
+
+với K là hệ số bề rộng phễu lún không thứ nguyên phụ thuộc chặt chẽ vào loại đất: 
+ đối với đất cát hạt thô; 
+ đối với đất sét pha cát chặt; 
+và  đối với đất sét mềm hữu cơ bão hòa nước.
+Loganathan & Poulos (1998): Khắc phục nhược điểm thuần bán thực nghiệm của Peck, Loganathan & Poulos đã phát triển mô hình giải tích dựa trên lý thuyết đàn hồi của Verruijt & Booker (1996), tích hợp hàm tương quan tổn thất thể tích tương đương và xét tới kích thước hình học hầm R=D/2; độ sâu chôn hầm z0 và hệ số Poisson của đất nền . Phương trình của Loganathan & Poulos cho phép xác định trường chuyển vị lún tại bề mặt đất
+z0 cũng như tại các độ sâu chôn móng công trình ngầm z>0.
+Burland (1995), Mair, Taylor & Burland (1996): Đã đặt nền móng cho quy chuẩn đánh giá nguy cơ tổn hại kết cấu công trình dựa trên ba tham số biến dạng: độ lún tuyệt đối Sv, độ dốc góc xoay, và biến dạng kéo ngang tới hạn của khối xây 
+Tiêu chuẩn này phân chia mức độ hư hại công trình thành 6 cấp (từ Cấp 0: Không đáng kể đến Cấp 5: Sụp đổ kết cấu), hiện là tiêu chuẩn vàng được áp dụng trong đánh giá tác động môi trường các dự án hầm đô thị quốc tế.
+
+Trong nước: (Phân tích, đánh giá tình hình nghiên cứu trong nước thuộc lĩnh vực nghiên cứu của đề tài, đặc biệt phải nêu cụ thể được những kết quả KH&CN liên quan đến đề tài mà các cán bộ tham gia đề tài đã thực hiện; nếu có các đề tài cùng bản chất đang thực hiện hoặc đăng ký nghiên cứu ở cấp khác, nơi khác của nhóm nghiên cứu phải giải trình rõ các nội dung kỹ thuật liên quan đến đề tài này; nếu phát hiện có đề tài đang tiến hành mà đề tài này có thể phối hợp nghiên cứu được thì cần ghi cụ thể Tên đề tài, tên Chủ nhiệm đề tài và Cơ quan chủ trì đề tài đó): 
+Tại Việt Nam, các nghiên cứu về thi công TBM trong môi trường địa chất đô thị đang phát triển mạnh mẽ:
+Shin et al. (2020): Nghiên cứu các yếu tố thiết kế khiên đào EPB cho Tuyến đường sắt đô thị số 3 Hà Nội, nhấn mạnh vai trò khống chế áp lực cân bằng đất trong tầng đất bùn sét yếu để hạn chế lún bề mặt.
+Giao, Nguyen & Hoang (2020): Thu thập và phân tích số liệu địa kỹ thuật từ 17 hố khoan khảo sát dọc theo 12.4 km. Tuyến 3 Nhổn – Ga Hà Nội, phân chia địa tầng Đệ tứ khu vực thành 6 tầng cơ bản và cảnh báo nguy cơ lún cố kết dài hạn do hạ thấp mực nước ngầm tầng Pleistocen.
+Nguyen, Bui & Nguyen (2024): Nghiên cứu tác động của tải trọng động đất lên kết cấu hầm TBM đoạn S9–S10 (Kim Mã - Cát Linh), công bố chi tiết các thông số cơ lý đại diện của 6 đơn nguyên thạch học từ GU1 đến GU8.
+Nguyen, Kohata & Nguyen (2024): Khảo sát hố khoan thực tế BH12 trên đoạn S11–S12 (Văn Miếu - Ga Hà Nội), chỉ rõ sự xuất hiện của tầng bùn sét mềm hữu cơ dày tới $12,7m bao trùm toàn bộ không gian đào của khiên TBM với mô-đun biến dạng E chỉ đạt 7,68MPa
+
+10.3. Liệt kê danh mục các công trình nghiên cứu có liên quan đến đề tài đã nêu trong phần tổng quan (tên công trình, tác giả, nơi và năm công bố - chỉ ghi những công trình tác giả thật tâm đắc và đã trích dẫn để luận giải cho sự cần thiết nghiên cứu đề tài):
+.....................................................................................................................................................
+10.4. Phân tích, đánh giá cụ thể những vấn đề KH&CN còn tồn tại, hạn chế của sản phẩm, công nghệ nghiên cứu trong nước và các yếu tố, các nội dung cần đặt ra nghiên cứu, giải quyết ở đề tài này (nêu rõ, nếu thành công thì đạt được những vần đề gì):
+.....................................................................................................................................................
+10.5. Hướng phát triển tiếp theo của đề tài (nếu thành công thì có thể phát triển lên mức độ nào):
+.....................................................................................................................................................
+
+--- ROW 2 ---
+CELL (2, 0):
+11. TÍNH CẤP THIẾT CỦA ĐỀ TÀI
+(Trên cơ sở đánh giá tổng quan tình hình nghiên cứu trong và ngoài nước, phân tích những công trình nghiên cứu có liên quan đến đề tài, những kết quả nghiên cứu mới nhất trong lĩnh vực nghiên cứu đề tài, đánh giá những khác biệt về trình độ KH&CN trong nước và thế giới, nêu được những gì đã giải quyết rồi, những gì còn tồn tại, chỉ ra những hạn chế cụ thể, từ đó nêu được hướng giải quyết - luận giải, cụ thể hoá được tính cấp thiết của đề tài và những vấn đề mới về KH&CN mà đề tài đặt ra nghiên cứu)
+Quá trình đô thị hóa nhanh chóng tại Thủ đô Hà Nội trong hai thập kỷ qua đã tạo ra áp lực khổng lồ lên mạng lưới hạ tầng giao thông mặt đất. Mật độ phương tiện cá nhân gia tăng đột biến dẫn đến tình trạng ùn tắc giao thông nghiêm trọng, ô nhiễm không khí và suy giảm chất lượng sống của cư dân đô thị. Trước tình hình đó, Quy hoạch giao thông vận tải Thủ đô Hà Nội đến năm 2030, tầm nhìn đến năm 2050 (Quyết định số 519/QĐ-TTg của Thủ tướng Chính phủ) đã xác định việc xây dựng hệ thống đường sắt đô thị gồm 10 tuyến xuyên tâm và vành đai là giải pháp chiến lược. Trong mạng lưới này, Tuyến đường sắt đô thị thí điểm TP. Hà Nội (Tuyến số 3: Đoạn Nhổn – Ga Hà Nội) giữ vai trò huyết mạch kết nối khu vực phát triển phía Tây với trung tâm đô thị lịch sử. Dự án có tổng chiều dài 12,4km. Đoạn ngầm S9–S12 được thiết kế gồm hai ống hầm đơn chạy song song, thi công bằng công nghệ khiên đào cân bằng áp lực đất  với đường kính ngoài của khiên $D = 6.30m; đường kính trong vỏ hầm hoàn thiện 5,7m, chiều dày vỏ hầm bê tông cốt thép đúc sẵn 300mm. Khoảng cách tim hai hầm dao động từ 12m đến 15m.. Chiều sâu trục hầm chôn sâu dưới mặt đất dao động trong khoảng z0 = 15 m 18 m.
+Tuyến hầm đi ngầm xuyên qua các khu phố cổ và phố cũ trung tâm có mật độ dân cư và công trình xây dựng dày đặc. Phần lớn các công trình hai bên trục đường Kim Mã, Cát Linh, Quốc Tử Giám và Trần Hưng Đạo là nhà phố dạng "nhà ống" từ 3 đến 5 tầng, móng nông (móng băng gạch, móng đơn bê tông), niên hạn xây dựng lâu năm, cùng nhiều khu tập thể cũ từ thập niên 1970–1980 và các di tích văn hóa lịch sử cấp quốc gia đặc biệt nhạy cảm với biến dạng lún không đều.
+Do đó, việc nghiên cứu định lượng độ nhạy biến dạng lún mặt đất và phân vùng ảnh hưởng nguy hại do thi công hầm trong điều kiện đô thị Hà Nội có ý nghĩa quan trọng trong cả điều kiện học thuật và thực tế
+
+--- ROW 3 ---
+CELL (3, 0):
+12. ĐỐI TƯỢNG, PHẠM VI NGHIÊN CỨU
+12.1. Đối tượng nghiên cứu
+-
+
+12.2. Phạm vi nghiên cứu
+.....................................................................................................................................................
+
+--- ROW 4 ---
+CELL (4, 0):
+13. CÁCH TIẾP CẬN, PHƯƠNG PHÁP NGHIÊN CỨU
+13.1. Cách tiếp cận
+(Luận cứ rõ việc lựa chọn cách tiếp cận phù hợp đối tượng nghiên cứu để đạt mục tiêu đặt ra)
+.....................................................................................................................................................
+13.2. Phương pháp nghiên cứu
+(Luận cứ rõ việc lựa chọn các phương pháp nghiên cứu, kỹ thuật sử dụng phù hợp với từng nội dung của đề tài; làm rõ tính mới, sáng tạo, độc đáo của các phương pháp nghiên cứu và kỹ thuật sử dụng)
+.....................................................................................................................................................
+
+--- ROW 5 ---
+--- ROW 6 ---
+CELL (6, 2):
+Sản phẩm
+
+
+CELL (6, 3):
+Thời gian
+(bắt đầu-kết thúc)
+
+CELL (6, 4):
+Người thực hiện
+
+--- ROW 7 ---
+--- ROW 8 ---
+--- ROW 9 ---
+--- ROW 10 ---
+============================== TABLE 2 ==============================
+--- ROW 0 ---
+CELL (0, 0):
+C. QUẢN LÝ & PHÂN BỔ TÀI CHÍNH
+
+--- ROW 1 ---
+CELL (1, 0):
+Kinh phí thực hiện đề tài: 25.000.000 VNĐ
+Trong đó: 
+    Ngân sách KHCN theo NĐ 109/2022:                                                    Các nguồn khác: 
+    Dự trù kinh phí theo các mục chi (phù hợp với nội dung nghiên cứu)
+
+--- ROW 2 ---
+CELL (2, 0):
+   Đơn vị tính: VNĐ
+
+--- ROW 3 ---
+CELL (3, 1):
+Khoản chi, nội dung chi
+
+CELL (3, 2):
+Thời gian thực hiện
+
+CELL (3, 3):
+Tổng kinh phí
+
+CELL (3, 4):
+Nguồn kinh phí
+
+CELL (3, 6):
+Ghi chú
+
+--- ROW 4 ---
+CELL (4, 0):
+STT
+
+CELL (4, 1):
+Khoản chi, nội dung chi
+
+CELL (4, 2):
+Thời gian thực hiện
+
+CELL (4, 3):
+Tổng kinh phí
+
+--- ROW 5 ---
+CELL (5, 5):
+
+
+--- ROW 6 ---
+--- ROW 7 ---
+--- ROW 8 ---
+--- ROW 9 ---
+--- ROW 10 ---
+--- ROW 11 ---
+--- ROW 12 ---
+--- ROW 13 ---
+--- ROW 14 ---
+--- ROW 15 ---
+--- ROW 16 ---
+--- ROW 17 ---
+--- ROW 18 ---
+--- ROW 19 ---
+--- ROW 20 ---
+--- ROW 21 ---

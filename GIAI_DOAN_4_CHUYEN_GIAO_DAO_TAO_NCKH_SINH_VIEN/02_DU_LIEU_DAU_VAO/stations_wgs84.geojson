@@ -1,0 +1,74 @@
+{
+  "type": "FeatureCollection",
+  "name": "hanoi_metro3_stations_s9_s12",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "S9",
+        "name": "Ga S9 - Kim Mã",
+        "km": 8.4,
+        "z0": 15.0,
+        "type": "Ga ngầm trung chuyển"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8142,
+          21.0315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "S10",
+        "name": "Ga S10 - Cát Linh",
+        "km": 9.4,
+        "z0": 16.5,
+        "type": "Ga ngầm kết nối Tuyến 2A"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8278,
+          21.0281
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "S11",
+        "name": "Ga S11 - Văn Miếu",
+        "km": 10.4,
+        "z0": 18.0,
+        "type": "Ga ngầm khu vực di tích"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8361,
+          21.0264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "S12",
+        "name": "Ga S12 - Ga Hà Nội",
+        "km": 11.5,
+        "z0": 18.0,
+        "type": "Ga ngầm trung tâm đường sắt quốc gia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8423,
+          21.0242
+        ]
+      }
+    }
+  ]
+}
