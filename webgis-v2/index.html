@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hệ thống WebGIS 2.0 - Giám sát Lún 3D & Tiến độ TBM Đoạn S9–S12 Metro 3 Hà Nội</title>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; display: flex; height: 100vh; overflow: hidden; background: #0f172a; color: #f8fafc; }
+    #sidebar { width: 440px; background: #1e293b; border-right: 1px solid #334155; display: flex; flex-direction: column; z-index: 1000; box-shadow: 2px 0 10px rgba(0,0,0,0.3); overflow-y: auto; }
+    #header { padding: 14px 18px; background: linear-gradient(135deg, #1e3a8a, #0f172a); border-bottom: 2px solid #3b82f6; }
+    #header h1 { font-size: 14.5px; font-weight: 700; color: #60a5fa; letter-spacing: 0.3px; line-height: 1.3; }
+    #header p { font-size: 11px; color: #94a3b8; margin-top: 4px; }
+    .panel-section { padding: 12px 16px; border-bottom: 1px solid #334155; }
+    .panel-title { font-size: 11.5px; font-weight: 700; color: #38bdf8; text-transform: uppercase; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+    .control-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 11.5px; }
+    .control-label { color: #cbd5e1; }
+    .control-val { font-weight: bold; color: #f59e0b; }
+    select, input[type="range"], input[type="text"] { background: #0f172a; border: 1px solid #475569; color: #f8fafc; border-radius: 4px; padding: 4px 8px; font-size: 11.5px; outline: none; }
+    input[type="range"] { width: 100%; cursor: pointer; accent-color: #3b82f6; }
+    
+    /* Stats grid */
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 6px; }
+    .stat-card { background: #0f172a; border: 1px solid #334155; border-radius: 4px; padding: 6px; text-align: center; }
+    .stat-num { font-size: 14px; font-weight: bold; }
+    .stat-desc { font-size: 9.5px; color: #94a3b8; }
+    
+    /* Charts container */
+    .chart-container { position: relative; height: 165px; margin-top: 6px; background: #0f172a; border: 1px solid #334155; border-radius: 4px; padding: 6px; }
+    
+    /* Map */
+    #map { flex: 1; height: 100%; position: relative; background: #0b0f19; }
+    
+    /* Legend */
+    .legend-box { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; font-size: 10px; }
+    .legend-item { display: flex; align-items: center; gap: 4px; }
+    .legend-color { width: 10px; height: 10px; border-radius: 50%; border: 1px solid #000; }
+    
+    /* Building list */
+    .bld-table-wrap { max-height: 180px; overflow-y: auto; margin-top: 6px; border: 1px solid #334155; border-radius: 4px; }
+    table.bld-table { width: 100%; border-collapse: collapse; font-size: 10.5px; }
+    table.bld-table th { background: #0f172a; color: #94a3b8; padding: 5px; position: sticky; top: 0; text-align: left; }
+    table.bld-table td { padding: 4px 6px; border-top: 1px solid #1e293b; color: #cbd5e1; }
+    table.bld-table tr:hover { background: #334155; cursor: pointer; }
+    
+    .btn { background: #2563eb; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: bold; transition: 0.2s; }
+    .btn:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR CONTROLS & CHARTS -->
+  <div id="sidebar">
+    <div id="header">
+      <h1>WEBGIS 2.0: GIÁM SÁT LÚN 3D & TIẾN ĐỘ TBM</h1>
+      <p>Đoạn ngầm S9–S12 Metro Tuyến 3 Hà Nội | Giai đoạn 2 (Burland 100 Công trình)</p>
+    </div>
+
+    <!-- TBM ADVANCE CONTROLLER -->
+    <div class="panel-section">
+      <div class="panel-title">
+        <span>Tiến độ đào TBM (Longitudinal Advance)</span>
+        <span id="tbm-ring-badge" class="control-val">Ring 1,250 / 2,500</span>
+      </div>
+      <input type="range" id="tbm-slider" min="0" max="2500" step="10" value="1250" />
+      <div class="control-row" style="margin-top: 6px;">
+        <span class="control-label">Lý trình hiện tại: <b id="tbm-chainage" style="color:#38bdf8;">Km 1+750 (Đoạn S10–S11)</b></span>
+        <span class="control-label">Vận tốc: <b style="color:#10b981;">12 m/ngày</b></span>
+      </div>
+      <div class="control-row">
+        <span class="control-label">Tổn thất thể tích $V_L$:</span>
+        <select id="vl-select" onchange="updateAll()">
+          <option value="05">V_L = 0.5% (Kiểm soát tuyệt hảo)</option>
+          <option value="10" selected>V_L = 1.0% (Kịch bản thiết kế danh định)</option>
+          <option value="15">V_L = 1.5% (Thi công khó khăn)</option>
+          <option value="20">V_L = 2.0% (Kịch bản sự cố bất lợi)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- REAL-TIME STATS -->
+    <div class="panel-section">
+      <div class="panel-title">Thống kê rủi ro 100 công trình (Burland 1995)</div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div id="cnt-c0" class="stat-num" style="color:#22c55e;">72</div>
+          <div class="stat-desc">Cấp 0 (Không)</div>
+        </div>
+        <div class="stat-card">
+          <div id="cnt-c1" class="stat-num" style="color:#eab308;">16</div>
+          <div class="stat-desc">Cấp 1 (Rất nhẹ)</div>
+        </div>
+        <div class="stat-card">
+          <div id="cnt-c2" class="stat-num" style="color:#f97316;">8</div>
+          <div class="stat-desc">Cấp 2 (Nhẹ)</div>
+        </div>
+        <div class="stat-card">
+          <div id="cnt-c3" class="stat-num" style="color:#ef4444;">4</div>
+          <div class="stat-desc">Cấp 3 (Vừa - Nứt)</div>
+        </div>
+      </div>
+      <div class="legend-box">
+        <div class="legend-item"><div class="legend-color" style="background:#22c55e;"></div> Cấp 0 (<0.05%)</div>
+        <div class="legend-item"><div class="legend-color" style="background:#eab308;"></div> Cấp 1 (0.05-0.075%)</div>
+        <div class="legend-item"><div class="legend-color" style="background:#f97316;"></div> Cấp 2 (0.075-0.15%)</div>
+        <div class="legend-item"><div class="legend-color" style="background:#ef4444;"></div> Cấp 3 (0.15-0.30%)</div>
+        <div class="legend-item"><div class="legend-color" style="background:#a855f7;"></div> Cấp 4 (0.30-0.50%)</div>
+      </div>
+    </div>
+
+    <!-- DUAL CHARTS -->
+    <div class="panel-section">
+      <div class="panel-title">Trắc dọc lún động $U_z(y)$ theo gương đào</div>
+      <div class="chart-container">
+        <canvas id="longChart"></canvas>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <div class="panel-title">Trắc ngang phễu lún $S(x)$ tại gương đào</div>
+      <div class="chart-container">
+        <canvas id="transChart"></canvas>
+      </div>
+    </div>
+
+    <!-- BUILDING SEARCH & TABLE -->
+    <div class="panel-section" style="flex:1;">
+      <div class="panel-title">
+        <span>Tra cứu 100 công trình</span>
+        <button class="btn" onclick="exportData()">Xuất CSV</button>
+      </div>
+      <input type="text" id="bld-search" placeholder="Tìm kiếm theo tên / phố..." onkeyup="filterTable()" style="width:100%; margin-bottom:4px;" />
+      <div class="bld-table-wrap">
+        <table class="bld-table" id="bld-table">
+          <thead>
+            <tr><th>Mã</th><th>Tên công trình</th><th>Cự ly</th><th>Lún (mm)</th><th>Cấp</th></tr>
+          </thead>
+          <tbody id="bld-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEAFLET MAP CONTAINER -->
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // Embedded GeoJSON datasets
+    const buildingsData = {"type": "FeatureCollection", "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}}, "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.815177, 21.031407]}, "properties": {"id": "BLD-001", "name": "Công trình Kim số 116", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -8.03, "type": "Công trình công cộng / Trường học", "foundation": "Móng đơn kết hợp giằng bê tông", "L": 33.9, "H": 14.8, "s_05": 9.39, "s_10": 18.78, "s_15": 28.17, "s_20": 37.56, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.374, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.815553, 21.031405]}, "properties": {"id": "BLD-002", "name": "Công trình Kim số 97", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -3.47, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 13.7, "H": 11.4, "s_05": 11.07, "s_10": 22.14, "s_15": 33.2, "s_20": 44.27, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.107, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.815939, 21.031479]}, "properties": {"id": "BLD-003", "name": "Công trình Kim số 353", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 9.66, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 16.2, "H": 11.6, "s_05": 8.4, "s_10": 16.8, "s_15": 25.21, "s_20": 33.61, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.3665, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.816277, 21.031168]}, "properties": {"id": "BLD-004", "name": "Công trình Kim số 323", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -20.36, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 14.6, "H": 12.3, "s_05": 1.52, "s_10": 3.03, "s_15": 4.55, "s_20": 6.06, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.2192, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.816657, 21.031188]}, "properties": {"id": "BLD-005", "name": "Công trình Kim số 179", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -13.36, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 26.2, "H": 17.9, "s_05": 5.7, "s_10": 11.41, "s_15": 17.11, "s_20": 22.82, "cat_05": 4, "cat_10": 5, "cat_15": 5, "cat_20": 5, "eps_10": 0.6078, "risk_10": "Cấp 5 (Rất nặng, nguy cơ sập)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.817024, 21.031111]}, "properties": {"id": "BLD-006", "name": "Công trình Kim số 60", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -17.1, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 13.9, "H": 13.9, "s_05": 3.11, "s_10": 6.22, "s_15": 9.33, "s_20": 12.44, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.3887, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.817412, 21.031202]}, "properties": {"id": "BLD-007", "name": "Công trình Kim số 144", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -2.13, "type": "Nhà phố thương mại 2-3 tầng", "foundation": "Móng gạch đá cổ", "L": 10.9, "H": 8.2, "s_05": 11.27, "s_10": 22.55, "s_15": 33.82, "s_20": 45.09, "cat_05": 0, "cat_10": 0, "cat_15": 1, "cat_20": 2, "eps_10": 0.047, "risk_10": "Cấp 0 (Không đáng kể)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.817818, 21.031436]}, "properties": {"id": "BLD-008", "name": "Công trình Kim số 251", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 28.73, "type": "Công trình công cộng / Trường học", "foundation": "Móng đơn kết hợp giằng bê tông", "L": 31.9, "H": 13.0, "s_05": 0.1, "s_10": 0.21, "s_15": 0.31, "s_20": 0.41, "cat_05": 0, "cat_10": 0, "cat_15": 0, "cat_20": 0, "eps_10": 0.0249, "risk_10": "Cấp 0 (Không đáng kể)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.818138, 21.030982]}, "properties": {"id": "BLD-009", "name": "Công trình Kim số 273", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -17.22, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 12.2, "H": 13.7, "s_05": 3.04, "s_10": 6.08, "s_15": 9.12, "s_20": 12.16, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.3785, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.818511, 21.030955]}, "properties": {"id": "BLD-010", "name": "Công trình Kim số 11", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -15.44, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 28.1, "H": 15.6, "s_05": 4.19, "s_10": 8.38, "s_15": 12.57, "s_20": 16.76, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.4951, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.818905, 21.031089]}, "properties": {"id": "BLD-011", "name": "Công trình Kim số 227", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 4.33, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 14.2, "H": 12.2, "s_05": 10.87, "s_10": 21.75, "s_15": 32.62, "s_20": 43.49, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.148, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.819302, 21.031252]}, "properties": {"id": "BLD-012", "name": "Công trình Kim số 280", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 27.31, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 26.4, "H": 15.6, "s_05": 0.18, "s_10": 0.35, "s_15": 0.53, "s_20": 0.71, "cat_05": 0, "cat_10": 0, "cat_15": 1, "cat_20": 2, "eps_10": 0.0468, "risk_10": "Cấp 0 (Không đáng kể)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.81961, 21.030704]}, "properties": {"id": "BLD-013", "name": "Công trình Kim số 217", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -29.11, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 15.7, "H": 12.6, "s_05": 0.09, "s_10": 0.18, "s_15": 0.27, "s_20": 0.35, "cat_05": 0, "cat_10": 0, "cat_15": 0, "cat_20": 0, "eps_10": 0.0211, "risk_10": "Cấp 0 (Không đáng kể)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.82002, 21.030971]}, "properties": {"id": "BLD-014", "name": "Công trình Kim số 197", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 5.55, "type": "Công trình công cộng / Trường học", "foundation": "Móng đơn kết hợp giằng bê tông", "L": 32.7, "H": 13.4, "s_05": 10.5, "s_10": 21.01, "s_15": 31.51, "s_20": 42.02, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.2193, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.820407, 21.031052]}, "properties": {"id": "BLD-015", "name": "Công trình Kim số 336", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 19.34, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 14.1, "H": 12.2, "s_05": 1.94, "s_10": 3.87, "s_15": 5.81, "s_20": 7.75, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 5, "eps_10": 0.2582, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.820742, 21.030717]}, "properties": {"id": "BLD-016", "name": "Công trình Kim số 90", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -13.22, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 15.6, "H": 13.4, "s_05": 5.81, "s_10": 11.63, "s_15": 17.44, "s_20": 23.25, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.4715, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.821136, 21.030854]}, "properties": {"id": "BLD-017", "name": "Công trình Kim số 50", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 6.78, "type": "Công trình công cộng / Trường học", "foundation": "Móng đơn kết hợp giằng bê tông", "L": 34.6, "H": 15.6, "s_05": 10.01, "s_10": 20.03, "s_15": 30.04, "s_20": 40.05, "cat_05": 3, "cat_10": 4, "cat_15": 4, "cat_20": 5, "eps_10": 0.3201, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.821496, 21.030721]}, "properties": {"id": "BLD-018", "name": "Công trình Kim số 71", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -3.24, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 13.6, "H": 13.2, "s_05": 11.11, "s_10": 22.22, "s_15": 33.34, "s_20": 44.45, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1113, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.821881, 21.030786]}, "properties": {"id": "BLD-019", "name": "Công trình Kim số 236", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 8.8, "type": "Nhà phố thương mại 2-3 tầng", "foundation": "Móng gạch đá cổ", "L": 10.6, "H": 10.1, "s_05": 8.94, "s_10": 17.89, "s_15": 26.83, "s_20": 35.77, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 5, "eps_10": 0.2999, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.822261, 21.030814]}, "properties": {"id": "BLD-020", "name": "Công trình Kim số 264", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 16.69, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 17.3, "H": 14.1, "s_05": 3.36, "s_10": 6.73, "s_15": 10.09, "s_20": 13.45, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.4096, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.822629, 21.030742]}, "properties": {"id": "BLD-021", "name": "Công trình Kim số 389", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 13.48, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 12.5, "H": 11.1, "s_05": 5.61, "s_10": 11.23, "s_15": 16.84, "s_20": 22.45, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.4013, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.822995, 21.030657]}, "properties": {"id": "BLD-022", "name": "Công trình Kim số 105", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 8.73, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 15.5, "H": 11.4, "s_05": 8.99, "s_10": 17.97, "s_15": 26.96, "s_20": 35.95, "cat_05": 3, "cat_10": 4, "cat_15": 4, "cat_20": 5, "eps_10": 0.3281, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.823365, 21.030596]}, "properties": {"id": "BLD-023", "name": "Công trình Kim số 38", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 6.68, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 17.1, "H": 14.2, "s_05": 10.06, "s_10": 20.11, "s_15": 30.17, "s_20": 40.23, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 5, "eps_10": 0.291, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.823714, 21.030372]}, "properties": {"id": "BLD-024", "name": "Công trình Kim số 75", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -13.46, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 15.1, "H": 11.9, "s_05": 5.63, "s_10": 11.27, "s_15": 16.9, "s_20": 22.53, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.4254, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.824072, 21.030224]}, "properties": {"id": "BLD-025", "name": "Công trình Kim số 117", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -25.25, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 16.9, "H": 16.7, "s_05": 0.37, "s_10": 0.73, "s_15": 1.1, "s_20": 1.46, "cat_05": 0, "cat_10": 2, "cat_15": 2, "cat_20": 3, "eps_10": 0.0924, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.824474, 21.03043]}, "properties": {"id": "BLD-026", "name": "Công trình Kim số 357", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 2.52, "type": "Nhà phố thương mại 2-3 tầng", "foundation": "Móng gạch đá cổ", "L": 11.8, "H": 10.7, "s_05": 11.22, "s_10": 22.45, "s_15": 33.67, "s_20": 44.9, "cat_05": 0, "cat_10": 1, "cat_15": 2, "cat_20": 2, "eps_10": 0.0702, "risk_10": "Cấp 1 (Rất nhẹ, nứt chân chim)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.824827, 21.030234]}, "properties": {"id": "BLD-027", "name": "Công trình Kim số 130", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -14.58, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 30.1, "H": 17.6, "s_05": 4.8, "s_10": 9.6, "s_15": 14.39, "s_20": 19.19, "cat_05": 3, "cat_10": 5, "cat_15": 5, "cat_20": 5, "eps_10": 0.5762, "risk_10": "Cấp 5 (Rất nặng, nguy cơ sập)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.825179, 21.030039]}, "properties": {"id": "BLD-028", "name": "Công trình Kim số 146", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -31.56, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 18.4, "H": 16.1, "s_05": 0.03, "s_10": 0.06, "s_15": 0.09, "s_20": 0.13, "cat_05": 0, "cat_10": 0, "cat_15": 0, "cat_20": 0, "eps_10": 0.0102, "risk_10": "Cấp 0 (Không đáng kể)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.825569, 21.030146]}, "properties": {"id": "BLD-029", "name": "Công trình Kim số 324", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -14.76, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 13.6, "H": 12.6, "s_05": 4.67, "s_10": 9.34, "s_15": 14.01, "s_20": 18.69, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.4266, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.825972, 21.030352]}, "properties": {"id": "BLD-030", "name": "Công trình Kim số 61", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 12.99, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 17.2, "H": 16.1, "s_05": 5.98, "s_10": 11.96, "s_15": 17.95, "s_20": 23.93, "cat_05": 3, "cat_10": 5, "cat_15": 5, "cat_20": 5, "eps_10": 0.5545, "risk_10": "Cấp 5 (Rất nặng, nguy cơ sập)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.826344, 21.030314]}, "properties": {"id": "BLD-031", "name": "Công trình Kim số 90", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 13.59, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 13.3, "H": 13.9, "s_05": 5.54, "s_10": 11.07, "s_15": 16.61, "s_20": 22.14, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.4857, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.826694, 21.030099]}, "properties": {"id": "BLD-032", "name": "Công trình Kim số 233", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -5.69, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 16.5, "H": 11.7, "s_05": 10.45, "s_10": 20.91, "s_15": 31.36, "s_20": 41.82, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.2018, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.827046, 21.029904]}, "properties": {"id": "BLD-033", "name": "Công trình Kim số 169", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -22.73, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 18.8, "H": 15.8, "s_05": 0.8, "s_10": 1.6, "s_15": 2.41, "s_20": 3.21, "cat_05": 2, "cat_10": 3, "cat_15": 3, "cat_20": 4, "eps_10": 0.1676, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.827413, 21.029824]}, "properties": {"id": "BLD-034", "name": "Công trình Kim số 264", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": -26.83, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 20.0, "H": 15.4, "s_05": 0.21, "s_10": 0.42, "s_15": 0.63, "s_20": 0.84, "cat_05": 0, "cat_10": 1, "cat_15": 2, "cat_20": 2, "eps_10": 0.054, "risk_10": "Cấp 1 (Rất nhẹ, nứt chân chim)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.827849, 21.030298]}, "properties": {"id": "BLD-035", "name": "Công trình Kim số 249", "street": "Kim Mã (Đoạn S9–S10)", "offset_m": 30.94, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 20.0, "H": 14.5, "s_05": 0.04, "s_10": 0.08, "s_15": 0.12, "s_20": 0.16, "cat_05": 0, "cat_10": 0, "cat_15": 0, "cat_20": 0, "eps_10": 0.0119, "risk_10": "Cấp 0 (Không đáng kể)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.828124, 21.030006]}, "properties": {"id": "BLD-036", "name": "Công trình Cát số 268", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 3.5, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 29.0, "H": 17.0, "s_05": 10.22, "s_10": 20.44, "s_15": 30.66, "s_20": 40.88, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1417, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.828287, 21.029652]}, "properties": {"id": "BLD-037", "name": "Công trình Cát số 156", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -30.94, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 17.7, "H": 14.3, "s_05": 0.18, "s_10": 0.37, "s_15": 0.55, "s_20": 0.74, "cat_05": 0, "cat_10": 0, "cat_15": 0, "cat_20": 1, "eps_10": 0.0308, "risk_10": "Cấp 0 (Không đáng kể)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.828641, 21.030123]}, "properties": {"id": "BLD-038", "name": "Công trình Cát số 48", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 28.19, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 20.7, "H": 14.4, "s_05": 0.4, "s_10": 0.8, "s_15": 1.19, "s_20": 1.59, "cat_05": 0, "cat_10": 1, "cat_15": 2, "cat_20": 2, "eps_10": 0.0598, "risk_10": "Cấp 1 (Rất nhẹ, nứt chân chim)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.828796, 21.029735]}, "properties": {"id": "BLD-039", "name": "Công trình Cát số 160", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -10.17, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 14.7, "H": 13.1, "s_05": 7.58, "s_10": 15.16, "s_15": 22.74, "s_20": 30.32, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 5, "eps_10": 0.2812, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.829015, 21.029622]}, "properties": {"id": "BLD-040", "name": "Công trình Cát số 121", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -17.37, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 14.8, "H": 12.6, "s_05": 3.56, "s_10": 7.12, "s_15": 10.67, "s_20": 14.23, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 5, "eps_10": 0.255, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.82925, 21.029579]}, "properties": {"id": "BLD-041", "name": "Công trình Cát số 149", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -16.52, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 14.8, "H": 13.6, "s_05": 4.0, "s_10": 8.0, "s_15": 11.99, "s_20": 15.99, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 5, "eps_10": 0.2867, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.829476, 21.029499]}, "properties": {"id": "BLD-042", "name": "Công trình Cát số 156", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -19.92, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 15.6, "H": 13.7, "s_05": 2.39, "s_10": 4.79, "s_15": 7.18, "s_20": 9.57, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.2202, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.8298, 21.029843]}, "properties": {"id": "BLD-043", "name": "Công trình Cát số 125", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 24.77, "type": "Nhà phố thương mại 2-3 tầng", "foundation": "Móng gạch đá cổ", "L": 10.4, "H": 8.5, "s_05": 0.92, "s_10": 1.84, "s_15": 2.76, "s_20": 3.68, "cat_05": 0, "cat_10": 2, "cat_15": 2, "cat_20": 3, "eps_10": 0.0767, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.830035, 21.0298]}, "properties": {"id": "BLD-044", "name": "Công trình Cát số 236", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 25.51, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 27.9, "H": 17.8, "s_05": 0.78, "s_10": 1.56, "s_15": 2.33, "s_20": 3.11, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1234, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.830278, 21.029792]}, "properties": {"id": "BLD-045", "name": "Công trình Cát số 375", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 30.31, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 14.7, "H": 13.1, "s_05": 0.22, "s_10": 0.44, "s_15": 0.66, "s_20": 0.88, "cat_05": 0, "cat_10": 0, "cat_15": 1, "cat_20": 1, "eps_10": 0.0335, "risk_10": "Cấp 0 (Không đáng kể)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.83047, 21.029561]}, "properties": {"id": "BLD-046", "name": "Công trình Cát số 170", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 9.73, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 12.1, "H": 12.5, "s_05": 7.82, "s_10": 15.64, "s_15": 23.45, "s_20": 31.27, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 5, "eps_10": 0.2638, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.830642, 21.029244]}, "properties": {"id": "BLD-047", "name": "Công trình Cát số 144", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -20.56, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 19.6, "H": 14.9, "s_05": 2.15, "s_10": 4.29, "s_15": 6.44, "s_20": 8.58, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.221, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.830922, 21.029399]}, "properties": {"id": "BLD-048", "name": "Công trình Cát số 384", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 2.72, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 17.3, "H": 15.8, "s_05": 10.37, "s_10": 20.74, "s_15": 31.11, "s_20": 41.49, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1037, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.831212, 21.029595]}, "properties": {"id": "BLD-049", "name": "Công trình Cát số 273", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 30.65, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 19.2, "H": 16.4, "s_05": 0.2, "s_10": 0.4, "s_15": 0.6, "s_20": 0.8, "cat_05": 0, "cat_10": 0, "cat_15": 1, "cat_20": 1, "eps_10": 0.0372, "risk_10": "Cấp 0 (Không đáng kể)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.83139, 21.029306]}, "properties": {"id": "BLD-050", "name": "Công trình Cát số 326", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 3.5, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 18.5, "H": 15.7, "s_05": 10.22, "s_10": 20.44, "s_15": 30.66, "s_20": 40.88, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1323, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.831652, 21.029376]}, "properties": {"id": "BLD-051", "name": "Công trình Cát số 181", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 17.19, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 16.7, "H": 13.9, "s_05": 3.65, "s_10": 7.3, "s_15": 10.96, "s_20": 14.61, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 5, "eps_10": 0.2795, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.831904, 21.029409]}, "properties": {"id": "BLD-052", "name": "Công trình Cát số 242", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 26.55, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 20.8, "H": 15.0, "s_05": 0.61, "s_10": 1.21, "s_15": 1.82, "s_20": 2.42, "cat_05": 0, "cat_10": 2, "cat_15": 2, "cat_20": 3, "eps_10": 0.0872, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.83209, 21.029155]}, "properties": {"id": "BLD-053", "name": "Công trình Cát số 197", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 3.38, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 20.3, "H": 14.9, "s_05": 10.25, "s_10": 20.49, "s_15": 30.74, "s_20": 40.99, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.122, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.832302, 21.02901]}, "properties": {"id": "BLD-054", "name": "Công trình Cát số 265", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -7.35, "type": "Nhà phố thương mại 2-3 tầng", "foundation": "Móng gạch đá cổ", "L": 12.4, "H": 9.1, "s_05": 8.96, "s_10": 17.92, "s_15": 26.87, "s_20": 35.83, "cat_05": 2, "cat_10": 3, "cat_15": 3, "cat_20": 4, "eps_10": 0.1684, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.832536, 21.028966]}, "properties": {"id": "BLD-055", "name": "Công trình Cát số 332", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -6.74, "type": "Nhà phố thương mại 2-3 tầng", "foundation": "Móng gạch đá cổ", "L": 12.9, "H": 8.3, "s_05": 9.21, "s_10": 18.43, "s_15": 27.64, "s_20": 36.85, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1456, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.832798, 21.02904]}, "properties": {"id": "BLD-056", "name": "Di tích Đền/Chùa Cát (Bảo vệ cấp 1)", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 7.36, "type": "Di tích lịch sử / Đền chùa cổ", "foundation": "Móng gạch truyền thống không giằng", "L": 20.6, "H": 9.6, "s_05": 8.96, "s_10": 17.91, "s_15": 26.87, "s_20": 35.82, "cat_05": 2, "cat_10": 3, "cat_15": 3, "cat_20": 4, "eps_10": 0.1758, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.833048, 21.029061]}, "properties": {"id": "BLD-057", "name": "Công trình Cát số 308", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 15.41, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 29.5, "H": 16.7, "s_05": 4.6, "s_10": 9.21, "s_15": 13.81, "s_20": 18.41, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.3567, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.833224, 21.02876]}, "properties": {"id": "BLD-058", "name": "Công trình Cát số 315", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -13.02, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 20.3, "H": 16.7, "s_05": 5.97, "s_10": 11.94, "s_15": 17.91, "s_20": 23.88, "cat_05": 3, "cat_10": 4, "cat_15": 5, "cat_20": 5, "eps_10": 0.373, "risk_10": "Cấp 4 (Nặng, nứt gãy dầm/tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.83349, 21.028856]}, "properties": {"id": "BLD-059", "name": "Công trình Cát số 182", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 3.5, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 17.0, "H": 14.2, "s_05": 10.22, "s_10": 20.44, "s_15": 30.66, "s_20": 40.88, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1215, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.833703, 21.028717]}, "properties": {"id": "BLD-060", "name": "Công trình Cát số 380", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -6.61, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 13.7, "H": 12.1, "s_05": 9.27, "s_10": 18.53, "s_15": 27.8, "s_20": 37.07, "cat_05": 2, "cat_10": 3, "cat_15": 3, "cat_20": 4, "eps_10": 0.193, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.833897, 21.028496]}, "properties": {"id": "BLD-061", "name": "Công trình Cát số 351", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -25.99, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 17.6, "H": 14.5, "s_05": 0.69, "s_10": 1.39, "s_15": 2.08, "s_20": 2.78, "cat_05": 0, "cat_10": 2, "cat_15": 2, "cat_20": 3, "eps_10": 0.0944, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.834246, 21.028947]}, "properties": {"id": "BLD-062", "name": "Công trình Cát số 67", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 30.84, "type": "Nhà phố thương mại 2-3 tầng", "foundation": "Móng gạch đá cổ", "L": 10.2, "H": 8.1, "s_05": 0.19, "s_10": 0.38, "s_15": 0.57, "s_20": 0.76, "cat_05": 0, "cat_10": 0, "cat_15": 0, "cat_20": 0, "eps_10": 0.0201, "risk_10": "Cấp 0 (Không đáng kể)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.834459, 21.028807]}, "properties": {"id": "BLD-063", "name": "Công trình Cát số 110", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": 20.65, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 18.6, "H": 16.3, "s_05": 2.11, "s_10": 4.22, "s_15": 6.33, "s_20": 8.44, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.2359, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.834613, 21.028415]}, "properties": {"id": "BLD-064", "name": "Công trình Cát số 205", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -18.19, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 30.2, "H": 15.6, "s_05": 3.16, "s_10": 6.32, "s_15": 9.48, "s_20": 12.64, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 5, "eps_10": 0.2875, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.834872, 21.028475]}, "properties": {"id": "BLD-065", "name": "Công trình Cát số 317", "street": "Cát Linh (Đoạn S10–S11)", "offset_m": -5.67, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 26.7, "H": 17.9, "s_05": 9.61, "s_10": 19.22, "s_15": 28.83, "s_20": 38.44, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.2342, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.83516, 21.028561]}, "properties": {"id": "BLD-066", "name": "Công trình Quốc số 129", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 13.73, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 13.4, "H": 12.3, "s_05": 5.6, "s_10": 11.19, "s_15": 16.79, "s_20": 22.38, "cat_05": 2, "cat_10": 3, "cat_15": 3, "cat_20": 4, "eps_10": 0.1979, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.835183, 21.028133]}, "properties": {"id": "BLD-067", "name": "Công trình Quốc số 126", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -26.98, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 12.4, "H": 12.3, "s_05": 1.0, "s_10": 2.0, "s_15": 3.0, "s_20": 4.0, "cat_05": 0, "cat_10": 2, "cat_15": 2, "cat_20": 3, "eps_10": 0.0781, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.835552, 21.028347]}, "properties": {"id": "BLD-068", "name": "Công trình Quốc số 131", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 12.06, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 12.8, "H": 11.8, "s_05": 6.36, "s_10": 12.71, "s_15": 19.07, "s_20": 25.42, "cat_05": 2, "cat_10": 3, "cat_15": 3, "cat_20": 4, "eps_10": 0.1872, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.835714, 21.028175]}, "properties": {"id": "BLD-069", "name": "Công trình Quốc số 246", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 3.15, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 27.4, "H": 17.9, "s_05": 9.35, "s_10": 18.7, "s_15": 28.05, "s_20": 37.4, "cat_05": 0, "cat_10": 2, "cat_15": 2, "cat_20": 3, "eps_10": 0.095, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.835966, 21.028173]}, "properties": {"id": "BLD-070", "name": "Công trình Quốc số 287", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 15.23, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 19.7, "H": 14.1, "s_05": 4.92, "s_10": 9.83, "s_15": 14.75, "s_20": 19.66, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.2185, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.836118, 21.027984]}, "properties": {"id": "BLD-071", "name": "Công trình Quốc số 95", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 4.23, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 12.1, "H": 11.3, "s_05": 9.15, "s_10": 18.29, "s_15": 27.44, "s_20": 36.59, "cat_05": 0, "cat_10": 2, "cat_15": 2, "cat_20": 3, "eps_10": 0.0865, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.836174, 21.027616]}, "properties": {"id": "BLD-072", "name": "Công trình Quốc số 247", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -29.06, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 16.9, "H": 11.5, "s_05": 0.68, "s_10": 1.35, "s_15": 2.03, "s_20": 2.7, "cat_05": 0, "cat_10": 1, "cat_15": 2, "cat_20": 2, "eps_10": 0.0548, "risk_10": "Cấp 1 (Rất nhẹ, nứt chân chim)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.836366, 21.027501]}, "properties": {"id": "BLD-073", "name": "Công trình Quốc số 350", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -30.9, "type": "Nhà phố thương mại 2-3 tầng", "foundation": "Móng gạch đá cổ", "L": 12.4, "H": 8.5, "s_05": 0.46, "s_10": 0.93, "s_15": 1.39, "s_20": 1.85, "cat_05": 0, "cat_10": 0, "cat_15": 0, "cat_20": 1, "eps_10": 0.0321, "risk_10": "Cấp 0 (Không đáng kể)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.836682, 21.027616]}, "properties": {"id": "BLD-074", "name": "Công trình Quốc số 19", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -4.23, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 20.7, "H": 16.7, "s_05": 9.15, "s_10": 18.29, "s_15": 27.44, "s_20": 36.58, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1182, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.836834, 21.027427]}, "properties": {"id": "BLD-075", "name": "Công trình Quốc số 156", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -15.3, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 14.5, "H": 13.6, "s_05": 4.88, "s_10": 9.76, "s_15": 14.64, "s_20": 19.52, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.211, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.837144, 21.027532]}, "properties": {"id": "BLD-076", "name": "Công trình Quốc số 289", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 10.16, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 16.7, "H": 13.8, "s_05": 7.19, "s_10": 14.38, "s_15": 21.57, "s_20": 28.76, "cat_05": 2, "cat_10": 3, "cat_15": 3, "cat_20": 4, "eps_10": 0.1995, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.837402, 21.027539]}, "properties": {"id": "BLD-077", "name": "Công trình Quốc số 349", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 23.5, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 28.9, "H": 16.2, "s_05": 1.79, "s_10": 3.58, "s_15": 5.37, "s_20": 7.16, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1479, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.83754, 21.027324]}, "properties": {"id": "BLD-078", "name": "Công trình Quốc số 188", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 9.17, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 20.1, "H": 15.9, "s_05": 7.59, "s_10": 15.19, "s_15": 22.78, "s_20": 30.37, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.2113, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.837789, 21.027315]}, "properties": {"id": "BLD-079", "name": "Công trình Quốc số 52", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 20.51, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 27.0, "H": 15.2, "s_05": 2.74, "s_10": 5.47, "s_15": 8.21, "s_20": 10.94, "cat_05": 2, "cat_10": 3, "cat_15": 3, "cat_20": 4, "eps_10": 0.1828, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.837789, 21.026844]}, "properties": {"id": "BLD-080", "name": "Công trình Quốc số 251", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -25.55, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 15.4, "H": 11.2, "s_05": 1.29, "s_10": 2.57, "s_15": 3.86, "s_20": 5.14, "cat_05": 0, "cat_10": 2, "cat_15": 2, "cat_20": 3, "eps_10": 0.0874, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.83805, 21.026857]}, "properties": {"id": "BLD-081", "name": "Công trình Quốc số 99", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -11.59, "type": "Nhà phố thương mại 2-3 tầng", "foundation": "Móng gạch đá cổ", "L": 11.7, "H": 8.8, "s_05": 6.57, "s_10": 13.14, "s_15": 19.71, "s_20": 26.28, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1484, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.838285, 21.026822]}, "properties": {"id": "BLD-082", "name": "Công trình Quốc số 123", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -3.5, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 29.1, "H": 17.6, "s_05": 9.29, "s_10": 18.58, "s_15": 27.87, "s_20": 37.16, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1038, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.838565, 21.026871]}, "properties": {"id": "BLD-083", "name": "Công trình Quốc số 258", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 15.04, "type": "Nhà phố thương mại 2-3 tầng", "foundation": "Móng gạch đá cổ", "L": 12.7, "H": 9.3, "s_05": 5.0, "s_10": 9.99, "s_15": 14.99, "s_20": 19.99, "cat_05": 2, "cat_10": 3, "cat_15": 3, "cat_20": 4, "eps_10": 0.1577, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.838719, 21.026685]}, "properties": {"id": "BLD-084", "name": "Công trình Quốc số 108", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 4.39, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 18.1, "H": 15.1, "s_05": 9.11, "s_10": 18.23, "s_15": 27.34, "s_20": 36.45, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1126, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.838977, 21.026693]}, "properties": {"id": "BLD-085", "name": "Công trình Quốc số 199", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 17.69, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 14.8, "H": 11.7, "s_05": 3.83, "s_10": 7.67, "s_15": 11.5, "s_20": 15.34, "cat_05": 2, "cat_10": 3, "cat_15": 3, "cat_20": 4, "eps_10": 0.1745, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.83915, 21.026543]}, "properties": {"id": "BLD-086", "name": "Công trình Quốc số 364", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 11.51, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 26.5, "H": 17.7, "s_05": 6.6, "s_10": 13.21, "s_15": 19.81, "s_20": 26.41, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 5, "eps_10": 0.258, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.839315, 21.026378]}, "properties": {"id": "BLD-087", "name": "Công trình Quốc số 351", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 3.5, "type": "Nhà phố thương mại 2-3 tầng", "foundation": "Móng gạch đá cổ", "L": 11.5, "H": 8.3, "s_05": 9.29, "s_10": 18.58, "s_15": 27.87, "s_20": 37.16, "cat_05": 0, "cat_10": 1, "cat_15": 2, "cat_20": 2, "eps_10": 0.0574, "risk_10": "Cấp 1 (Rất nhẹ, nứt chân chim)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.839376, 21.02602]}, "properties": {"id": "BLD-088", "name": "Công trình Quốc số 85", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -28.58, "type": "Công trình công cộng / Trường học", "foundation": "Móng đơn kết hợp giằng bê tông", "L": 31.8, "H": 15.9, "s_05": 0.74, "s_10": 1.48, "s_15": 2.23, "s_20": 2.97, "cat_05": 0, "cat_10": 2, "cat_15": 2, "cat_20": 3, "eps_10": 0.0763, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.839749, 21.026241]}, "properties": {"id": "BLD-089", "name": "Công trình Quốc số 376", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 11.31, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 16.4, "H": 14.3, "s_05": 6.69, "s_10": 13.38, "s_15": 20.07, "s_20": 26.76, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.2144, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.839928, 21.026103]}, "properties": {"id": "BLD-090", "name": "Công trình Quốc số 62", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 6.56, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 20.0, "H": 16.4, "s_05": 8.53, "s_10": 17.06, "s_15": 25.59, "s_20": 34.12, "cat_05": 2, "cat_10": 3, "cat_15": 3, "cat_20": 4, "eps_10": 0.1706, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.839986, 21.025739]}, "properties": {"id": "BLD-091", "name": "Công trình Quốc số 232", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -26.16, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 16.3, "H": 16.2, "s_05": 1.16, "s_10": 2.31, "s_15": 3.47, "s_20": 4.63, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.109, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.840313, 21.025874]}, "properties": {"id": "BLD-092", "name": "Công trình Quốc số 248", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 2.94, "type": "Chung cư cũ lắp ghép 5 tầng", "foundation": "Móng băng bê tông cốt thép", "L": 26.7, "H": 17.3, "s_05": 9.38, "s_10": 18.77, "s_15": 28.15, "s_20": 37.53, "cat_05": 0, "cat_10": 2, "cat_15": 2, "cat_20": 3, "eps_10": 0.0864, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.840533, 21.025811]}, "properties": {"id": "BLD-093", "name": "Công trình Quốc số 16", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 7.57, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 14.1, "H": 11.7, "s_05": 8.19, "s_10": 16.39, "s_15": 24.58, "s_20": 32.78, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1448, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.840671, 21.025597]}, "properties": {"id": "BLD-094", "name": "Công trình Quốc số 203", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -6.61, "type": "Nhà phố thương mại 2-3 tầng", "foundation": "Móng gạch đá cổ", "L": 10.4, "H": 8.3, "s_05": 8.51, "s_10": 17.02, "s_15": 25.53, "s_20": 34.05, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1007, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.841035, 21.025801]}, "properties": {"id": "BLD-095", "name": "Công trình Quốc số 330", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 31.14, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 20.4, "H": 14.7, "s_05": 0.44, "s_10": 0.88, "s_15": 1.32, "s_20": 1.76, "cat_05": 0, "cat_10": 0, "cat_15": 1, "cat_20": 2, "eps_10": 0.047, "risk_10": "Cấp 0 (Không đáng kể)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.841213, 21.02566]}, "properties": {"id": "BLD-096", "name": "Công trình Quốc số 301", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 26.09, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 17.9, "H": 14.3, "s_05": 1.17, "s_10": 2.34, "s_15": 3.51, "s_20": 4.69, "cat_05": 0, "cat_10": 2, "cat_15": 2, "cat_20": 3, "eps_10": 0.0989, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.841377, 21.025493]}, "properties": {"id": "BLD-097", "name": "Công trình Quốc số 100", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": 17.74, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 17.2, "H": 15.0, "s_05": 3.81, "s_10": 7.63, "s_15": 11.44, "s_20": 15.26, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.2123, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.841482, 21.025216]}, "properties": {"id": "BLD-098", "name": "Công trình Quốc số 251", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -4.2, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 14.3, "H": 11.2, "s_05": 9.15, "s_10": 18.31, "s_15": 27.46, "s_20": 36.61, "cat_05": 0, "cat_10": 2, "cat_15": 2, "cat_20": 3, "eps_10": 0.0849, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.841594, 21.024953]}, "properties": {"id": "BLD-099", "name": "Công trình Quốc số 370", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -24.4, "type": "Nhà ống dân cư 3-4 tầng", "foundation": "Móng nông / Bê tông gạch", "L": 15.7, "H": 13.0, "s_05": 1.56, "s_10": 3.11, "s_15": 4.67, "s_20": 6.22, "cat_05": 1, "cat_10": 2, "cat_15": 3, "cat_20": 3, "eps_10": 0.1128, "risk_10": "Cấp 2 (Nhẹ, nứt thẩm mỹ tường)"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [105.841827, 21.024915]}, "properties": {"id": "BLD-100", "name": "Công trình Quốc số 378", "street": "Quốc Tử Giám - Trần Hưng Đạo (Đoạn S11–S12)", "offset_m": -16.8, "type": "Nhà ống dân cư 4-5 tầng", "foundation": "Móng nông trên nền cát pha", "L": 16.4, "H": 15.6, "s_05": 4.22, "s_10": 8.43, "s_15": 12.65, "s_20": 16.86, "cat_05": 2, "cat_10": 3, "cat_15": 4, "cat_20": 4, "eps_10": 0.2274, "risk_10": "Cấp 3 (Vừa, nứt kết cấu & kẹt cửa)"}}]};
+    const alignmentData = {"type": "FeatureCollection", "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}}, "features": [{"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[105.815, 21.0315], [105.82, 21.031], [105.825, 21.0305], [105.828, 21.03], [105.832, 21.0292], [105.835, 21.0285], [105.838, 21.027], [105.84, 21.026], [105.842, 21.025]]}, "properties": {"name": "Tuyến ngầm S9–S12 Metro 3 Hà Nội (Tim hầm đôi)", "length_km": 3.5, "tunnels": "Ống hầm đôi song song (Twin Tunnels)", "diameter_m": 6.3, "spacing_d_m": 13.0, "total_rings": 2500}}]};
+    const stationsData = [{"name": "Ga S9 - Kim Mã", "coords": [21.0315, 105.815], "chainage": "Km 0+000", "depth": "15.0 m"}, {"name": "Ga S10 - Cát Linh", "coords": [21.03, 105.828], "chainage": "Km 1+250", "depth": "16.5 m"}, {"name": "Ga S11 - Văn Miếu", "coords": [21.0285, 105.835], "chainage": "Km 2+200", "depth": "17.8 m"}, {"name": "Ga S12 - Ga Hà Nội", "coords": [21.025, 105.842], "chainage": "Km 3+500", "depth": "18.5 m"}];
+
+    // Map initialization
+    const map = L.map('map').setView([21.0285, 105.8300], 15);
+
+    // Basemaps
+    const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19, attribution: '© OpenStreetMap'
+    });
+    const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19, attribution: 'Tiles © Esri'
+    }).addTo(map);
+
+    L.control.layers({
+      "Bản đồ Vệ tinh (Esri)": satelliteLayer,
+      "Bản đồ Đường phố (OSM)": osmLayer
+    }).addTo(map);
+
+    // Styles for Burland Categories
+    function getCategoryColor(cat) {
+      switch(cat) {
+        case 0: return '#22c55e'; // Green
+        case 1: return '#eab308'; // Yellow
+        case 2: return '#f97316'; // Orange
+        case 3: return '#ef4444'; // Red
+        case 4: return '#a855f7'; // Purple
+        default: return '#6b7280';
+      }
+    }
+
+    // Draw Alignment
+    const alignCoords = alignmentData.features[0].geometry.coordinates.map(c => [c[1], c[0]]);
+    const alignLine = L.polyline(alignCoords, {
+      color: '#3b82f6', weight: 6, opacity: 0.85, dashArray: '8, 6'
+    }).addTo(map);
+
+    // Draw Stations
+    stationsData.forEach(st => {
+      const stMarker = L.circleMarker(st.coords, {
+        radius: 8, fillColor: '#f59e0b', color: '#ffffff', weight: 2, fillOpacity: 0.95
+      }).addTo(map);
+      stMarker.bindPopup(`<b>${st.name}</b><br>Lý trình: ${st.chainage}<br>Độ sâu tim hầm: ${st.depth}`);
+    });
+
+    // Draw TBM Face Position Marker
+    let tbmMarker = L.circleMarker(alignCoords[3], {
+      radius: 12, fillColor: '#ef4444', color: '#ffffff', weight: 3, fillOpacity: 0.9
+    }).addTo(map);
+    tbmMarker.bindPopup(`<b>VỊ TRÍ GƯƠNG ĐÀO TBM</b><br>Đang vận hành đào đất và ép vữa đuôi khiên.`);
+
+    // Building markers storage
+    let buildingMarkers = [];
+    const bldLayerGroup = L.layerGroup().addTo(map);
+
+    function renderBuildings() {
+      bldLayerGroup.clearLayers();
+      buildingMarkers = [];
+      const vlKey = document.getElementById('vl-select').value;
+      const tbody = document.getElementById('bld-tbody');
+      tbody.innerHTML = '';
+
+      let c0 = 0, c1 = 0, c2 = 0, c3 = 0, c4 = 0;
+
+      buildingsData.features.forEach((feat, idx) => {
+        const p = feat.properties;
+        const coords = [feat.geometry.coordinates[1], feat.geometry.coordinates[0]];
+        const cat = p['cat_' + vlKey];
+        const sVal = p['s_' + vlKey];
+        const color = getCategoryColor(cat);
+
+        if (cat === 0) c0++;
+        else if (cat === 1) c1++;
+        else if (cat === 2) c2++;
+        else if (cat === 3) c3++;
+        else if (cat >= 4) c4++;
+
+        const marker = L.circleMarker(coords, {
+          radius: 6, fillColor: color, color: '#ffffff', weight: 1.2, fillOpacity: 0.9
+        }).addTo(bldLayerGroup);
+
+        const popupHtml = `
+          <div style="font-size:12px; line-height:1.4;">
+            <b style="color:#1e3a8a;">${p.name}</b> (${p.id})<br>
+            <i>${p.street}</i><br><hr style="margin:4px 0;">
+            <b>Kết cấu:</b> ${p.type} (${p.foundation})<br>
+            <b>Kích thước:</b> L = ${p.L}m, H = ${p.H}m<br>
+            <b>Khoảng cách tới tim:</b> ${p.offset_m} m<br>
+            <b>Độ lún bề mặt:</b> <span style="color:#dc2626; font-weight:bold;">${sVal} mm</span><br>
+            <b>Cấp rủi ro Burland:</b> <span style="color:${color}; font-weight:bold;">Cấp ${cat}</span><br>
+            <b>Khuyến nghị:</b> ${cat >= 3 ? '<span style="color:red;">BẮT BUỘC GIA CỐ MÓNG TRƯỚC THI CÔNG</span>' : 'Quan trắc mốc định kỳ'}
+          </div>
+        `;
+        marker.bindPopup(popupHtml);
+        buildingMarkers.push({ marker, p });
+
+        // Add to table
+        const row = document.createElement('tr');
+        row.innerHTML = `<td><b>${p.id}</b></td><td>${p.name}</td><td>${p.offset_m}m</td><td><b>${sVal}</b></td><td><span style="color:${color}">Cấp ${cat}</span></td>`;
+        row.onclick = () => {
+          map.setView(coords, 18);
+          marker.openPopup();
+        };
+        tbody.appendChild(row);
+      });
+
+      document.getElementById('cnt-c0').innerText = c0;
+      document.getElementById('cnt-c1').innerText = c1;
+      document.getElementById('cnt-c2').innerText = c2;
+      document.getElementById('cnt-c3').innerText = c3 + c4;
+    }
+
+    // Charts Setup
+    let longChart, transChart;
+    function initCharts() {
+      const ctxLong = document.getElementById('longChart').getContext('2d');
+      longChart = new Chart(ctxLong, {
+        type: 'line',
+        data: {
+          labels: ['-30m', '-20m', '-10m', 'Face (0)', '+10m', '+20m', '+30m', '+40m'],
+          datasets: [{
+            label: 'Lún dọc U_z(y) (mm)',
+            data: [0.5, 1.8, 3.8, 8.5, 13.2, 16.5, 18.2, 19.5],
+            borderColor: '#ef4444',
+            backgroundColor: 'rgba(239, 68, 68, 0.15)',
+            borderWidth: 2, fill: true, tension: 0.3
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          scales: {
+            y: { reverse: true, grid: { color: '#334155' }, ticks: { color: '#94a3b8', font: { size: 9 } } },
+            x: { grid: { color: '#334155' }, ticks: { color: '#94a3b8', font: { size: 9 } } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+
+      const ctxTrans = document.getElementById('transChart').getContext('2d');
+      transChart = new Chart(ctxTrans, {
+        type: 'line',
+        data: {
+          labels: ['-30m', '-20m', '-10m', 'Tim (0)', '+10m', '+20m', '+30m'],
+          datasets: [{
+            label: 'Phễu lún ngang S(x) (mm)',
+            data: [1.2, 5.4, 15.2, 19.7, 15.2, 5.4, 1.2],
+            borderColor: '#38bdf8',
+            backgroundColor: 'rgba(56, 189, 248, 0.15)',
+            borderWidth: 2, fill: true, tension: 0.3
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          scales: {
+            y: { reverse: true, grid: { color: '#334155' }, ticks: { color: '#94a3b8', font: { size: 9 } } },
+            x: { grid: { color: '#334155' }, ticks: { color: '#94a3b8', font: { size: 9 } } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+    }
+
+    // TBM Slider interaction
+    document.getElementById('tbm-slider').addEventListener('input', function(e) {
+      const ring = parseInt(e.target.value);
+      const pct = ring / 2500.0;
+      document.getElementById('tbm-ring-badge').innerText = `Ring ${ring} / 2,500`;
+      
+      const chainageKm = (pct * 3.5).toFixed(2);
+      let segDesc = "Đoạn S9–S10 (Kim Mã)";
+      if (pct > 0.65) segDesc = "Đoạn S11–S12 (Văn Miếu - Ga HN)";
+      else if (pct > 0.35) segDesc = "Đoạn S10–S11 (Cát Linh)";
+      document.getElementById('tbm-chainage').innerText = `Km ${chainageKm} (${segDesc})`;
+
+      // Interpolate position along alignment
+      const numPts = alignCoords.length;
+      const targetIdx = pct * (numPts - 1);
+      const baseIdx = Math.floor(targetIdx);
+      const frac = targetIdx - baseIdx;
+      
+      let curLat, curLon;
+      if (baseIdx >= numPts - 1) {
+        curLat = alignCoords[numPts - 1][0];
+        curLon = alignCoords[numPts - 1][1];
+      } else {
+        curLat = alignCoords[baseIdx][0] + frac * (alignCoords[baseIdx+1][0] - alignCoords[baseIdx][0]);
+        curLon = alignCoords[baseIdx][1] + frac * (alignCoords[baseIdx+1][1] - alignCoords[baseIdx][1]);
+      }
+      tbmMarker.setLatLng([curLat, curLon]);
+    });
+
+    function filterTable() {
+      const q = document.getElementById('bld-search').value.toLowerCase();
+      const rows = document.getElementById('bld-tbody').getElementsByTagName('tr');
+      for (let r of rows) {
+        r.style.display = r.innerText.toLowerCase().includes(q) ? '' : 'none';
+      }
+    }
+
+    function exportData() {
+      let csv = 'Mã,Tên công trình,Tuyến phố,Cự ly (m),Lún (mm),Cấp rủi ro\n';
+      buildingsData.features.forEach(f => {
+        const p = f.properties;
+        const vlKey = document.getElementById('vl-select').value;
+        csv += `"${p.id}","${p.name}","${p.street}",${p.offset_m},${p['s_' + vlKey]},"Cấp ${p['cat_' + vlKey]}"\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `TBM_Hanoi_100_Buildings_Risk_${document.getElementById('vl-select').value}.csv`;
+      link.click();
+    }
+
+    function updateAll() {
+      renderBuildings();
+    }
+
+    // Initial load
+    initCharts();
+    renderBuildings();
+  </script>
+</body>
+</html>
