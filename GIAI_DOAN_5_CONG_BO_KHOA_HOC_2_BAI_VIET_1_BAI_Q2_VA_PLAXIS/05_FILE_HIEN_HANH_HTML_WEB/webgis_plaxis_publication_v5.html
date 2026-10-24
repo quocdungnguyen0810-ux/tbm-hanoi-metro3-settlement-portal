@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PLAXIS Benchmark & Q2 Publication Interactive Explorer v5.0 — Metro 3 Hà Nội</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 1.5rem 2rem; }
+    .header { background: linear-gradient(135deg, #1e3a8a, #0f172a); border: 1px solid #3b82f6; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 1.2rem; }
+    .controls { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
+    select, button { background: #0f172a; color: #f8fafc; border: 1px solid #475569; border-radius: 6px; padding: 0.45rem 0.85rem; font-size: 0.9rem; cursor: pointer; }
+    a.btn { display: inline-block; background: #0284c7; color: #fff; text-decoration: none; padding: 0.45rem 0.9rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1 style="margin:0 0 0.4rem 0; font-size:1.35rem; color:#60a5fa;">HỆ THỐNG ĐỐI SÁNH TƯƠNG TÁC PLAXIS 2D/3D (MC vs. HS-DCM) & CÔNG BỐ QUỐC TẾ Q2 (STAGE 5)</h1>
+    <p style="margin:0; color:#cbd5e1; font-size:0.9rem;">Đoạn ngầm S9–S12 Metro Tuyến 3 Hà Nội | Đối chứng 4 Phương pháp Cơ học & Họ Đường cong Fragility Burland (1995)</p>
+    <div style="margin-top:0.75rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
+      <a class="btn" href="../../INDEX_PORTAL_TOAN_DU_AN.html">⬅ Cổng Quản trị Toàn Dự án</a>
+      <a class="btn" style="background:#dc2626;" href="../../v2/index.html">🚀 Mở Bản đồ WebGIS 2.0 (100 Công trình)</a>
+      <a class="btn" style="background:#059669;" href="../01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html">📊 Dashboard Kiểm toán Giai đoạn 5</a>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:1.25rem;">
+    <div class="controls">
+      <label><strong>Chọn Mặt cắt Địa chất Đối sánh PLAXIS:</strong></label>
+      <select id="secSelect" onchange="updateCharts()">
+        <option value="BH12" selected>Mặt cắt S11–S12 (Hố khoan BH12 Văn Miếu – Ga HN, z0 = 18.0 m, Bùn sét mềm L3 E = 7.68 MPa)</option>
+        <option value="S9S10">Mặt cắt S9–S10 (Kim Mã – Cát Linh, z0 = 15.0 m, Sét pha GU1 & GU3&4 E = 7.0–10.0 MPa)</option>
+      </select>
+      <label><strong>Tỷ lệ mất mát thể tích V_L:</strong></label>
+      <select id="vlSelect" onchange="updateCharts()">
+        <option value="0.5">V_L = 0.5% (Kiểm soát tối ưu)</option>
+        <option value="1.0" selected>V_L = 1.0% (Thiết kế danh định EPB-TBM)</option>
+        <option value="1.5">V_L = 1.5% (Địa chất phức tạp)</option>
+        <option value="2.0">V_L = 2.0% (Bất lợi / Bùn sét mềm hội tụ lớn)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3 style="margin-top:0; color:#38bdf8; font-size:1rem;">1. Đối sánh Phễu lún Ngang S(x): PLAXIS HS-DCM vs. PLAXIS MC vs. LP (1998) vs. Peck (1969)</h3>
+      <div style="height:320px;"><canvas id="troughChart"></canvas></div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0; color:#f59e0b; font-size:1rem;">2. Họ Đường cong Xác suất Tổn thương Công trình (Fragility Curves - Burland 1995)</h3>
+      <div style="height:320px;"><canvas id="fragChart"></canvas></div>
+    </div>
+  </div>
+
+  <script>
+    const DATA = {"x_grid": [-50.0, -49.0, -48.0, -47.0, -46.0, -45.0, -44.0, -43.0, -42.0, -41.0, -40.0, -39.0, -38.0, -37.0, -36.0, -35.0, -34.0, -33.0, -32.0, -31.0, -30.0, -29.0, -28.0, -27.0, -26.0, -25.0, -24.0, -23.0, -22.0, -21.0, -20.0, -19.0, -18.0, -17.0, -16.0, -15.0, -14.0, -13.0, -12.0, -11.0, -10.0, -9.0, -8.0, -7.0, -6.0, -5.0, -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0, 41.0, 42.0, 43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0], "BH12": {"HS_DCM": [0.11, 0.13, 0.15, 0.17, 0.19, 0.22, 0.24, 0.28, 0.32, 0.36, 0.4, 0.45, 0.52, 0.58, 0.65, 0.73, 0.81, 0.92, 1.02, 1.14, 1.27, 1.4, 1.56, 1.72, 1.91, 2.1, 2.32, 2.55, 2.79, 3.06, 3.34, 3.64, 3.97, 4.32, 4.69, 5.08, 5.49, 5.92, 6.37, 6.83, 7.31, 7.8, 8.3, 8.79, 9.27, 9.72, 10.16, 10.67, 11.15, 11.47, 11.63, 11.47, 11.15, 10.67, 10.16, 9.72, 9.27, 8.79, 8.3, 7.8, 7.31, 6.83, 6.37, 5.92, 5.49, 5.08, 4.69, 4.32, 3.97, 3.64, 3.34, 3.06, 2.79, 2.55, 2.32, 2.1, 1.91, 1.72, 1.56, 1.4, 1.27, 1.14, 1.02, 0.92, 0.81, 0.73, 0.65, 0.58, 0.52, 0.45, 0.4, 0.36, 0.32, 0.28, 0.24, 0.22, 0.19, 0.17, 0.15, 0.13, 0.11], "MC": [0.33, 0.35, 0.36, 0.38, 0.4, 0.43, 0.46, 0.49, 0.53, 0.57, 0.62, 0.67, 0.73, 0.79, 0.87, 0.95, 1.03, 1.13, 1.23, 1.35, 1.47, 1.61, 1.76, 1.91, 2.09, 2.27, 2.48, 2.69, 2.92, 3.17, 3.42, 3.69, 3.98, 4.27, 4.58, 4.9, 5.23, 5.56, 5.9, 6.24, 6.57, 6.89, 7.2, 7.49, 7.76, 8.0, 8.19, 8.35, 8.46, 8.54, 8.58, 8.54, 8.46, 8.35, 8.19, 8.0, 7.76, 7.49, 7.2, 6.89, 6.57, 6.24, 5.9, 5.56, 5.23, 4.9, 4.58, 4.27, 3.98, 3.69, 3.42, 3.17, 2.92, 2.69, 2.48, 2.27, 2.09, 1.91, 1.76, 1.61, 1.47, 1.35, 1.23, 1.13, 1.03, 0.95, 0.87, 0.79, 0.73, 0.67, 0.62, 0.57, 0.53, 0.49, 0.46, 0.43, 0.4, 0.38, 0.36, 0.35, 0.33], "LP98": [0.0, 0.01, 0.01, 0.01, 0.01, 0.02, 0.02, 0.03, 0.04, 0.05, 0.06, 0.08, 0.1, 0.13, 0.16, 0.2, 0.24, 0.3, 0.37, 0.45, 0.54, 0.65, 0.77, 0.91, 1.08, 1.26, 1.46, 1.69, 1.94, 2.22, 2.52, 2.84, 3.19, 3.55, 3.93, 4.32, 4.73, 5.14, 5.55, 5.96, 6.36, 6.74, 7.11, 7.44, 7.75, 8.01, 8.24, 8.42, 8.55, 8.63, 8.66, 8.63, 8.55, 8.42, 8.24, 8.01, 7.75, 7.44, 7.11, 6.74, 6.36, 5.96, 5.55, 5.14, 4.73, 4.32, 3.93, 3.55, 3.19, 2.84, 2.52, 2.22, 1.94, 1.69, 1.46, 1.26, 1.08, 0.91, 0.77, 0.65, 0.54, 0.45, 0.37, 0.3, 0.24, 0.2, 0.16, 0.13, 0.1, 0.08, 0.06, 0.05, 0.04, 0.03, 0.02, 0.02, 0.01, 0.01, 0.01, 0.01, 0.0], "PECK69": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01, 0.01, 0.01, 0.02, 0.02, 0.03, 0.05, 0.07, 0.09, 0.13, 0.17, 0.23, 0.3, 0.4, 0.52, 0.67, 0.85, 1.06, 1.32, 1.63, 1.99, 2.41, 2.88, 3.4, 3.99, 4.62, 5.3, 6.03, 6.78, 7.54, 8.31, 9.06, 9.78, 10.45, 11.06, 11.58, 12.0, 12.31, 12.5, 12.56, 12.5, 12.31, 12.0, 11.58, 11.06, 10.45, 9.78, 9.06, 8.31, 7.54, 6.78, 6.03, 5.3, 4.62, 3.99, 3.4, 2.88, 2.41, 1.99, 1.63, 1.32, 1.06, 0.85, 0.67, 0.52, 0.4, 0.3, 0.23, 0.17, 0.13, 0.09, 0.07, 0.05, 0.03, 0.02, 0.02, 0.01, 0.01, 0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}, "S9S10": {"HS_DCM": [0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.21, 0.22, 0.24, 0.26, 0.29, 0.32, 0.35, 0.39, 0.43, 0.47, 0.52, 0.58, 0.64, 0.71, 0.79, 0.88, 0.98, 1.09, 1.22, 1.35, 1.51, 1.68, 1.86, 2.08, 2.29, 2.55, 2.84, 3.15, 3.5, 3.88, 4.3, 4.76, 5.26, 5.8, 6.38, 7.0, 7.65, 8.34, 9.05, 9.77, 10.56, 11.57, 12.49, 13.11, 13.4, 13.11, 12.49, 11.57, 10.56, 9.77, 9.05, 8.34, 7.65, 7.0, 6.38, 5.8, 5.26, 4.76, 4.3, 3.88, 3.5, 3.15, 2.84, 2.55, 2.29, 2.08, 1.86, 1.68, 1.51, 1.35, 1.22, 1.09, 0.98, 0.88, 0.79, 0.71, 0.64, 0.58, 0.52, 0.47, 0.43, 0.39, 0.35, 0.32, 0.29, 0.26, 0.24, 0.22, 0.21, 0.19, 0.18, 0.17, 0.16, 0.15, 0.14], "MC": [0.47, 0.48, 0.49, 0.5, 0.52, 0.53, 0.55, 0.57, 0.6, 0.62, 0.65, 0.68, 0.72, 0.75, 0.8, 0.84, 0.89, 0.95, 1.01, 1.09, 1.16, 1.25, 1.34, 1.44, 1.56, 1.68, 1.83, 1.98, 2.14, 2.33, 2.53, 2.75, 3.0, 3.27, 3.56, 3.88, 4.22, 4.59, 4.98, 5.39, 5.81, 6.25, 6.69, 7.12, 7.54, 7.92, 8.24, 8.5, 8.69, 8.81, 8.87, 8.81, 8.69, 8.5, 8.24, 7.92, 7.54, 7.12, 6.69, 6.25, 5.81, 5.39, 4.98, 4.59, 4.22, 3.88, 3.56, 3.27, 3.0, 2.75, 2.53, 2.33, 2.14, 1.98, 1.83, 1.68, 1.56, 1.44, 1.34, 1.25, 1.16, 1.09, 1.01, 0.95, 0.89, 0.84, 0.8, 0.75, 0.72, 0.68, 0.65, 0.62, 0.6, 0.57, 0.55, 0.53, 0.52, 0.5, 0.49, 0.48, 0.47], "LP98": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01, 0.01, 0.01, 0.02, 0.02, 0.03, 0.04, 0.06, 0.08, 0.1, 0.13, 0.18, 0.23, 0.29, 0.37, 0.46, 0.58, 0.72, 0.88, 1.07, 1.29, 1.55, 1.84, 2.16, 2.52, 2.92, 3.35, 3.82, 4.31, 4.83, 5.36, 5.91, 6.45, 6.98, 7.5, 7.99, 8.43, 8.83, 9.17, 9.44, 9.64, 9.76, 9.8, 9.76, 9.64, 9.44, 9.17, 8.83, 8.43, 7.99, 7.5, 6.98, 6.45, 5.91, 5.36, 4.83, 4.31, 3.82, 3.35, 2.92, 2.52, 2.16, 1.84, 1.55, 1.29, 1.07, 0.88, 0.72, 0.58, 0.46, 0.37, 0.29, 0.23, 0.18, 0.13, 0.1, 0.08, 0.06, 0.04, 0.03, 0.02, 0.02, 0.01, 0.01, 0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "PECK69": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01, 0.01, 0.02, 0.03, 0.04, 0.06, 0.1, 0.15, 0.22, 0.33, 0.47, 0.67, 0.93, 1.27, 1.7, 2.24, 2.9, 3.69, 4.61, 5.66, 6.82, 8.07, 9.39, 10.73, 12.04, 13.28, 14.38, 15.31, 16.0, 16.43, 16.58, 16.43, 16.0, 15.31, 14.38, 13.28, 12.04, 10.73, 9.39, 8.07, 6.82, 5.66, 4.61, 3.69, 2.9, 2.24, 1.7, 1.27, 0.93, 0.67, 0.47, 0.33, 0.22, 0.15, 0.1, 0.06, 0.04, 0.03, 0.02, 0.01, 0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}, "fragility": {"vl": [0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5], "cat1": [0.0, 0.68, 48.12, 93.72, 99.76, 100.0, 100.0, 100.0, 100.0, 100.0], "cat2": [0.0, 0.0, 0.56, 24.12, 70.12, 93.28, 99.32, 99.96, 100.0, 100.0], "cat3": [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 7.2, 25.52, 47.36, 71.56], "cat4": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}};
+    let troughChart, fragChart;
+
+    function init() {
+      const ctx1 = document.getElementById('troughChart').getContext('2d');
+      troughChart = new Chart(ctx1, {
+        type: 'line',
+        data: { labels: DATA.x_grid, datasets: [] },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          scales: {
+            y: { reverse: true, title: { display: true, text: 'Độ lún mặt đất S(x) (mm)', color: '#cbd5e1' }, grid: { color: '#334155' }, ticks: { color: '#94a3b8' } },
+            x: { title: { display: true, text: 'Khoảng cách ngang từ tim hầm x (m)', color: '#cbd5e1' }, grid: { color: '#334155' }, ticks: { color: '#94a3b8' } }
+          },
+          plugins: { legend: { labels: { color: '#f8fafc', font: { size: 11 } } } }
+        }
+      });
+
+      const ctx2 = document.getElementById('fragChart').getContext('2d');
+      fragChart = new Chart(ctx2, {
+        type: 'line',
+        data: {
+          labels: DATA.fragility.vl.map(v => v + '%'),
+          datasets: [
+            { label: 'Cấp >= 1 (Rất nhẹ, eps >= 0.05%)', data: DATA.fragility.cat1, borderColor: '#eab308', borderWidth: 2, tension: 0.25 },
+            { label: 'Cấp >= 2 (Nhẹ, eps >= 0.075%)', data: DATA.fragility.cat2, borderColor: '#f97316', borderWidth: 2, tension: 0.25 },
+            { label: 'Cấp >= 3 (Vừa/Kết cấu, eps >= 0.15%)', data: DATA.fragility.cat3, borderColor: '#ef4444', borderWidth: 2.5, tension: 0.25 },
+            { label: 'Cấp >= 4 (Nặng, eps >= 0.30%)', data: DATA.fragility.cat4, borderColor: '#a855f7', borderWidth: 2, tension: 0.25 }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          scales: {
+            y: { min: 0, max: 100, title: { display: true, text: 'Xác suất vượt ngưỡng P (%)', color: '#cbd5e1' }, grid: { color: '#334155' }, ticks: { color: '#94a3b8' } },
+            x: { title: { display: true, text: 'Tỷ lệ mất mát thể tích V_L (%)', color: '#cbd5e1' }, grid: { color: '#334155' }, ticks: { color: '#94a3b8' } }
+          },
+          plugins: { legend: { labels: { color: '#f8fafc', font: { size: 11 } } } }
+        }
+      });
+      updateCharts();
+    }
+
+    function updateCharts() {
+      const sec = document.getElementById('secSelect').value;
+      const vlMult = parseFloat(document.getElementById('vlSelect').value);
+      const base = DATA[sec];
+      troughChart.data.datasets = [
+        { label: 'PLAXIS 2D Hardening Soil & DCM (E_ur = 3 E_50)', data: base.HS_DCM.map(v => +(v * vlMult).toFixed(2)), borderColor: '#ef4444', borderWidth: 2.5, pointRadius: 0, tension: 0.2 },
+        { label: 'PLAXIS 2D Mohr-Coulomb (Đẳng hướng E_50)', data: base.MC.map(v => +(v * vlMult).toFixed(2)), borderColor: '#3b82f6', borderDash: [6, 4], borderWidth: 2, pointRadius: 0, tension: 0.2 },
+        { label: 'Loganathan & Poulos (1998) Elasto-Gap', data: base.LP98.map(v => +(v * vlMult).toFixed(2)), borderColor: '#10b981', borderDash: [3, 3], borderWidth: 2, pointRadius: 0, tension: 0.2 },
+        { label: 'Peck (1969) Gaussian Empirical', data: base.PECK69.map(v => +(v * vlMult).toFixed(2)), borderColor: '#f59e0b', borderWidth: 1.8, pointRadius: 0, tension: 0.2 }
+      ];
+      troughChart.update();
+    }
+    init();
+  </script>
+</body>
+</html>

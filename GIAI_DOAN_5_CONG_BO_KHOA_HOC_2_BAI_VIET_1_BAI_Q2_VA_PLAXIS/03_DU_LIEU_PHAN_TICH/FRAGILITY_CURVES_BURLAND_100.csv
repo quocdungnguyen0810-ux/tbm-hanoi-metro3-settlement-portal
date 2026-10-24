@@ -1,0 +1,11 @@
+﻿vl_percent,mean_smax_twin_mm,p95_smax_twin_mm,prob_cat1_slight_pct,prob_cat2_moderate_pct,prob_cat3_severe_pct,prob_cat4_very_severe_pct,source_id,source_locator,value_basis,confidence,qa_flag
+0.25,3.65,4.54,0.0,0.0,0.0,0.0,SRC_STAGE5_PROBABILISTIC_FRAGILITY,stage5_publication_and_plaxis_orchestrator.py::VL_0.25,derived,high,VERIFIED_BURLAND_FRAGILITY_CURVE
+0.5,7.28,9.14,0.68,0.0,0.0,0.0,SRC_STAGE5_PROBABILISTIC_FRAGILITY,stage5_publication_and_plaxis_orchestrator.py::VL_0.5,derived,high,VERIFIED_BURLAND_FRAGILITY_CURVE
+0.75,10.95,13.58,48.12,0.56,0.0,0.0,SRC_STAGE5_PROBABILISTIC_FRAGILITY,stage5_publication_and_plaxis_orchestrator.py::VL_0.75,derived,high,VERIFIED_BURLAND_FRAGILITY_CURVE
+1.0,14.54,18.04,93.72,24.12,0.0,0.0,SRC_STAGE5_PROBABILISTIC_FRAGILITY,stage5_publication_and_plaxis_orchestrator.py::VL_1.0,derived,high,VERIFIED_BURLAND_FRAGILITY_CURVE
+1.25,18.34,22.83,99.76,70.12,0.0,0.0,SRC_STAGE5_PROBABILISTIC_FRAGILITY,stage5_publication_and_plaxis_orchestrator.py::VL_1.25,derived,high,VERIFIED_BURLAND_FRAGILITY_CURVE
+1.5,22.01,27.59,100.0,93.28,1.0,0.0,SRC_STAGE5_PROBABILISTIC_FRAGILITY,stage5_publication_and_plaxis_orchestrator.py::VL_1.5,derived,high,VERIFIED_BURLAND_FRAGILITY_CURVE
+1.75,25.64,31.88,100.0,99.32,7.2,0.0,SRC_STAGE5_PROBABILISTIC_FRAGILITY,stage5_publication_and_plaxis_orchestrator.py::VL_1.75,derived,high,VERIFIED_BURLAND_FRAGILITY_CURVE
+2.0,29.33,36.54,100.0,99.96,25.52,0.0,SRC_STAGE5_PROBABILISTIC_FRAGILITY,stage5_publication_and_plaxis_orchestrator.py::VL_2.0,derived,high,VERIFIED_BURLAND_FRAGILITY_CURVE
+2.25,32.79,40.88,100.0,100.0,47.36,0.0,SRC_STAGE5_PROBABILISTIC_FRAGILITY,stage5_publication_and_plaxis_orchestrator.py::VL_2.25,derived,high,VERIFIED_BURLAND_FRAGILITY_CURVE
+2.5,36.57,45.67,100.0,100.0,71.56,0.0,SRC_STAGE5_PROBABILISTIC_FRAGILITY,stage5_publication_and_plaxis_orchestrator.py::VL_2.5,derived,high,VERIFIED_BURLAND_FRAGILITY_CURVE

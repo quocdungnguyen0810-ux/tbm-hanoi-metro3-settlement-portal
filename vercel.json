@@ -50,6 +50,14 @@
     {
       "source": "/storymap-sv",
       "destination": "/GIAI_DOAN_4_CHUYEN_GIAO_DAO_TAO_NCKH_SINH_VIEN/05_FILE_HIEN_HANH_HTML_WEB/index.html"
+    },
+    {
+      "source": "/giai-doan-5",
+      "destination": "/GIAI_DOAN_5_CONG_BO_KHOA_HOC_2_BAI_VIET_1_BAI_Q2_VA_PLAXIS/01_AUDIT_KE_HOACH_NHAN_SU_SKILL_CONG_CU/dashboard_audit_giai_doan.html"
+    },
+    {
+      "source": "/plaxis-v5",
+      "destination": "/GIAI_DOAN_5_CONG_BO_KHOA_HOC_2_BAI_VIET_1_BAI_Q2_VA_PLAXIS/05_FILE_HIEN_HANH_HTML_WEB/webgis_plaxis_publication_v5.html"
     }
   ],
   "headers": [
@@ -64,3 +72,4 @@
     }
   ]
 }
+
